@@ -95,6 +95,7 @@ Notebook 06 re-runs from the saved hardware counts with no IBM account needed. T
 - Z. Wang, N. Rubin, J. Dominy, E. Rieffel (2020). XY mixers: analytical and numerical results for QAOA. *Phys. Rev. A* 101, 012320
 - P. Barkoutsos et al. (2020). Improving Variational Quantum Optimization using CVaR. *Quantum* 4, 256
 - J. C. Spall (1992). Multivariate stochastic approximation using a simultaneous perturbation gradient approximation. *IEEE TAC* 37(3)
+- K. Temme, S. Bravyi and J. M. Gambetta, "Error mitigation for short-depth quantum circuits," Physical Review Letters, vol. 119, 180509, 2017.
 - Qiskit documentation and the Interstate Quantum Hackathon 2026 QAOA starter notebook
 
 ## License
