@@ -61,9 +61,13 @@ def calibration_circuits(backend, physical):
     return circuits
 
 
-def submit_runs(backend, run_names, shots=SHOTS, out_dir=OUT_DIR, compiled=None):
-    """One SamplerV2 job: every run, then the two readout-calibration PUBs. Writes jobs.json."""
+def submit_runs(backend, run_names, shots=SHOTS, out_dir=OUT_DIR, compiled=None, run_info=None):
+    """One SamplerV2 job: every run, then the two readout-calibration PUBs. Writes jobs.json.
+
+    compiled and run_info ({name: settings}) let circuits other than RUNS share the format.
+    """
     compiled = compiled or compile_runs(backend, run_names)
+    run_info = run_info or {name: RUNS[name] for name in run_names}
     physical = {name: measured_physical_qubits(compiled[name]) for name in run_names}
     union = sorted({q for qs in physical.values() for q in qs})
     pubs = [compiled[name] for name in run_names] + calibration_circuits(backend, union)
@@ -73,7 +77,7 @@ def submit_runs(backend, run_names, shots=SHOTS, out_dir=OUT_DIR, compiled=None)
                 options=SAMPLER_OPTIONS,
                 circuit_stats={name: circuit_stats(compiled[name]) for name in run_names},
                 physical_qubits=physical, readout_calibration={'physical_qubits': union},
-                runs={name: RUNS[name] for name in run_names},
+                runs=run_info,
                 timestamp_utc=datetime.now(timezone.utc).isoformat())
     _write(out_dir, 'jobs.json', meta)
     return job

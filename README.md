@@ -58,6 +58,7 @@ The quantum circuit proposes charging plans and a classical optimiser tunes its 
 | 03 | [`03_scaling_and_transfer`](notebooks/03_scaling_and_transfer.ipynb) | Does it scale, and can angles be reused? | Up to 25 qubits (5 × 5) with a fast valid-subspace simulator. At p = 1, starting from the 12-qubit angles reaches the target in 1–68 evaluations instead of ~870–1,420. |
 | 04 | [`04_optimizers_and_cvar`](notebooks/04_optimizers_and_cvar.ipynb) | Which classical optimiser, and does CVaR help? | With exact energies, L-BFGS-B scores best at p = 2 (approx. ratio 0.827). With 1024-shot noise, Powell holds up best (0.802) while L-BFGS-B drops to 0.644. CVaR gave no gain over the plain average. |
 | 07 | [`07_hardware_robustness`](notebooks/07_hardware_robustness.ipynb) | Does the result hold on a second chip, and does zero-noise extrapolation recover the noise-free answer? | On **ibm_kingston** (8 s of QPU time) the same circuits kept 22–35% valid shots, 1.3–1.7× more than ibm_fez and still below FakeFez. With invalid shots discarded, XY + Dicke p = 2 finds the optimum 8.4% vs 6.9% on fez, the same within shot noise. ZNE on ibm_fez (25 s) lifts p = 2 P(valid) from 0.16 to 0.39 ± 0.04 (ideal 1.0), about a quarter of the gap; the answer depends on the fit. |
+| 08 | [`08_real_fleet_data`](notebooks/08_real_fleet_data.ipynb) | Does the model work on real fleet data? | On 50 nights built from real delivery-truck schedules (NLR Fleet DNA), XY + Dicke returns a best plan a median 2.4× (p = 1) and 2.7× (p = 2) as often as a random valid plan; p = 1 beats random on all 50 nights. QAOA's plans cost about as much as the best plan and keep the depot peak near 230 kW, against 300 kW for simple charging rules. Prices are still placeholders, so the dollar figures are not real yet. |
 
 Every notebook ends with a **Findings & limitations** section. On a problem this small a laptop finds the exact answer instantly. The point of the study is to measure how well the quantum method works and what limits it today.
 
@@ -68,6 +69,7 @@ evqaoa/        shared code used by every notebook: problem, cost model and Hamil
 experiments/   one module per study
 notebooks/     one executed notebook per study (first cell installs packages)
 results/       plots (PNG) and raw numbers (JSON) per study
+data/          real truck schedules used by study 08 (NLR, BSD-3; see data/nlr_fleet_2021/SOURCE.md)
 tests/         pytest suite
 ```
 
@@ -96,6 +98,8 @@ Notebook 06 re-runs from the saved hardware counts with no IBM account needed. T
 - P. Barkoutsos et al. (2020). Improving Variational Quantum Optimization using CVaR. *Quantum* 4, 256
 - J. C. Spall (1992). Multivariate stochastic approximation using a simultaneous perturbation gradient approximation. *IEEE TAC* 37(3)
 - K. Temme, S. Bravyi and J. M. Gambetta, "Error mitigation for short-depth quantum circuits," Physical Review Letters, vol. 119, 180509, 2017.
+- L. Zhou, S.-T. Wang, S. Choi, H. Pichler, M. D. Lukin (2020). Quantum Approximate Optimization Algorithm: Performance, Mechanism, and Implementation on Near-Term Devices. *Phys. Rev. X* 10, 021067
+- B. Borlaug, M. Muratori, M. Gilleran et al. (2021). Heavy-duty truck electrification and the impacts of depot charging on electricity distribution systems. *Nature Energy* 6, 673–682. Truck schedules: NLR dataset doi:10.7799/1787031
 - Qiskit documentation and the Interstate Quantum Hackathon 2026 QAOA starter notebook
 
 ## License
