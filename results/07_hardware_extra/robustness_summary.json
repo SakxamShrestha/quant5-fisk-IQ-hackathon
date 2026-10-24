@@ -1,0 +1,348 @@
+{
+  "record": [
+    {
+      "nb": "06",
+      "backend": "ibm_fez",
+      "job": "dbe13vvgdj9s73fl0mt0",
+      "primitive": "Sampler",
+      "circuits": "3 + 2 cal",
+      "shots": 4096,
+      "qpu": 8,
+      "settings": "DD XpXm, twirling gate+measure"
+    },
+    {
+      "nb": "07A",
+      "backend": "ibm_kingston",
+      "job": "dbe1m0om94ac738r2si0",
+      "primitive": "Sampler",
+      "circuits": "3 + 2 cal",
+      "shots": 4096,
+      "qpu": 8,
+      "settings": "DD XpXm, twirling gate+measure"
+    },
+    {
+      "nb": "07B",
+      "backend": "ibm_fez",
+      "job": "dbe1o87gdj9s73fl1ke0",
+      "primitive": "Estimator",
+      "circuits": "2 x 3 factors",
+      "shots": 8192,
+      "qpu": 25,
+      "settings": "ZNE gate folding x[1, 1.5, 2], exponential+linear fits, TREX readout, DD XpXm, twirling gate+measure"
+    }
+  ],
+  "qpu_seconds": {
+    "notebook_07": 33,
+    "notebooks_06_07": 41
+  },
+  "random_reference": {
+    "valid_rate": 0.03515625,
+    "p_optimal_valid": 0.027777777777777776,
+    "approx_ratio": 0.6627597020776169
+  },
+  "part_a": {
+    "scores": {
+      "xy_dicke_p2": {
+        "ibm_fez": {
+          "raw": {
+            "valid_rate": 0.168701171875,
+            "p_optimal": 0.01171875,
+            "p_optimal_valid": 0.0694645441389291,
+            "mean_valid_energy": 0.656036563428183,
+            "approx_ratio": 0.7565980481534139
+          },
+          "readout_corrected": {
+            "valid_rate": 0.1790236217359891,
+            "p_optimal": 0.012863118492395142,
+            "p_optimal_valid": 0.0718515152786079,
+            "mean_valid_energy": 0.6547066673943052,
+            "approx_ratio": 0.7603390649856786
+          },
+          "invalid_discarded": {
+            "valid_rate": 1.0,
+            "p_optimal": 0.0694645441389291,
+            "p_optimal_valid": 0.0694645441389291,
+            "mean_valid_energy": 0.6560365634281827,
+            "approx_ratio": 0.7565980481534146
+          }
+        },
+        "ibm_kingston": {
+          "raw": {
+            "valid_rate": 0.292236328125,
+            "p_optimal": 0.0244140625,
+            "p_optimal_valid": 0.0835421888053467,
+            "mean_valid_energy": 0.64769723453934,
+            "approx_ratio": 0.780056701272323
+          },
+          "readout_corrected": {
+            "valid_rate": 0.32431768805878797,
+            "p_optimal": 0.027648115914972817,
+            "p_optimal_valid": 0.0852501017766294,
+            "mean_valid_energy": 0.6468999166665363,
+            "approx_ratio": 0.7822995680129107
+          },
+          "invalid_discarded": {
+            "valid_rate": 1.0000000000000004,
+            "p_optimal": 0.0835421888053467,
+            "p_optimal_valid": 0.08354218880534665,
+            "mean_valid_energy": 0.647697234539339,
+            "approx_ratio": 0.7800567012723257
+          }
+        }
+      },
+      "xy_dicke_p1": {
+        "ibm_fez": {
+          "raw": {
+            "valid_rate": 0.26123046875,
+            "p_optimal": 0.008056640625,
+            "p_optimal_valid": 0.0308411214953271,
+            "mean_valid_energy": 0.6759495306264914,
+            "approx_ratio": 0.7005825826045854
+          },
+          "readout_corrected": {
+            "valid_rate": 0.28549877989969846,
+            "p_optimal": 0.008789229005029257,
+            "p_optimal_valid": 0.03078552212418243,
+            "mean_valid_energy": 0.6759471311505847,
+            "approx_ratio": 0.7005893323651133
+          },
+          "invalid_discarded": {
+            "valid_rate": 0.9999999999999997,
+            "p_optimal": 0.0308411214953271,
+            "p_optimal_valid": 0.030841121495327112,
+            "mean_valid_energy": 0.6759495306264914,
+            "approx_ratio": 0.7005825826045854
+          }
+        },
+        "ibm_kingston": {
+          "raw": {
+            "valid_rate": 0.3505859375,
+            "p_optimal": 0.01123046875,
+            "p_optimal_valid": 0.03203342618384401,
+            "mean_valid_energy": 0.6727382826692503,
+            "approx_ratio": 0.7096158696846178
+          },
+          "readout_corrected": {
+            "valid_rate": 0.3764598016022782,
+            "p_optimal": 0.012107213498286374,
+            "p_optimal_valid": 0.032160707323214785,
+            "mean_valid_energy": 0.6726269259352522,
+            "approx_ratio": 0.7099291177924854
+          },
+          "invalid_discarded": {
+            "valid_rate": 1.0,
+            "p_optimal": 0.03203342618384401,
+            "p_optimal_valid": 0.03203342618384401,
+            "mean_valid_energy": 0.6727382826692505,
+            "approx_ratio": 0.7096158696846171
+          }
+        }
+      },
+      "x_penalty_p2": {
+        "ibm_fez": {
+          "raw": {
+            "valid_rate": 0.149169921875,
+            "p_optimal": 0.006103515625,
+            "p_optimal_valid": 0.04091653027823241,
+            "mean_valid_energy": 0.6939562133826702,
+            "approx_ratio": 0.6499295228404384
+          },
+          "readout_corrected": {
+            "valid_rate": 0.1532031621514209,
+            "p_optimal": 0.00636148788051822,
+            "p_optimal_valid": 0.041523215259948336,
+            "mean_valid_energy": 0.6941261553492702,
+            "approx_ratio": 0.6494514736235345
+          },
+          "invalid_discarded": {
+            "valid_rate": 1.0000000000000004,
+            "p_optimal": 0.0409165302782324,
+            "p_optimal_valid": 0.04091653027823238,
+            "mean_valid_energy": 0.6939562133826702,
+            "approx_ratio": 0.6499295228404384
+          }
+        },
+        "ibm_kingston": {
+          "raw": {
+            "valid_rate": 0.218017578125,
+            "p_optimal": 0.00634765625,
+            "p_optimal_valid": 0.029115341545352745,
+            "mean_valid_energy": 0.687638026968082,
+            "approx_ratio": 0.667702672864384
+          },
+          "readout_corrected": {
+            "valid_rate": 0.22642818797136982,
+            "p_optimal": 0.006612536350970588,
+            "p_optimal_valid": 0.02920368002859562,
+            "mean_valid_energy": 0.6874697465828896,
+            "approx_ratio": 0.6681760480286884
+          },
+          "invalid_discarded": {
+            "valid_rate": 0.9999999999999999,
+            "p_optimal": 0.029115341545352745,
+            "p_optimal_valid": 0.02911534154535275,
+            "mean_valid_energy": 0.6876380269680816,
+            "approx_ratio": 0.667702672864385
+          }
+        }
+      }
+    },
+    "hellinger_kingston_vs_fez": {
+      "xy_dicke_p2": {
+        "raw": 0.4566866057394435,
+        "readout_corrected": 0.4205301529536299,
+        "invalid_discarded": 0.8509724055364881,
+        "fez_vs_ideal": 0.1368590771782928,
+        "kingston_vs_ideal": 0.2660696007301027
+      },
+      "xy_dicke_p1": {
+        "raw": 0.5244192822576708,
+        "readout_corrected": 0.49370518787879003,
+        "invalid_discarded": 0.9379024342846882,
+        "fez_vs_ideal": 0.25135887445645605,
+        "kingston_vs_ideal": 0.3406799753134026
+      },
+      "x_penalty_p2": {
+        "raw": 0.4260372464443718,
+        "readout_corrected": 0.41323673324162746,
+        "invalid_discarded": 0.8417722917527058,
+        "fez_vs_ideal": 0.31788099727213626,
+        "kingston_vs_ideal": 0.43547021401017816
+      }
+    },
+    "ideal_fakefez": {
+      "xy_dicke_p2": {
+        "ideal": {
+          "valid_rate": 0.9999999999999996,
+          "p_optimal": 0.1037911960582712,
+          "p_optimal_valid": 0.10379119605827124,
+          "mean_valid_energy": 0.6381593170843987,
+          "approx_ratio": 0.8068870014121345
+        },
+        "fakefez": {
+          "valid_rate": 0.340576171875,
+          "p_optimal": 0.02783203125,
+          "p_optimal_valid": 0.08172043010752689,
+          "mean_valid_energy": 0.6480859935348015,
+          "approx_ratio": 0.7789631165794844
+        }
+      },
+      "xy_dicke_p1": {
+        "ideal": {
+          "valid_rate": 1.0000000000000002,
+          "p_optimal": 0.03256627439337506,
+          "p_optimal_valid": 0.032566274393375054,
+          "mean_valid_energy": 0.6695783547841105,
+          "approx_ratio": 0.7185047926574765
+        },
+        "fakefez": {
+          "valid_rate": 0.51025390625,
+          "p_optimal": 0.018310546875,
+          "p_optimal_valid": 0.03588516746411483,
+          "mean_valid_energy": 0.6725029604263019,
+          "approx_ratio": 0.7102778345671728
+        }
+      },
+      "x_penalty_p2": {
+        "ideal": {
+          "valid_rate": 0.7752011130313992,
+          "p_optimal": 0.022578758518598196,
+          "p_optimal_valid": 0.029126323658520928,
+          "mean_valid_energy": 0.6872844027355799,
+          "approx_ratio": 0.6686974229594193
+        },
+        "fakefez": {
+          "valid_rate": 0.391357421875,
+          "p_optimal": 0.0126953125,
+          "p_optimal_valid": 0.032439176543980035,
+          "mean_valid_energy": 0.687423125257756,
+          "approx_ratio": 0.6683071944924904
+        }
+      }
+    }
+  },
+  "part_b": {
+    "table": {
+      "xy_dicke_p2": {
+        "ideal simulator": {
+          "p_valid": 0.9999999999999911,
+          "p_optimal": 0.1037911960582703,
+          "approx_ratio": 0.8068870014121335
+        },
+        "FakeFez (noisy sim, study 05)": {
+          "p_valid": 0.340576171875,
+          "p_optimal": 0.02783203125,
+          "approx_ratio": 0.7789631165794844
+        },
+        "ibm_fez Sampler raw (study 06)": {
+          "p_valid": 0.168701171875,
+          "p_optimal": 0.01171875,
+          "approx_ratio": 0.7565980481534139
+        },
+        "ibm_fez Estimator, noise factor 1": {
+          "p_valid": 0.1599079671406508,
+          "p_optimal": 0.010673515899693845,
+          "approx_ratio": 0.7502497902259657
+        },
+        "ibm_fez ZNE (extrapolated to 0)": {
+          "p_valid": 0.3946683193686878,
+          "p_optimal": 0.03528963196390708,
+          "approx_ratio": 0.7815290602819602
+        }
+      },
+      "xy_dicke_p1": {
+        "ideal simulator": {
+          "p_valid": 0.9999999999999922,
+          "p_optimal": 0.03256627439337462,
+          "approx_ratio": 0.7185047926574833
+        },
+        "FakeFez (noisy sim, study 05)": {
+          "p_valid": 0.51025390625,
+          "p_optimal": 0.018310546875,
+          "approx_ratio": 0.7102778345671728
+        },
+        "ibm_fez Sampler raw (study 06)": {
+          "p_valid": 0.26123046875,
+          "p_optimal": 0.008056640625,
+          "approx_ratio": 0.7005825826045866
+        },
+        "ibm_fez Estimator, noise factor 1": {
+          "p_valid": 0.27594425277150547,
+          "p_optimal": 0.009001356359669406,
+          "approx_ratio": 0.6949566913820197
+        },
+        "ibm_fez ZNE (extrapolated to 0)": {
+          "p_valid": 0.6684653499446089,
+          "p_optimal": 0.021338422829394146,
+          "approx_ratio": 0.6953998011808361
+        }
+      }
+    },
+    "errors": {
+      "xy_dicke_p2": {
+        "ibm_fez Estimator, noise factor 1": {
+          "p_valid": 0.002644299848176098,
+          "p_optimal": 0.00043587764482234096,
+          "approx_ratio": 0.04447396712906235
+        },
+        "ibm_fez ZNE (extrapolated to 0)": {
+          "p_valid": 0.03934579651857288,
+          "p_optimal": 0.00502647009740347,
+          "approx_ratio": 0.2643835823985331
+        }
+      },
+      "xy_dicke_p1": {
+        "ibm_fez Estimator, noise factor 1": {
+          "p_valid": 0.002582050153177793,
+          "p_optimal": 0.0004368941770855338,
+          "approx_ratio": 0.025545046242648316
+        },
+        "ibm_fez ZNE (extrapolated to 0)": {
+          "p_valid": 0.04482252103283229,
+          "p_optimal": 0.005203814680663701,
+          "approx_ratio": 0.18270899009363237
+        }
+      }
+    }
+  }
+}

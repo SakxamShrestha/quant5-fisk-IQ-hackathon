@@ -1,0 +1,160 @@
+{
+  "backend": "ibm_fez",
+  "job_id": "dbe1o87gdj9s73fl1ke0",
+  "run_names": [
+    "xy_dicke_p2",
+    "xy_dicke_p1"
+  ],
+  "observables": [
+    "p_valid",
+    "p_optimal",
+    "energy",
+    "valid_energy"
+  ],
+  "observable_terms": {
+    "p_valid": 640,
+    "p_optimal": 2560,
+    "energy": 34,
+    "valid_energy": 3712
+  },
+  "noise_factors": [
+    1,
+    1.5,
+    2
+  ],
+  "extrapolators": [
+    "exponential",
+    "linear"
+  ],
+  "options": {
+    "resilience_level": 2,
+    "default_shots": 8192,
+    "max_execution_time": 60,
+    "resilience": {
+      "measure_mitigation": true,
+      "measure_noise_learning": {
+        "num_randomizations": 32
+      },
+      "zne_mitigation": true,
+      "zne": {
+        "amplifier": "gate_folding",
+        "noise_factors": [
+          1,
+          1.5,
+          2
+        ],
+        "extrapolator": [
+          "exponential",
+          "linear"
+        ],
+        "extrapolated_noise_factors": [
+          0.0,
+          0.25,
+          0.5,
+          0.75,
+          1.0,
+          1.25,
+          1.5,
+          1.75,
+          2.0
+        ]
+      }
+    },
+    "dynamical_decoupling": {
+      "enable": true,
+      "sequence_type": "XpXm"
+    },
+    "twirling": {
+      "enable_gates": true,
+      "enable_measure": true,
+      "num_randomizations": 64,
+      "shots_per_randomization": 128
+    }
+  },
+  "budget_estimate": {
+    "shots_total": 57344,
+    "circuit_shots": 49152,
+    "trex_shots": 8192,
+    "seconds_per_shot": 0.000390625,
+    "safety": 1.5,
+    "quantum_seconds": 33.6
+  },
+  "service_estimate": {
+    "quantum_seconds": null
+  },
+  "circuit_stats": {
+    "xy_dicke_p2": {
+      "depth": 387,
+      "two_qubit_gates": 357
+    },
+    "xy_dicke_p1": {
+      "depth": 282,
+      "two_qubit_gates": 209
+    }
+  },
+  "physical_qubits": {
+    "xy_dicke_p2": [
+      132,
+      133,
+      119,
+      113,
+      131,
+      110,
+      111,
+      112,
+      130,
+      129,
+      118,
+      109
+    ],
+    "xy_dicke_p1": [
+      109,
+      110,
+      111,
+      112,
+      119,
+      132,
+      133,
+      113,
+      118,
+      129,
+      130,
+      131
+    ]
+  },
+  "ideal": {
+    "xy_dicke_p2": {
+      "p_valid": 0.9999999999999911,
+      "p_optimal": 0.1037911960582703,
+      "energy": 0.638159317084391,
+      "valid_energy": 0.6381593170843933,
+      "approx_ratio": 0.8068870014121335
+    },
+    "xy_dicke_p1": {
+      "p_valid": 0.9999999999999922,
+      "p_optimal": 0.03256627439337462,
+      "energy": 0.6695783547841047,
+      "valid_energy": 0.6695783547841029,
+      "approx_ratio": 0.7185047926574833
+    }
+  },
+  "runs": {
+    "xy_dicke_p2": {
+      "mixer": "xy",
+      "start": "dicke",
+      "reps": 2,
+      "penalty": 0.0,
+      "angle_seed": 2,
+      "fakefez_config": "XY + Dicke"
+    },
+    "xy_dicke_p1": {
+      "mixer": "xy",
+      "start": "dicke",
+      "reps": 1,
+      "penalty": 0.0,
+      "angle_seed": 1,
+      "fakefez_config": "XY + Dicke"
+    }
+  },
+  "timestamp_utc": "2026-10-24T02:46:56.994597+00:00"
+}

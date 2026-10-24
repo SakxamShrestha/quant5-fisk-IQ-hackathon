@@ -5,8 +5,9 @@ import pytest
 matplotlib.use('Agg')
 
 from evqaoa import DEPOT, schedule_to_bitstring, valid_schedules
-from experiments.hardware_analysis import (SOURCES, analyse_run, options_summary,
-                                           plot_fidelity, plot_metric_bars,
+from experiments.hardware_analysis import (SOURCES, analyse_run, binomial_std, device_dists,
+                                           device_scores, options_summary, plot_fidelity,
+                                           plot_grouped_bars, plot_metric_bars,
                                            plot_top_schedules, record_table, run_names,
                                            study05_row, top_schedules)
 from experiments.noise import setup
@@ -116,3 +117,67 @@ def test_metric_bars_draw_random_guess_reference(tmp_path):
                            reference={'valid_rate': 0.035})
     lines = [ln for ax in fig.axes for ln in ax.get_lines()]
     assert len(lines) == 1 and lines[0].get_ydata()[0] == pytest.approx(0.035)
+
+
+# ---------------------------------------------------------------- second-chip helpers
+
+PERFECT_CAL = {'physical_qubits': list(range(DEPOT.n_qubits)),
+               'counts_all0': {'0' * DEPOT.n_qubits: 100}, 'counts_all1': {'1' * DEPOT.n_qubits: 100}}
+
+
+def test_device_dists_returns_raw_readout_corrected_and_post_selected():
+    hw = dict(HW, readout_calibration=PERFECT_CAL)
+    dists = device_dists(hw, 'run_a')
+    assert set(dists) == {'raw', 'readout_corrected', 'invalid_discarded'}
+    assert dists['raw'] == {VALID[0]: 6, INVALID: 4}
+    assert dists['readout_corrected'] == pytest.approx({VALID[0]: 0.6, INVALID: 0.4})
+    assert set(dists['invalid_discarded']) == {VALID[0]}
+
+
+def test_device_scores_scores_every_variant():
+    model, _, base = setup()
+    out = device_scores(dict(HW, readout_calibration=PERFECT_CAL), 'run_a', model, base)
+    assert out['raw']['valid_rate'] == pytest.approx(0.6)
+    assert out['readout_corrected']['valid_rate'] == pytest.approx(0.6)
+    assert out['invalid_discarded']['valid_rate'] == pytest.approx(1.0)
+    assert {'p_optimal', 'p_optimal_valid', 'approx_ratio'} <= set(out['raw'])
+
+
+def test_device_dists_does_not_mutate_counts():
+    hw = dict(HW, readout_calibration=PERFECT_CAL)
+    device_dists(hw, 'run_a')
+    assert HW['run_a']['counts'] == {VALID[0]: 6, INVALID: 4}
+
+
+def test_binomial_std_is_shot_noise_and_nan_without_shots():
+    assert binomial_std(0.5, 100) == pytest.approx(0.05)
+    assert binomial_std(0.0, 10) == 0.0
+    assert binomial_std(0.3, 0) != binomial_std(0.3, 0)       # nan
+
+
+GROUPED = {'run_a': {'ideal': {'m1': 1.0, 'm2': 0.5}, 'chip': {'m1': 0.3, 'm2': 0.2}},
+           'run_b': {'ideal': {'m1': 0.9, 'm2': 0.4}, 'chip': {'m1': 0.2}}}
+GROUPED_METRICS = (('m1', 'metric one (fraction)', 'Panel one'), ('m2', 'metric two', 'Panel two'))
+
+
+def test_grouped_bars_label_every_panel_and_add_a_legend(tmp_path):
+    fig = plot_grouped_bars(GROUPED, tmp_path / 'g.png', GROUPED_METRICS,
+                            colors={'ideal': 'grey', 'chip': 'tab:orange'}, title='Suptitle')
+    assert (tmp_path / 'g.png').stat().st_size > 0
+    assert len(fig.axes) == len(GROUPED_METRICS)
+    for ax, (_, ylabel, title) in zip(fig.axes, GROUPED_METRICS):
+        assert ax.get_ylabel() == ylabel and ax.get_title() == title and ax.get_xlabel()
+        assert [t.get_text() for t in ax.get_xticklabels()] == ['run_a', 'run_b']
+    assert fig.legends and [t.get_text() for t in fig.legends[0].get_texts()] == ['ideal', 'chip']
+    assert fig._suptitle.get_text() == 'Suptitle'
+
+
+def test_grouped_bars_draw_error_bars_and_reference(tmp_path):
+    errors = {'run_a': {'chip': {'m1': 0.05}}, 'run_b': {'chip': {'m1': 0.04}}}
+    fig = plot_grouped_bars(GROUPED, tmp_path / 'g.png', GROUPED_METRICS, colors={},
+                            title='t', errors=errors, reference={'m1': 0.035})
+    from matplotlib.container import BarContainer
+    bars = [c for c in fig.axes[0].containers if isinstance(c, BarContainer)]
+    assert bars[0].errorbar is None and bars[1].errorbar is not None
+    assert any(ln.get_ydata()[0] == pytest.approx(0.035) for ln in fig.axes[0].get_lines())
+    assert any(t.get_text() == 'random guess' for t in fig.legends[0].get_texts())

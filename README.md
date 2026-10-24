@@ -62,12 +62,12 @@ flowchart TB
     subgraph back["Qiskit backends"]
         S1["Statevector<br/>(exact)"]
         S2["AerSimulator + FakeFez<br/>(IBM Fez noise model)"]
-        S3["Real ibm_fez<br/>(Qiskit Runtime)"]
+        S3["Real ibm_fez + ibm_kingston<br/>(Qiskit Runtime)"]
     end
 
     core --> exp
     exp --> back
-    exp --> nb["notebooks/ 01–06<br/>(executed)"]
+    exp --> nb["notebooks/ 01–07<br/>(executed)"]
     nb --> R["results/<br/>PNG plots + JSON numbers"]
     T["tests/ · pytest"] -.checks.-> core
     T -.checks.-> exp
@@ -83,6 +83,7 @@ flowchart TB
 | 04 | [`04_optimizers_and_cvar`](notebooks/04_optimizers_and_cvar.ipynb) | Which classical optimiser, and does CVaR help? | With exact energies, L-BFGS-B scores best at p = 2 (approx. ratio 0.827). With 1024-shot noise, Powell holds up best (0.802) while L-BFGS-B drops to 0.644. CVaR gave no gain over the plain average. |
 | 05 | [`05_noisy_simulation`](notebooks/05_noisy_simulation.ipynb) | What happens on a noisy IBM chip? | On FakeFez at p = 2, valid share drops from 100% to 34–44%. XY + Dicke with invalid shots discarded finds the optimum 8.2% of the time, about 3× a random valid plan. |
 | 06 | [`06_real_hardware`](notebooks/06_real_hardware.ipynb) | Does it hold up on a real IBM quantum computer? | On real **ibm_fez** (8 s of QPU time), valid share was 15–26%, about half of FakeFez's prediction. With invalid shots discarded, XY + Dicke at p = 2 still finds the optimum 6.9% of the time, 2.5× a random valid plan. Readout correction adds only 0.4–2.4 points. |
+| 07 | [`07_hardware_robustness`](notebooks/07_hardware_robustness.ipynb) | Does the result hold on a second chip, and does zero-noise extrapolation recover the noise-free answer? | On **ibm_kingston** (8 s of QPU time) the same circuits kept 22–35% valid shots, 1.3–1.7× more than ibm_fez and still below FakeFez. With invalid shots discarded, XY + Dicke p = 2 finds the optimum 8.4% vs 7.0% on fez, the same within shot noise. ZNE on ibm_fez (25 s) lifts p = 2 P(valid) from 0.16 to 0.39 ± 0.04 (ideal 1.0), about a quarter of the gap; the answer depends on the fit. |
 
 Every notebook ends with a **Findings & limitations** section. On a problem this small a laptop finds the exact answer instantly. The point of the study is to measure how well the quantum method works and what limits it today.
 
@@ -104,7 +105,7 @@ python -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/jupyter notebook notebooks/
 ```
 
-In Google Colab, clone the repository first (`!git clone https://github.com/SakxamShrestha/ev-qaoa-iq-hackathon && %cd ev-qaoa-iq-hackathon`), because the notebooks import `evqaoa/` and `experiments/`.
+In Google Colab, clone the repository first (`!git clone https://github.com/SakxamShrestha/quant5-fisk-IQ-hackathon && %cd quant5-fisk-IQ-hackathon`), because the notebooks import `evqaoa/` and `experiments/`.
 
 Notebook 06 re-runs from the saved hardware counts with no IBM account needed. To send new jobs, save your own IBM Quantum account once with `QiskitRuntimeService.save_account(...)` (keys live in `~/.qiskit/`, never in the repo) and set `RUN_ON_IBM = True`.
 

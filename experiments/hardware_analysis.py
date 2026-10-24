@@ -3,7 +3,8 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from evqaoa import DEPOT, bitstring_to_schedule, is_valid
-from experiments.noise import hellinger_fidelity, keep_valid, normalise, score
+from experiments.hardware import readout_rates
+from experiments.noise import correct_readout, hellinger_fidelity, keep_valid, normalise, score
 
 SOURCES = ('ideal', 'fakefez', 'hardware', 'hardware_readout', 'hardware_valid')
 LABELS = {'ideal': 'ideal simulator', 'fakefez': 'FakeFez (noisy sim)', 'hardware': 'ibm_fez raw',
@@ -12,6 +13,8 @@ LABELS = {'ideal': 'ideal simulator', 'fakefez': 'FakeFez (noisy sim)', 'hardwar
 COLORS = {'ideal': '#9aa5b1', 'fakefez': '#4c78a8', 'hardware': 'tab:orange',
           'hardware_readout': 'tab:red', 'hardware_valid': '#2ca02c'}
 FIDELITY_PAIRS = (('hardware', 'ideal'), ('hardware', 'fakefez'), ('fakefez', 'ideal'))
+DEVICE_VARIANTS = ('raw', 'readout_corrected', 'invalid_discarded')
+RUN_AXIS_LABEL = 'QAOA circuit (mixer_start_depth p)'
 METRICS = (('valid_rate', 'share of shots that are valid schedules'),
            ('p_optimal', 'P(optimal schedule)'),
            ('approx_ratio', 'approximation ratio (valid shots)'))
@@ -66,6 +69,25 @@ def top_schedules(reference, others, k=10, problem=DEPOT):
     return [dict(bitstring=b, valid=bool(is_valid(problem, bitstring_to_schedule(b))), ideal=ref[b],
                  **{src: p.get(b, 0.0) for src, p in probs.items() if src != 'ideal'})
             for b in ranked]
+
+
+def device_dists(hw_counts, name, problem=DEPOT):
+    """One chip run as raw counts, readout-corrected and post-selected (invalid shots discarded)."""
+    entry = hw_counts[name]
+    rates = readout_rates(hw_counts['readout_calibration'], entry['physical_qubits'])
+    return dict(raw=dict(entry['counts']), readout_corrected=correct_readout(entry['counts'], rates),
+                invalid_discarded=keep_valid(entry['counts'], problem))
+
+
+def device_scores(hw_counts, name, model, baselines, problem=DEPOT):
+    """noise.score of every device_dists variant."""
+    return {variant: score(dist, model, baselines, problem)
+            for variant, dist in device_dists(hw_counts, name, problem).items()}
+
+
+def binomial_std(p, n):
+    """Shot-noise standard error of a proportion p estimated from n shots (nan for n = 0)."""
+    return float(np.sqrt(p * (1 - p) / n)) if n > 0 else float('nan')
 
 
 def study05_row(rows, label, reps):
@@ -149,3 +171,40 @@ def plot_top_schedules(tops, path):
         ax.set_title(f'{name}: top-{len(rows)} schedules of the ideal circuit (✗ = invalid)')
         ax.grid(axis='y', alpha=0.3)
     return _finish(fig, path, legend_ax=axes[0, 0])
+
+
+def plot_grouped_bars(table, path, metrics, colors, title, errors=None, reference=None,
+                      xlabel=RUN_AXIS_LABEL):
+    """One panel per metric, one bar group per run, one bar per source.
+
+    table: {run: {source: {metric: value}}}; errors has the same shape (std, optional);
+    metrics: ((key, y-axis label, panel title), ...); reference: {metric: value} drawn as
+    a dashed 'random guess' line.
+    """
+    errors, reference = errors or {}, reference or {}
+    names = list(table)
+    sources = list(dict.fromkeys(src for n in names for src in table[n]))
+    w = 0.8 / len(sources)
+    fig, axes = plt.subplots(1, len(metrics), figsize=(5.6 * len(metrics), 4.8), squeeze=False)
+    for ax, (key, ylabel, panel_title) in zip(axes[0], metrics):
+        for i, src in enumerate(sources):
+            xs = np.arange(len(names)) + (i - (len(sources) - 1) / 2) * w
+            vals = [table[n].get(src, {}).get(key, np.nan) for n in names]
+            errs = [errors.get(n, {}).get(src, {}).get(key, np.nan) for n in names]
+            has_err = not np.all(np.isnan(errs))
+            ax.bar(xs, np.nan_to_num(vals), w, color=colors.get(src), label=src,
+                   yerr=np.nan_to_num(errs) if has_err else None, capsize=3 if has_err else 0)
+        if key in reference:
+            ax.axhline(reference[key], ls='--', color='grey', label='random guess')
+        ax.set_xticks(range(len(names)))
+        ax.set_xticklabels(names)
+        ax.set_xlabel(xlabel)
+        ax.set_ylabel(ylabel)
+        ax.set_title(panel_title)
+        ax.grid(axis='y', alpha=0.3)
+    fig.suptitle(title)
+    handles, labels = axes[0, 0].get_legend_handles_labels()
+    fig.legend(handles, labels, loc='lower center', ncol=min(len(labels), 5), fontsize=8, frameon=False)
+    fig.tight_layout(rect=(0, 0.1, 1, 1))
+    fig.savefig(path, dpi=150)
+    return fig
