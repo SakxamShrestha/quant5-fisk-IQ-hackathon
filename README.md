@@ -6,7 +6,7 @@ Interstate Quantum Hackathon for Beginners, Fall 2026 · **QAOA / Optimization f
 
 **New to quantum computing? Start here:** [the project in plain language, with a tray-of-marbles analogy](https://claude.ai/artifact/R5rcXnj69nWHJXSWteLCsP)
 
-**Ran on a real quantum computer:** [one-page summary of our ibm_fez run](https://claude.ai/artifact/DGH4oZcUtW7WnpmY4rKqpv)
+**Ran on real quantum computers:** [one-page summary of our runs on two IBM chips](https://claude.ai/artifact/DGH4oZcUtW7WnpmY4rKqpv)
 
 ## The problem
 
