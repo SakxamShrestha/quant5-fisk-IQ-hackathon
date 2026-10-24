@@ -1,9 +1,9 @@
 {
-  "night": 19,
+  "night": 12,
   "truck_day_ids": [
-    62,
-    9,
-    5
+    83,
+    71,
+    69
   ],
   "demand": [
     1,
@@ -20,34 +20,34 @@
   "shots": 4096,
   "prediction": {
     "real_night_p1": {
-      "depth": 286,
+      "depth": 284,
       "two_qubit_gates": 209,
-      "ideal_p_optimal": 0.26095635311508286,
+      "ideal_p_optimal": 0.2609295410603055,
       "fakefez": {
-        "valid_rate": 0.508056640625,
-        "p_optimal": 0.11279296875,
-        "p_optimal_valid": 0.22200864968765016,
-        "mean_valid_energy": 0.559564712477975,
-        "approx_ratio": 0.8423141134565565
+        "valid_rate": 0.511474609375,
+        "p_optimal": 0.107666015625,
+        "p_optimal_valid": 0.21050119331742242,
+        "mean_valid_energy": 0.5595291368337311,
+        "approx_ratio": 0.8424021356691188
       }
     },
     "real_night_p2": {
-      "depth": 398,
+      "depth": 399,
       "two_qubit_gates": 357,
-      "ideal_p_optimal": 0.2518027958153013,
+      "ideal_p_optimal": 0.25189353848355706,
       "fakefez": {
-        "valid_rate": 0.33447265625,
-        "p_optimal": 0.07080078125,
-        "p_optimal_valid": 0.2116788321167883,
-        "mean_valid_energy": 0.5521365571776156,
-        "approx_ratio": 0.8606930544058994
+        "valid_rate": 0.34423828125,
+        "p_optimal": 0.070068359375,
+        "p_optimal_valid": 0.20354609929078013,
+        "mean_valid_energy": 0.5537935874704489,
+        "approx_ratio": 0.8565931856401261
       }
     }
   },
   "versions": {
-    "python": "3.14.4",
-    "numpy": "2.5.4",
-    "scipy": "1.18.1",
+    "python": "3.13.3",
+    "numpy": "2.1.3",
+    "scipy": "1.15.3",
     "qiskit": "2.3.1"
   }
 }
