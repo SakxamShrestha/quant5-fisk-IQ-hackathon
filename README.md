@@ -2,7 +2,7 @@
 
 Interstate Quantum Hackathon for Beginners, Fall 2026 · **QAOA / Optimization for Energy & Grid** track
 
-**Team Quantum 5 · Rising-star category · [Project report](REPORT.md)**
+**Team Quantum 5 · Rising-star category**
 
 ## The problem
 
