@@ -1,0 +1,53 @@
+{
+  "night": 19,
+  "truck_day_ids": [
+    62,
+    9,
+    5
+  ],
+  "demand": [
+    1,
+    1,
+    1
+  ],
+  "tariff": [
+    32,
+    14,
+    9,
+    21
+  ],
+  "p_opt_random": 0.09375,
+  "shots": 4096,
+  "prediction": {
+    "real_night_p1": {
+      "depth": 286,
+      "two_qubit_gates": 209,
+      "ideal_p_optimal": 0.26095635311508286,
+      "fakefez": {
+        "valid_rate": 0.508056640625,
+        "p_optimal": 0.11279296875,
+        "p_optimal_valid": 0.22200864968765016,
+        "mean_valid_energy": 0.559564712477975,
+        "approx_ratio": 0.8423141134565565
+      }
+    },
+    "real_night_p2": {
+      "depth": 398,
+      "two_qubit_gates": 357,
+      "ideal_p_optimal": 0.2518027958153013,
+      "fakefez": {
+        "valid_rate": 0.33447265625,
+        "p_optimal": 0.07080078125,
+        "p_optimal_valid": 0.2116788321167883,
+        "mean_valid_energy": 0.5521365571776156,
+        "approx_ratio": 0.8606930544058994
+      }
+    }
+  },
+  "versions": {
+    "python": "3.14.4",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "qiskit": "2.3.1"
+  }
+}
