@@ -1,0 +1,52 @@
+{
+ "side_by_side": {
+  "ideal sim p=2": {
+   "feasible_rate": 1.0000000000000002,
+   "p_optimal": 0.04547887070844564,
+   "mean_feasible_energy": 0.6251647146071164,
+   "approx_ratio": 0.7410161442653307
+  },
+  "FakeFez noisy sim p=2": {
+   "feasible_rate": 0.4306640625,
+   "p_optimal": 0.018310546875,
+   "mean_feasible_energy": 0.6275582190548179,
+   "approx_ratio": 0.735260770975056
+  },
+  "real ibm_fez (upstream)": {
+   "feasible_rate": 0.01806640625,
+   "p_optimal": 0.00048828125,
+   "mean_feasible_energy": 0.6352638352638355,
+   "approx_ratio": 0.7167319991747467
+  },
+  "uniform random": {
+   "feasible_rate": 0.052734375,
+   "p_optimal": 0.00146484375,
+   "mean_feasible_energy": 0.6547619047619055,
+   "approx_ratio": 0.6698473282442728
+  },
+  "ideal sim p=1": {
+   "feasible_rate": 1.0,
+   "p_optimal": 0.0,
+   "mean_feasible_energy": 0.7182539684228945,
+   "approx_ratio": 0.5171755721128873
+  },
+  "FakeFez noisy sim p=1": {
+   "feasible_rate": 0.61767578125,
+   "p_optimal": 0.0,
+   "mean_feasible_energy": 0.7175663466967817,
+   "approx_ratio": 0.518829013668044
+  }
+ },
+ "hardware": {
+  "label": "real ibm_fez (upstream)",
+  "feasible_rate": 0.01806640625,
+  "p_optimal": 0.00048828125,
+  "mean_feasible_energy": 0.6352638352638355,
+  "approx_ratio": 0.7167319991747467,
+  "hellinger_vs_ideal_p1": 8.455672124573694e-05,
+  "hellinger_vs_ideal_p2": 0.004328421489837719,
+  "post_kept": 0.01806640625,
+  "post_approx_ratio": 0.7167319991747448,
+  "mean_ones": 3.58251953125
+ }
+}

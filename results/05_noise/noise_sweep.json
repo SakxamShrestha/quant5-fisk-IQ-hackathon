@@ -1,0 +1,170 @@
+[
+ {
+  "config": "XY + basis",
+  "p": 1,
+  "p2q": 0,
+  "two_qubit_gates": 59,
+  "feasible": 1.0
+ },
+ {
+  "config": "XY + basis",
+  "p": 1,
+  "p2q": 0.001,
+  "two_qubit_gates": 59,
+  "feasible": 0.9560546875
+ },
+ {
+  "config": "XY + basis",
+  "p": 1,
+  "p2q": 0.003,
+  "two_qubit_gates": 59,
+  "feasible": 0.85498046875
+ },
+ {
+  "config": "XY + basis",
+  "p": 1,
+  "p2q": 0.006,
+  "two_qubit_gates": 59,
+  "feasible": 0.7333984375
+ },
+ {
+  "config": "XY + basis",
+  "p": 1,
+  "p2q": 0.012,
+  "two_qubit_gates": 59,
+  "feasible": 0.55517578125
+ },
+ {
+  "config": "XY + basis",
+  "p": 1,
+  "p2q": 0.025,
+  "two_qubit_gates": 59,
+  "feasible": 0.3251953125
+ },
+ {
+  "config": "XY + basis",
+  "p": 2,
+  "p2q": 0,
+  "two_qubit_gates": 118,
+  "feasible": 1.0
+ },
+ {
+  "config": "XY + basis",
+  "p": 2,
+  "p2q": 0.001,
+  "two_qubit_gates": 118,
+  "feasible": 0.908203125
+ },
+ {
+  "config": "XY + basis",
+  "p": 2,
+  "p2q": 0.003,
+  "two_qubit_gates": 118,
+  "feasible": 0.7548828125
+ },
+ {
+  "config": "XY + basis",
+  "p": 2,
+  "p2q": 0.006,
+  "two_qubit_gates": 118,
+  "feasible": 0.5634765625
+ },
+ {
+  "config": "XY + basis",
+  "p": 2,
+  "p2q": 0.012,
+  "two_qubit_gates": 118,
+  "feasible": 0.34375
+ },
+ {
+  "config": "XY + basis",
+  "p": 2,
+  "p2q": 0.025,
+  "two_qubit_gates": 118,
+  "feasible": 0.14599609375
+ },
+ {
+  "config": "X + penalty (1.5)",
+  "p": 1,
+  "p2q": 0,
+  "two_qubit_gates": 60,
+  "feasible": 0.40869140625
+ },
+ {
+  "config": "X + penalty (1.5)",
+  "p": 1,
+  "p2q": 0.001,
+  "two_qubit_gates": 60,
+  "feasible": 0.3662109375
+ },
+ {
+  "config": "X + penalty (1.5)",
+  "p": 1,
+  "p2q": 0.003,
+  "two_qubit_gates": 60,
+  "feasible": 0.34716796875
+ },
+ {
+  "config": "X + penalty (1.5)",
+  "p": 1,
+  "p2q": 0.006,
+  "two_qubit_gates": 60,
+  "feasible": 0.3134765625
+ },
+ {
+  "config": "X + penalty (1.5)",
+  "p": 1,
+  "p2q": 0.012,
+  "two_qubit_gates": 60,
+  "feasible": 0.2705078125
+ },
+ {
+  "config": "X + penalty (1.5)",
+  "p": 1,
+  "p2q": 0.025,
+  "two_qubit_gates": 60,
+  "feasible": 0.21240234375
+ },
+ {
+  "config": "X + penalty (1.5)",
+  "p": 2,
+  "p2q": 0,
+  "two_qubit_gates": 120,
+  "feasible": 0.96142578125
+ },
+ {
+  "config": "X + penalty (1.5)",
+  "p": 2,
+  "p2q": 0.001,
+  "two_qubit_gates": 120,
+  "feasible": 0.88671875
+ },
+ {
+  "config": "X + penalty (1.5)",
+  "p": 2,
+  "p2q": 0.003,
+  "two_qubit_gates": 120,
+  "feasible": 0.7392578125
+ },
+ {
+  "config": "X + penalty (1.5)",
+  "p": 2,
+  "p2q": 0.006,
+  "two_qubit_gates": 120,
+  "feasible": 0.57421875
+ },
+ {
+  "config": "X + penalty (1.5)",
+  "p": 2,
+  "p2q": 0.012,
+  "two_qubit_gates": 120,
+  "feasible": 0.390625
+ },
+ {
+  "config": "X + penalty (1.5)",
+  "p": 2,
+  "p2q": 0.025,
+  "two_qubit_gates": 120,
+  "feasible": 0.18017578125
+ }
+]
