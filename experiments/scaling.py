@@ -2,7 +2,7 @@
 
 Fast exact simulation: the XY mixer + Dicke start never leave the feasible
 subspace (dimension prod_v C(T, need_v), e.g. 50625 for 4x6 instead of 2^24).
-Cost layer is diagonal; each XXPlusYY gate only swaps amplitudes of basis
+The cost layer is diagonal; each XXPlusYY gate only swaps amplitudes of basis
 states that differ by moving one charge between neighbouring slots.
 """
 from dataclasses import dataclass
@@ -12,27 +12,34 @@ from time import perf_counter
 import numpy as np
 from scipy.optimize import minimize
 
-from evqaoa import Instance
+from evqaoa import DEPOT, ChargingProblem
 
-# Overnight tariff (arbitrary price units per slot): expensive evening peak,
-# cheap night trough, rising again toward morning.
-TARIFF = {4: (4, 1, 1, 3), 5: (4, 2, 1, 1, 3), 6: (4, 3, 1, 1, 2, 3)}
-DEFAULT_NEED = 2  # every vehicle needs 2 charging slots
-
-
-def make_instance(V, T, need=DEFAULT_NEED):
-    """Instance with V vehicles, T slots, tariff from TARIFF, equal needs."""
-    if T not in TARIFF:
-        raise ValueError(f'no tariff defined for T={T}')
-    return Instance(V=V, T=T, prices=TARIFF[T], need=(need,) * V)
+# Night time-of-use tariffs in cents/kWh: an expensive evening peak, a cheap
+# overnight trough, then a rise toward the morning commute. The 4-slot tariff is
+# the depot's; the 5- and 6-slot ones are our own plausible stretches of it
+# (earlier slots step down gradually into the same trough and morning price).
+TARIFF = {4: DEPOT.tariff,
+          5: (32, 18, 11, 9, 21),
+          6: (32, 20, 13, 9, 10, 21)}
+DEFAULT_DEMAND = 2  # slots of charging per vehicle, except the depot's own (2, 1, 2)
 
 
-def feasible_basis(inst):
-    """Sorted array of basis-state integers (qubit i = bit i) with exact needs."""
+def make_problem(n_vehicles, n_slots, demand=None):
+    """ChargingProblem on the family tariff; DEPOT's demand for 3x4, else 2 per vehicle."""
+    if n_slots not in TARIFF:
+        raise ValueError(f'no tariff defined for {n_slots} slots')
+    if demand is None:
+        is_depot = (n_vehicles, n_slots) == (DEPOT.n_vehicles, DEPOT.n_slots)
+        demand = DEPOT.demand if is_depot else (DEFAULT_DEMAND,) * n_vehicles
+    return ChargingProblem(n_vehicles, n_slots, TARIFF[n_slots], tuple(demand))
+
+
+def feasible_basis(problem):
+    """Sorted array of basis-state integers (qubit i = bit i) meeting every demand."""
     basis = np.zeros(1, dtype=np.int64)
-    for v in range(inst.V):
-        masks = [sum(1 << (v * inst.T + t) for t in slots)
-                 for slots in combinations(range(inst.T), inst.need[v])]
+    for v in range(problem.n_vehicles):
+        masks = [sum(1 << problem.qubit(v, t) for t in slots)
+                 for slots in combinations(range(problem.n_slots), problem.demand[v])]
         basis = np.add.outer(basis, np.array(masks, dtype=np.int64)).ravel()
     return np.sort(basis)
 
@@ -41,19 +48,17 @@ def _bit_matrix(basis, n):
     return (basis[:, None] >> np.arange(n)) & 1
 
 
-def subspace_energies(inst, Q, const, basis):
-    X = _bit_matrix(basis, inst.n).astype(float)
-    return np.einsum('ij,jk,ik->i', X, Q, X) + const
+def subspace_energies(problem, model, basis):
+    """Model energy of every feasible basis state."""
+    return model.values(_bit_matrix(basis, problem.n_qubits))
 
 
-def _mixer_pairs(inst):
-    """Neighbouring-slot qubit pairs in the same order as circuits.xy_mixer."""
-    pairs = []
-    for v in range(inst.V):
-        base = v * inst.T
-        for first in (0, 1):
-            pairs += [(base + t, base + t + 1) for t in range(first, inst.T - 1, 2)]
-    return pairs
+def _mixer_pairs(problem):
+    """Neighbouring-slot qubit pairs in the gate order of evqaoa.ansatz (even, then odd)."""
+    return [(problem.qubit(v, t), problem.qubit(v, t + 1))
+            for v in range(problem.n_vehicles)
+            for parity in (0, 1)
+            for t in range(parity, problem.n_slots - 1, 2)]
 
 
 def _pair_tables(basis, pairs):
@@ -68,12 +73,13 @@ def _pair_tables(basis, pairs):
 
 @dataclass(frozen=True)
 class Simulator:
-    p: int
     energies: np.ndarray
     tables: tuple
 
     def state(self, theta):
-        betas, gammas = np.asarray(theta[:self.p]), np.asarray(theta[self.p:])
+        theta = np.asarray(theta, dtype=float)
+        p = len(theta) // 2
+        betas, gammas = theta[:p], theta[p:]
         psi = np.full(len(self.energies), 1 / np.sqrt(len(self.energies)), complex)
         for beta, gamma in zip(betas, gammas):
             psi = psi * np.exp(-1j * gamma * self.energies)
@@ -89,11 +95,12 @@ class Simulator:
         return float(self.probs(theta) @ self.energies)
 
 
-def make_simulator(inst, Q, const, p):
-    basis = feasible_basis(inst)
-    energies = subspace_energies(inst, Q, const, basis)
-    tables = tuple(_pair_tables(basis, _mixer_pairs(inst)))
-    return Simulator(p=p, energies=energies, tables=tables)
+def make_simulator(problem, model):
+    """Depth is inferred from len(theta), so one simulator serves every p."""
+    basis = feasible_basis(problem)
+    energies = subspace_energies(problem, model, basis)
+    tables = tuple(_pair_tables(basis, _mixer_pairs(problem)))
+    return Simulator(energies=energies, tables=tables)
 
 
 def metrics(sim, theta):

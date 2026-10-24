@@ -1,0 +1,26 @@
+[
+  {
+    "config": "XY + basis",
+    "raw_valid": 0.4404296875,
+    "corrected_valid": 0.4648248669773191,
+    "raw_p_opt": 0.003662109375,
+    "corrected_p_opt": 0.003809597873471336,
+    "postselected_p_opt": 0.008314855875831485
+  },
+  {
+    "config": "XY + Dicke",
+    "raw_valid": 0.340576171875,
+    "corrected_valid": 0.35647955434601286,
+    "raw_p_opt": 0.02783203125,
+    "corrected_p_opt": 0.02919739295001224,
+    "postselected_p_opt": 0.08172043010752689
+  },
+  {
+    "config": "X + penalty 1.5",
+    "raw_valid": 0.391357421875,
+    "corrected_valid": 0.40752843788646975,
+    "raw_p_opt": 0.0126953125,
+    "corrected_p_opt": 0.013227895704229154,
+    "postselected_p_opt": 0.032439176543980035
+  }
+]

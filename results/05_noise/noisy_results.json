@@ -1,362 +1,106 @@
-[
- {
-  "config": "XY + basis",
-  "p": 1,
-  "depth": 156,
-  "two_qubit_gates": 118,
-  "hellinger": 0.6099714275093068,
-  "ideal": {
-   "feasible_rate": 1.0,
-   "p_optimal": 0.0,
-   "mean_feasible_energy": 0.7182539684228945,
-   "approx_ratio": 0.5171755721128873
-  },
-  "raw": {
-   "feasible_rate": 0.61767578125,
-   "p_optimal": 0.0,
-   "mean_feasible_energy": 0.7175663466967817,
-   "approx_ratio": 0.518829013668044
-  },
-  "readout": {
-   "feasible_rate": 0.6636929457010746,
-   "p_optimal": 2.888428007376409e-07,
-   "mean_feasible_energy": 0.7177306831948066,
-   "approx_ratio": 0.5184338533865337
-  },
-  "post_feasible_kept": 0.61767578125,
-  "post": {
-   "feasible_rate": 0.9999999999999999,
-   "p_optimal": 0.0,
-   "mean_feasible_energy": 0.7175663466967815,
-   "approx_ratio": 0.5188290136680443
-  },
-  "readout_then_post": {
-   "feasible_rate": 1.0,
-   "p_optimal": 4.3520547055465467e-07,
-   "mean_feasible_energy": 0.7177306831948065,
-   "approx_ratio": 0.5184338533865339
-  },
-  "hellinger_readout": 0.6576247558516678,
-  "mean_readout_error": 0.007303873697916667
- },
- {
-  "config": "XY + basis",
-  "p": 2,
-  "depth": 318,
-  "two_qubit_gates": 247,
-  "hellinger": 0.4137482435158973,
-  "ideal": {
-   "feasible_rate": 1.0000000000000002,
-   "p_optimal": 0.04547887070844564,
-   "mean_feasible_energy": 0.6251647146071164,
-   "approx_ratio": 0.7410161442653307
-  },
-  "raw": {
-   "feasible_rate": 0.4306640625,
-   "p_optimal": 0.018310546875,
-   "mean_feasible_energy": 0.6275582190548179,
-   "approx_ratio": 0.735260770975056
-  },
-  "readout": {
-   "feasible_rate": 0.45174255274522973,
-   "p_optimal": 0.019291180293427416,
-   "mean_feasible_energy": 0.6274869050543519,
-   "approx_ratio": 0.7354322512051843
-  },
-  "post_feasible_kept": 0.4306640625,
-  "post": {
-   "feasible_rate": 0.9999999999999997,
-   "p_optimal": 0.042517006802721094,
-   "mean_feasible_energy": 0.6275582190548178,
-   "approx_ratio": 0.7352607709750564
-  },
-  "readout_then_post": {
-   "feasible_rate": 1.0,
-   "p_optimal": 0.042703925446463536,
-   "mean_feasible_energy": 0.6274869050543518,
-   "approx_ratio": 0.7354322512051845
-  },
-  "hellinger_readout": 0.433750105615127,
-  "mean_readout_error": 0.007822672526041666
- },
- {
-  "config": "XY + basis",
-  "p": 3,
-  "depth": 570,
-  "two_qubit_gates": 398,
-  "hellinger": 0.2902011204032752,
-  "ideal": {
-   "feasible_rate": 1.0,
-   "p_optimal": 0.07445027244450224,
-   "mean_feasible_energy": 0.6171211215519786,
-   "approx_ratio": 0.7603576084818834
-  },
-  "raw": {
-   "feasible_rate": 0.318359375,
-   "p_optimal": 0.02294921875,
-   "mean_feasible_energy": 0.6189551076054144,
-   "approx_ratio": 0.755947642017515
-  },
-  "readout": {
-   "feasible_rate": 0.33188922345201827,
-   "p_optimal": 0.024063890852521915,
-   "mean_feasible_energy": 0.6187201684411634,
-   "approx_ratio": 0.7565125720689582
-  },
-  "post_feasible_kept": 0.318359375,
-  "post": {
-   "feasible_rate": 1.0,
-   "p_optimal": 0.07208588957055215,
-   "mean_feasible_energy": 0.6189551076054143,
-   "approx_ratio": 0.7559476420175152
-  },
-  "readout_then_post": {
-   "feasible_rate": 1.0000000000000002,
-   "p_optimal": 0.0725057915476453,
-   "mean_feasible_energy": 0.6187201684411634,
-   "approx_ratio": 0.7565125720689582
-  },
-  "hellinger_readout": 0.30350906030990005,
-  "mean_readout_error": 0.007700602213541667
- },
- {
-  "config": "XY + Dicke",
-  "p": 1,
-  "depth": 282,
-  "two_qubit_gates": 209,
-  "hellinger": 0.5037211856895646,
-  "ideal": {
-   "feasible_rate": 0.9999999999999997,
-   "p_optimal": 0.029023104823533,
-   "mean_feasible_energy": 0.6436215882016098,
-   "approx_ratio": 0.6966351123396406
-  },
-  "raw": {
-   "feasible_rate": 0.51513671875,
-   "p_optimal": 0.016357421875,
-   "mean_feasible_energy": 0.6447069886406377,
-   "approx_ratio": 0.6940251799862528
-  },
-  "readout": {
-   "feasible_rate": 0.5397611767623808,
-   "p_optimal": 0.017182676874937894,
-   "mean_feasible_energy": 0.6447329864991528,
-   "approx_ratio": 0.6939626660516555
-  },
-  "post_feasible_kept": 0.51513671875,
-  "post": {
-   "feasible_rate": 1.0000000000000002,
-   "p_optimal": 0.03175355450236967,
-   "mean_feasible_energy": 0.6447069886406379,
-   "approx_ratio": 0.6940251799862522
-  },
-  "readout_then_post": {
-   "feasible_rate": 0.9999999999999998,
-   "p_optimal": 0.03183385099684971,
-   "mean_feasible_energy": 0.644732986499153,
-   "approx_ratio": 0.6939626660516549
-  },
-  "hellinger_readout": 0.5274281743990261,
-  "mean_readout_error": 0.008199055989583334
- },
- {
-  "config": "XY + Dicke",
-  "p": 2,
-  "depth": 391,
-  "two_qubit_gates": 357,
-  "hellinger": 0.31540221476450625,
-  "ideal": {
-   "feasible_rate": 1.0,
-   "p_optimal": 0.1682674174917108,
-   "mean_feasible_energy": 0.575353489675716,
-   "approx_ratio": 0.8607912271156447
-  },
-  "raw": {
-   "feasible_rate": 0.360595703125,
-   "p_optimal": 0.04150390625,
-   "mean_feasible_energy": 0.5917228186693317,
-   "approx_ratio": 0.8214298635050419
-  },
-  "readout": {
-   "feasible_rate": 0.3771393400544338,
-   "p_optimal": 0.043650459014687636,
-   "mean_feasible_energy": 0.59145476107836,
-   "approx_ratio": 0.8220744294680654
-  },
-  "post_feasible_kept": 0.360595703125,
-  "post": {
-   "feasible_rate": 1.0000000000000002,
-   "p_optimal": 0.11509817197020987,
-   "mean_feasible_energy": 0.5917228186693316,
-   "approx_ratio": 0.8214298635050421
-  },
-  "readout_then_post": {
-   "feasible_rate": 0.9999999999999999,
-   "p_optimal": 0.11574093280321118,
-   "mean_feasible_energy": 0.5914547610783608,
-   "approx_ratio": 0.8220744294680635
-  },
-  "hellinger_readout": 0.3307087901712946,
-  "mean_readout_error": 0.00836181640625
- },
- {
-  "config": "XY + Dicke",
-  "p": 3,
-  "depth": 666,
-  "two_qubit_gates": 523,
-  "hellinger": 0.1925951931225832,
-  "ideal": {
-   "feasible_rate": 1.0,
-   "p_optimal": 0.16162176343102358,
-   "mean_feasible_energy": 0.5700906420932841,
-   "approx_ratio": 0.8734461659588969
-  },
-  "raw": {
-   "feasible_rate": 0.233642578125,
-   "p_optimal": 0.026611328125,
-   "mean_feasible_energy": 0.5906851768920734,
-   "approx_ratio": 0.8239249563282203
-  },
-  "readout": {
-   "feasible_rate": 0.24107061298508073,
-   "p_optimal": 0.027861323196635784,
-   "mean_feasible_energy": 0.5902354111093361,
-   "approx_ratio": 0.8250064542027413
-  },
-  "post_feasible_kept": 0.233642578125,
-  "post": {
-   "feasible_rate": 1.0000000000000002,
-   "p_optimal": 0.11389759665621735,
-   "mean_feasible_energy": 0.5906851768920734,
-   "approx_ratio": 0.8239249563282203
-  },
-  "readout_then_post": {
-   "feasible_rate": 1.0000000000000002,
-   "p_optimal": 0.11557328722750648,
-   "mean_feasible_energy": 0.590235411109336,
-   "approx_ratio": 0.8250064542027417
-  },
-  "hellinger_readout": 0.19923443780256106,
-  "mean_readout_error": 0.007649739583333333
- },
- {
-  "config": "X + penalty (1.5)",
-  "p": 1,
-  "depth": 230,
-  "two_qubit_gates": 112,
-  "hellinger": 0.7333382904852029,
-  "ideal": {
-   "feasible_rate": 0.40158809466084505,
-   "p_optimal": 0.011294492808171009,
-   "mean_feasible_energy": 0.6548222611275692,
-   "approx_ratio": 0.6697021965253105
-  },
-  "raw": {
-   "feasible_rate": 0.30810546875,
-   "p_optimal": 0.007568359375,
-   "mean_feasible_energy": 0.6557266118280385,
-   "approx_ratio": 0.6675276127799074
-  },
-  "readout": {
-   "feasible_rate": 0.3176095019850018,
-   "p_optimal": 0.007709137909315202,
-   "mean_feasible_energy": 0.6557219390942142,
-   "approx_ratio": 0.66753884874292
-  },
-  "post_feasible_kept": 0.30810546875,
-  "post": {
-   "feasible_rate": 1.0,
-   "p_optimal": 0.02456418383518225,
-   "mean_feasible_energy": 0.6557266118280382,
-   "approx_ratio": 0.6675276127799081
-  },
-  "readout_then_post": {
-   "feasible_rate": 1.0000000000000002,
-   "p_optimal": 0.024272378065311306,
-   "mean_feasible_energy": 0.6557219390942146,
-   "approx_ratio": 0.667538848742919
-  },
-  "hellinger_readout": 0.7292067997701261,
-  "mean_readout_error": 0.007944742838541666
- },
- {
-  "config": "X + penalty (1.5)",
-  "p": 2,
-  "depth": 480,
-  "two_qubit_gates": 305,
-  "hellinger": 0.48722505411439154,
-  "ideal": {
-   "feasible_rate": 0.9644055943352501,
-   "p_optimal": 0.029132236460831663,
-   "mean_feasible_energy": 0.6512736264112952,
-   "approx_ratio": 0.6782351731331452
-  },
-  "raw": {
-   "feasible_rate": 0.3994140625,
-   "p_optimal": 0.009521484375,
-   "mean_feasible_energy": 0.6515688671556641,
-   "approx_ratio": 0.6775252430989755
-  },
-  "readout": {
-   "feasible_rate": 0.41507587882832564,
-   "p_optimal": 0.009834694034711797,
-   "mean_feasible_energy": 0.6516518977410192,
-   "approx_ratio": 0.677325589401366
-  },
-  "post_feasible_kept": 0.3994140625,
-  "post": {
-   "feasible_rate": 0.9999999999999998,
-   "p_optimal": 0.023838630806845965,
-   "mean_feasible_energy": 0.6515688671556644,
-   "approx_ratio": 0.6775252430989748
-  },
-  "readout_then_post": {
-   "feasible_rate": 0.9999999999999992,
-   "p_optimal": 0.023693725741117826,
-   "mean_feasible_energy": 0.6516518977410203,
-   "approx_ratio": 0.6773255894013633
-  },
-  "hellinger_readout": 0.49949313649330174,
-  "mean_readout_error": 0.007781982421875
- },
- {
-  "config": "X + penalty (1.5)",
-  "p": 3,
-  "depth": 754,
-  "two_qubit_gates": 480,
-  "hellinger": 0.3544056085941191,
-  "ideal": {
-   "feasible_rate": 0.9882099812946527,
-   "p_optimal": 0.02835091507302919,
-   "mean_feasible_energy": 0.6534604166376811,
-   "approx_ratio": 0.672976860756721
-  },
-  "raw": {
-   "feasible_rate": 0.301513671875,
-   "p_optimal": 0.0068359375,
-   "mean_feasible_energy": 0.6592751108540583,
-   "approx_ratio": 0.658994962450165
-  },
-  "readout": {
-   "feasible_rate": 0.31210010479772743,
-   "p_optimal": 0.006988541520805844,
-   "mean_feasible_energy": 0.6594448079508509,
-   "approx_ratio": 0.6585869121792515
-  },
-  "post_feasible_kept": 0.301513671875,
-  "post": {
-   "feasible_rate": 1.0000000000000004,
-   "p_optimal": 0.022672064777327937,
-   "mean_feasible_energy": 0.6592751108540587,
-   "approx_ratio": 0.6589949624501642
-  },
-  "readout_then_post": {
-   "feasible_rate": 1.0000000000000002,
-   "p_optimal": 0.02239198710085383,
-   "mean_feasible_energy": 0.6594448079508514,
-   "approx_ratio": 0.6585869121792505
-  },
-  "hellinger_readout": 0.362831024504124,
-  "mean_readout_error": 0.008595784505208334
- }
-]
+{
+  "random_valid_rate": 0.03515625,
+  "shots": 4096,
+  "penalty": 1.5,
+  "rows": [
+    {
+      "config": "XY + basis",
+      "p": 1,
+      "depth": 154,
+      "two_qubit_gates": 118,
+      "valid_rate": 0.61474609375,
+      "p_optimal": 0.000244140625,
+      "p_optimal_postselected": 0.0003971405877680699,
+      "approx_ratio": 0.40005978125664526,
+      "hellinger_vs_ideal": 0.6077302009530353
+    },
+    {
+      "config": "XY + basis",
+      "p": 2,
+      "depth": 317,
+      "two_qubit_gates": 247,
+      "valid_rate": 0.4404296875,
+      "p_optimal": 0.003662109375,
+      "p_optimal_postselected": 0.008314855875831485,
+      "approx_ratio": 0.755510860051403,
+      "hellinger_vs_ideal": 0.4263577215256515
+    },
+    {
+      "config": "XY + basis",
+      "p": 3,
+      "depth": 569,
+      "two_qubit_gates": 398,
+      "valid_rate": 0.29345703125,
+      "p_optimal": 0.006591796875,
+      "p_optimal_postselected": 0.022462562396006656,
+      "approx_ratio": 0.7725357776239908,
+      "hellinger_vs_ideal": 0.2751631787656459
+    },
+    {
+      "config": "XY + Dicke",
+      "p": 1,
+      "depth": 284,
+      "two_qubit_gates": 209,
+      "valid_rate": 0.51025390625,
+      "p_optimal": 0.018310546875,
+      "p_optimal_postselected": 0.03588516746411483,
+      "approx_ratio": 0.7102778345671728,
+      "hellinger_vs_ideal": 0.5003018550651636
+    },
+    {
+      "config": "XY + Dicke",
+      "p": 2,
+      "depth": 389,
+      "two_qubit_gates": 357,
+      "valid_rate": 0.340576171875,
+      "p_optimal": 0.02783203125,
+      "p_optimal_postselected": 0.08172043010752689,
+      "approx_ratio": 0.7789631165794844,
+      "hellinger_vs_ideal": 0.31604615344958764
+    },
+    {
+      "config": "XY + Dicke",
+      "p": 3,
+      "depth": 671,
+      "two_qubit_gates": 523,
+      "valid_rate": 0.23193359375,
+      "p_optimal": 0.01611328125,
+      "p_optimal_postselected": 0.06947368421052631,
+      "approx_ratio": 0.7960415935959066,
+      "hellinger_vs_ideal": 0.20302111762226227
+    },
+    {
+      "config": "X + penalty 1.5",
+      "p": 1,
+      "depth": 232,
+      "two_qubit_gates": 112,
+      "valid_rate": 0.046630859375,
+      "p_optimal": 0.001220703125,
+      "p_optimal_postselected": 0.02617801047120419,
+      "approx_ratio": 0.6389133919354082,
+      "hellinger_vs_ideal": 0.7293237512932759
+    },
+    {
+      "config": "X + penalty 1.5",
+      "p": 2,
+      "depth": 482,
+      "two_qubit_gates": 305,
+      "valid_rate": 0.391357421875,
+      "p_optimal": 0.0126953125,
+      "p_optimal_postselected": 0.032439176543980035,
+      "approx_ratio": 0.6683071944924904,
+      "hellinger_vs_ideal": 0.6558745059500858
+    },
+    {
+      "config": "X + penalty 1.5",
+      "p": 3,
+      "depth": 761,
+      "two_qubit_gates": 480,
+      "valid_rate": 0.12109375,
+      "p_optimal": 0.002685546875,
+      "p_optimal_postselected": 0.02217741935483871,
+      "approx_ratio": 0.6699556467419476,
+      "hellinger_vs_ideal": 0.4734944853667528
+    }
+  ]
+}

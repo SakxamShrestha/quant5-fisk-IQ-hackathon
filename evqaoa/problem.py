@@ -1,70 +1,101 @@
-"""EV depot charging instance, objectives and brute-force helpers.
+"""Overnight depot charging: the classical problem definition.
 
-Adapted from Yash Khamkar's ev-qaoa (MIT), https://github.com/Yankee4567/ev-qaoa
+A depot has `n_vehicles` electric vehicles and `n_slots` one-hour charging
+slots. Vehicle v must charge in exactly `demand[v]` slots. A schedule is a
+binary vector x with x[qubit(v, t)] = 1 when vehicle v charges in slot t.
 """
 from dataclasses import dataclass
 from itertools import combinations, product
+from math import comb
 
 import numpy as np
 
 
 @dataclass(frozen=True)
-class Instance:
-    V: int          # number of vehicles
-    T: int          # number of time slots
-    prices: tuple   # electricity price per slot (length T)
-    need: tuple     # charging slots needed per vehicle (length V)
+class ChargingProblem:
+    n_vehicles: int
+    n_slots: int
+    tariff: tuple   # electricity price per slot, cents/kWh
+    demand: tuple   # slots of charging each vehicle needs
+
+    def __post_init__(self):
+        if len(self.tariff) != self.n_slots:
+            raise ValueError('tariff needs one price per slot')
+        if len(self.demand) != self.n_vehicles:
+            raise ValueError('demand needs one entry per vehicle')
+        if any(not 0 <= d <= self.n_slots for d in self.demand):
+            raise ValueError('each demand must be between 0 and n_slots')
 
     @property
-    def n(self):
-        return self.V * self.T  # one qubit per (vehicle, slot), index v * T + t
+    def n_qubits(self):
+        return self.n_vehicles * self.n_slots
+
+    def qubit(self, vehicle, slot):
+        """Vehicle-major layout: each vehicle owns a contiguous block of qubits."""
+        return vehicle * self.n_slots + slot
+
+    def as_grid(self, x):
+        return np.asarray(x).reshape(self.n_vehicles, self.n_slots)
 
 
-def objectives(inst, x):
-    """Return (cost, peak, wear) for a binary schedule x of length V*T."""
-    X = np.asarray(x).reshape(inst.V, inst.T)
-    cost = int((X * np.array(inst.prices)).sum())
-    peak = int((X.sum(axis=0) ** 2).sum())
-    wear = int(np.abs(np.diff(X, axis=1)).sum())
-    return cost, peak, wear
+def schedule_metrics(problem, x):
+    """(energy_cost, peak_load, switches) for schedule x. All are minimised.
+
+    energy_cost: total tariff paid.
+    peak_load:   sum over slots of (vehicles charging)^2, large when charging bunches up.
+    switches:    on/off transitions per vehicle, a proxy for battery wear.
+    """
+    grid = problem.as_grid(x)
+    energy_cost = float((grid * np.asarray(problem.tariff)).sum())
+    peak_load = float((grid.sum(axis=0) ** 2).sum())
+    switches = float((grid[:, 1:] != grid[:, :-1]).sum())
+    return energy_cost, peak_load, switches
 
 
-def all_feasible(inst):
-    """Yield every schedule where vehicle v charges in exactly need[v] slots."""
-    per_vehicle = []
-    for v in range(inst.V):
+def is_valid(problem, x):
+    return bool(np.array_equal(problem.as_grid(x).sum(axis=1), problem.demand))
+
+
+def valid_schedules(problem):
+    """Yield every schedule that meets each vehicle's demand exactly."""
+    rows_per_vehicle = []
+    for need in problem.demand:
         rows = []
-        for slots in combinations(range(inst.T), inst.need[v]):
-            r = np.zeros(inst.T, dtype=int)
-            r[list(slots)] = 1
-            rows.append(r)
-        per_vehicle.append(rows)
-    for combo in product(*per_vehicle):
-        yield np.concatenate(combo)
+        for chosen in combinations(range(problem.n_slots), need):
+            row = np.zeros(problem.n_slots, dtype=int)
+            row[list(chosen)] = 1
+            rows.append(row)
+        rows_per_vehicle.append(rows)
+    for rows in product(*rows_per_vehicle):
+        yield np.concatenate(rows)
 
 
-def is_feasible(inst, x):
-    X = np.asarray(x).reshape(inst.V, inst.T)
-    return all(X[v].sum() == inst.need[v] for v in range(inst.V))
+def count_valid(problem):
+    return int(np.prod([comb(problem.n_slots, d) for d in problem.demand]))
 
 
-def pareto_front(points):
-    """Non-dominated objective triples (all objectives minimised)."""
-    pts = sorted(set(points))
-    return [p for p in pts
-            if not any(q != p and all(a <= b for a, b in zip(q, p)) for q in pts)]
+def metric_ranges(problem):
+    """Largest value of each metric over valid schedules (for normalising weights)."""
+    values = np.array([schedule_metrics(problem, x) for x in valid_schedules(problem)])
+    return tuple(float(m) if m > 0 else 1.0 for m in values.max(axis=0))
 
 
-def objective_scales(inst):
-    """Worst-case value of each objective over valid schedules, used for normalisation."""
-    F = np.array([objectives(inst, x) for x in all_feasible(inst)])
-    return F.max(axis=0)
+def non_dominated(points):
+    """Pareto-optimal subset of metric tuples (all minimised)."""
+    unique = sorted(set(points))
+    return [p for p in unique
+            if not any(q != p and all(a <= b for a, b in zip(q, p)) for q in unique)]
 
 
-def bits_to_x(bitstring):
-    """Qiskit prints qubit 0 on the right, so reverse before reading."""
-    return np.array([int(b) for b in bitstring.replace(' ', '')[::-1]])
+def bitstring_to_schedule(bitstring):
+    """Qiskit bitstrings list qubit 0 last, so reverse them."""
+    return np.array([int(b) for b in bitstring.replace(' ', '')[::-1]], dtype=int)
 
 
-# The reference instance used throughout the upstream project.
-EXAMPLE_3x4 = Instance(V=3, T=4, prices=(4, 1, 1, 3), need=(2, 2, 2))
+def schedule_to_bitstring(x):
+    return ''.join(str(int(b)) for b in np.asarray(x)[::-1])
+
+
+# Reference depot: three vehicles, 10 pm to 2 am, a time-of-use night tariff
+# (cents/kWh). The delivery van (vehicle 1) needs only one hour of charge.
+DEPOT = ChargingProblem(n_vehicles=3, n_slots=4, tariff=(32, 14, 9, 21), demand=(2, 1, 2))

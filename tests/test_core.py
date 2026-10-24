@@ -1,76 +1,106 @@
-"""Upstream validation tests, ported to pytest."""
+"""Core model checks: brute force, cost model, Hamiltonian, circuits, scoring."""
 import numpy as np
+import pytest
 from qiskit.quantum_info import Statevector
 
-from evqaoa import (EXAMPLE_3x4, all_feasible, brute_force_baselines,
-                    build_qaoa, build_qubo, bits_to_x, distribution_metrics,
-                    is_feasible, objective_scales, objectives, pareto_front,
-                    qubo_to_hamiltonian)
+from evqaoa import (DEPOT, ChargingProblem, bitstring_to_schedule, charging_model,
+                    count_valid, exact_baselines, is_valid, metric_ranges,
+                    non_dominated, qaoa_circuit, schedule_metrics,
+                    schedule_to_bitstring, score_distribution, to_ising,
+                    valid_schedules)
 
-LAM = (0.5, 0.3, 0.2)
-
-
-def _example_hamiltonian():
-    Q, c = build_qubo(EXAMPLE_3x4, LAM, objective_scales(EXAMPLE_3x4))
-    return Q, c, qubo_to_hamiltonian(Q, c)
+WEIGHTS = (0.5, 0.3, 0.2)
 
 
-def test_feasible_count_and_pareto_front():
-    scheds = list(all_feasible(EXAMPLE_3x4))
-    assert len(scheds) == 216
-    front = pareto_front([objectives(EXAMPLE_3x4, x) for x in scheds])
-    assert len(front) == 7
-    assert (6, 18, 6) in front and (11, 10, 4) in front
+def test_valid_schedule_count_matches_formula():
+    # C(4,2) * C(4,1) * C(4,2) = 6 * 4 * 6
+    assert count_valid(DEPOT) == 144
+    assert len(list(valid_schedules(DEPOT))) == 144
 
 
-def test_qubo_matches_weighted_objectives():
-    scale = objective_scales(EXAMPLE_3x4)
-    Q, c = build_qubo(EXAMPLE_3x4, LAM, scale)
-    for x in all_feasible(EXAMPLE_3x4):
-        expected = sum(l * f / s for l, f, s in zip(LAM, objectives(EXAMPLE_3x4, x), scale))
-        assert abs(x @ Q @ x + c - expected) < 1e-9
+def test_problem_rejects_bad_shapes():
+    with pytest.raises(ValueError):
+        ChargingProblem(2, 3, tariff=(1, 2), demand=(1, 1))
+    with pytest.raises(ValueError):
+        ChargingProblem(2, 3, tariff=(1, 2, 3), demand=(1, 4))
 
 
-def test_penalty_is_zero_on_feasible_and_positive_off():
-    Q0, c0 = build_qubo(EXAMPLE_3x4)
-    Qp, cp = build_qubo(EXAMPLE_3x4, penalty=5.0)
-    x = next(all_feasible(EXAMPLE_3x4))
-    assert abs((x @ Qp @ x + cp) - (x @ Q0 @ x + c0)) < 1e-9
-    zeros = np.zeros(EXAMPLE_3x4.n)
-    assert (zeros @ Qp @ zeros + cp) - (zeros @ Q0 @ zeros + c0) == 5.0 * 12
+def test_metrics_on_hand_example():
+    # vehicle 0: slots 1,2 | vehicle 1: slot 2 | vehicle 2: slots 2,3
+    x = np.array([0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 1])
+    cost, peak, switches = schedule_metrics(DEPOT, x)
+    assert cost == (14 + 9) + 9 + (9 + 21)
+    assert peak == 0 + 1 + 9 + 1
+    assert switches == 2 + 2 + 1
 
 
-def test_hamiltonian_diagonal_matches_qubo():
-    Q, c, H = _example_hamiltonian()
-    diag = np.real(H.to_matrix(sparse=True).diagonal())
-    for idx in [0, 5, 1234, 4095]:
-        x = bits_to_x(format(idx, '012b'))
-        assert abs(diag[idx] - (x @ Q @ x + c)) < 1e-7
+def test_model_equals_weighted_metrics_on_every_valid_schedule():
+    model = charging_model(DEPOT, WEIGHTS)
+    scales = metric_ranges(DEPOT)
+    for x in valid_schedules(DEPOT):
+        expected = sum(w * m / s for w, m, s in zip(WEIGHTS, schedule_metrics(DEPOT, x), scales))
+        assert model.value(x) == pytest.approx(expected, abs=1e-9)
 
 
-def test_xy_mixer_stays_in_feasible_subspace():
-    _, _, H = _example_hamiltonian()
-    circ = build_qaoa(EXAMPLE_3x4, H, p=2)
-    theta = np.random.default_rng(1).uniform(0, 3, 4)
-    probs = Statevector(circ.assign_parameters(theta)).probabilities_dict()
-    for key, pr in probs.items():
-        if pr > 1e-12:
-            assert is_feasible(EXAMPLE_3x4, bits_to_x(key))
+def test_penalty_vanishes_on_valid_and_counts_violations():
+    plain, pen = charging_model(DEPOT, WEIGHTS), charging_model(DEPOT, WEIGHTS, penalty=2.0)
+    x = next(valid_schedules(DEPOT))
+    assert pen.value(x) == pytest.approx(plain.value(x))
+    empty = np.zeros(DEPOT.n_qubits)
+    assert pen.value(empty) - plain.value(empty) == pytest.approx(2.0 * (4 + 1 + 4))
 
 
-def test_zero_angles_give_mean_valid_energy():
-    Q, c, H = _example_hamiltonian()
-    circ = build_qaoa(EXAMPLE_3x4, H, p=2)
-    e0 = Statevector(circ.assign_parameters(np.zeros(4))).expectation_value(H).real
-    mean, _, _ = brute_force_baselines(EXAMPLE_3x4, Q, c)
-    assert abs(e0 - mean) < 1e-9
+def test_ising_diagonal_matches_model_on_all_bitstrings():
+    model = charging_model(DEPOT, WEIGHTS, penalty=1.0)
+    diag = np.real(to_ising(model).to_matrix(sparse=True).diagonal())
+    xs = (np.arange(2 ** DEPOT.n_qubits)[:, None] >> np.arange(DEPOT.n_qubits)) & 1
+    assert np.allclose(diag, model.values(xs), atol=1e-9)
 
 
-def test_distribution_metrics_on_point_mass():
-    Q, c, _ = _example_hamiltonian()
-    mean, best, worst = brute_force_baselines(EXAMPLE_3x4, Q, c)
-    best_x = min(all_feasible(EXAMPLE_3x4), key=lambda x: x @ Q @ x + c)
-    key = ''.join(str(b) for b in best_x[::-1])
-    m = distribution_metrics({key: 10, '0' * 12: 10}, EXAMPLE_3x4, Q, c, best, worst)
-    assert m['feasible_rate'] == 0.5 and m['p_optimal'] == 0.5
-    assert abs(m['approx_ratio'] - 1.0) < 1e-9
+def test_bitstring_round_trip_and_order():
+    x = np.array([1] + [0] * 11)
+    assert schedule_to_bitstring(x).endswith('1')
+    assert np.array_equal(bitstring_to_schedule(schedule_to_bitstring(x)), x)
+
+
+@pytest.mark.parametrize('start', ['dicke', 'basis'])
+def test_xy_mixer_never_leaves_valid_schedules(start):
+    H = to_ising(charging_model(DEPOT, WEIGHTS))
+    qc = qaoa_circuit(DEPOT, H, reps=2, mixer='xy', start=start)
+    theta = np.random.default_rng(7).uniform(0, 3, qc.num_parameters)
+    for key, p in Statevector(qc.assign_parameters(theta)).probabilities_dict().items():
+        if p > 1e-12:
+            assert is_valid(DEPOT, bitstring_to_schedule(key))
+
+
+def test_dicke_start_at_zero_angles_is_random_valid_guess():
+    model = charging_model(DEPOT, WEIGHTS)
+    H = to_ising(model)
+    qc = qaoa_circuit(DEPOT, H, reps=1, mixer='xy', start='dicke')
+    e0 = Statevector(qc.assign_parameters([0.0, 0.0])).expectation_value(H).real
+    assert e0 == pytest.approx(exact_baselines(DEPOT, model).mean, abs=1e-9)
+
+
+def test_x_mixer_circuit_shape_and_bad_options():
+    H = to_ising(charging_model(DEPOT, WEIGHTS))
+    qc = qaoa_circuit(DEPOT, H, reps=3, mixer='x')
+    assert qc.num_qubits == 12 and qc.num_parameters == 6
+    assert [p.name for p in qc.parameters][:3] == ['beta[0]', 'beta[1]', 'beta[2]']
+    with pytest.raises(ValueError):
+        qaoa_circuit(DEPOT, H, reps=1, mixer='xy', start='hadamard')
+
+
+def test_pareto_front_is_non_dominated_and_nonempty():
+    front = non_dominated([schedule_metrics(DEPOT, x) for x in valid_schedules(DEPOT)])
+    assert len(front) >= 2
+    for p in front:
+        assert not any(q != p and all(a <= b for a, b in zip(q, p)) for q in front)
+
+
+def test_score_distribution_half_optimal_half_invalid():
+    model = charging_model(DEPOT, WEIGHTS)
+    base = exact_baselines(DEPOT, model)
+    best_x = min(valid_schedules(DEPOT), key=model.value)
+    s = score_distribution({schedule_to_bitstring(best_x): 5, '0' * 12: 5}, DEPOT, model, base)
+    assert s['valid_rate'] == 0.5 and s['p_optimal'] == 0.5 and s['p_optimal_valid'] == 1.0
+    assert s['approx_ratio'] == pytest.approx(1.0)

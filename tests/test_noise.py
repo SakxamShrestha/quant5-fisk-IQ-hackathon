@@ -1,49 +1,41 @@
-from pathlib import Path
-
+"""Checks for the noisy-simulation helpers."""
 import numpy as np
-from qiskit import transpile
+import pytest
 from qiskit_aer import AerSimulator
 
-from evqaoa import EXAMPLE_3x4, build_qaoa, is_feasible, bits_to_x
-from experiments.noise import (feasible_fraction, hellinger, load_counts,
-                               postselect, local_readout_mitigate, setup_problem)
-
-HW = Path(__file__).resolve().parents[1] / 'upstream/results/hw_counts_run2_mitigated.json'
-
-
-def test_loader_parses_hardware_json():
-    counts = load_counts(HW)
-    assert sum(counts.values()) == 4096
-    assert all(len(k) == 12 and set(k) <= {'0', '1'} for k in counts)
-    assert all(isinstance(v, int) for v in counts.values())
+from evqaoa import (DEPOT, bitstring_to_schedule, is_valid, qaoa_circuit,
+                    schedule_to_bitstring, valid_schedules)
+from experiments.noise import (correct_readout, hellinger_fidelity, keep_valid,
+                               setup, transpile_for)
 
 
-def test_hellinger_identical_is_one():
-    p = {'00': 0.3, '11': 0.7}
-    assert abs(hellinger(p, dict(p)) - 1.0) < 1e-12
-    assert hellinger({'00': 1}, {'11': 1}) == 0.0
+def test_hellinger_of_identical_distributions_is_one():
+    p = {'00': 3, '11': 1}
+    assert hellinger_fidelity(p, p) == pytest.approx(1.0)
+    assert hellinger_fidelity({'00': 1}, {'11': 1}) == pytest.approx(0.0)
 
 
-def test_noiseless_xy_sampling_is_fully_feasible():
-    inst, H, *_ = setup_problem()
-    qc = build_qaoa(inst, H, 1, mixer='xy', start='basis')
-    bound = qc.assign_parameters([0.3, 0.5])
-    bound.measure_all()
+def test_noiseless_xy_sampling_gives_only_valid_schedules():
+    _, H, _ = setup()
+    circ = qaoa_circuit(DEPOT, H, reps=1, mixer='xy', start='basis')
     sim = AerSimulator()
-    counts = sim.run(transpile(bound, sim), shots=512, seed_simulator=1).result().get_counts()
-    assert feasible_fraction(counts, inst) == 1.0
+    tc = transpile_for(circ, [0.4, 0.7], sim)
+    counts = sim.run(tc, shots=512, seed_simulator=1).result().get_counts()
+    assert all(is_valid(DEPOT, bitstring_to_schedule(k)) for k in counts)
 
 
-def test_postselect_keeps_only_feasible():
-    inst = EXAMPLE_3x4
-    good = '001100110011'
-    kept = postselect({good: 5, '0' * 12: 3}, inst)
-    assert kept == {good: 5}
-    assert is_feasible(inst, bits_to_x(good))
+def test_keep_valid_drops_rule_breaking_shots():
+    valid_key = schedule_to_bitstring(next(valid_schedules(DEPOT)))
+    assert keep_valid({valid_key: 7, '0' * 12: 3}) == {valid_key: 7}
 
 
-def test_readout_mitigation_inverts_known_flip():
-    eps = [(0.1, 0.1)] * 2
-    noisy = {'00': 0.81, '01': 0.09, '10': 0.09, '11': 0.01}
-    fixed = local_readout_mitigate(noisy, eps)
-    assert abs(fixed['00'] - 1.0) < 1e-9
+def test_penalty_changes_the_hamiltonian_but_not_the_score():
+    _, H0, base0 = setup(penalty=0.0)
+    _, H1, base1 = setup(penalty=1.5)
+    assert base0 == base1
+    assert not np.isclose(H0.coeffs.real.sum(), H1.coeffs.real.sum())
+
+
+def test_readout_correction_inverts_a_known_flip():
+    fixed = correct_readout({'0': 0.9, '1': 0.1}, [(0.1, 0.0)])  # 10% of 0s read as 1
+    assert fixed.get('0', 0) == pytest.approx(1.0, abs=1e-9)
