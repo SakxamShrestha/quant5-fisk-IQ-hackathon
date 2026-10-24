@@ -8,3 +8,4 @@ qiskit-ibm-runtime==0.50.0
 nbformat
 nbconvert
 ipykernel
+notebook

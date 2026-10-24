@@ -18,6 +18,16 @@
 
 **Repository:** https://github.com/SakxamShrestha/quant5-fisk-IQ-hackathon
 
+### Who did what
+
+| Member | What they worked on | What they learned |
+|---|---|---|
+| Sakxam Shrestha | _TODO_ | _TODO_ |
+| Riya Prasai | _TODO_ | _TODO_ |
+| Mariam | _TODO_ | _TODO_ |
+| Samyog Karki | _TODO_ | _TODO_ |
+| Tesfaye Kefene | _TODO_ | _TODO_ |
+
 ---
 
 ## Summary of what we did
@@ -27,7 +37,7 @@
 - Compared two ways to enforce the rule "each vehicle gets the hours it needs": a penalty term with the standard X mixer, and an XY mixer that can only produce valid plans. The XY mixer gave **100% valid plans** in simulation; the best penalty setting gave 78%.
 - Explored the hackathon's suggested topics: different mixers, different classical optimisers, and system size (12 to 25 qubits). We also found the full set of best trade-off plans (Pareto front).
 - Simulated a noisy IBM chip (FakeFez), then ran our circuits on **two real IBM quantum computers**, ibm_fez and ibm_kingston, using 41 seconds of free-plan quantum time in total.
-- On real hardware, after discarding invalid shots, our main circuit found the cheapest plan **6.9% (fez) and 8.4% (kingston)** of the time. Picking a random valid plan finds it 2.8% of the time.
+- On real hardware, after discarding invalid shots, our main circuit found the best plan **6.9% (fez) and 8.4% (kingston)** of the time. Picking a random valid plan finds it 2.8% of the time.
 - Tried zero-noise extrapolation (ZNE), an error-mitigation method. It recovered about a quarter of the gap to the noise-free answer for our deeper circuit and about half for the shallower one.
 - Checked every result against the exact answer found by brute force, and kept negative results in the report.
 
@@ -46,6 +56,13 @@ All five of us started as beginners. Before the training sessions (Oct 9 and Oct
 3. **Hit our first wall.** With the starter notebook's X mixer, almost every answer was invalid. Adding a penalty helped, but the penalty weight was hard to tune.
 4. **Learned about the XY mixer** from the papers by Hadfield et al. (2019) and Wang et al. (2020). It moves a charging hour from one slot to another within the same vehicle, so the number of hours each vehicle charges stays fixed.
 5. **Moved from simulators to real hardware** with a free IBM Quantum account, and learned how much noise changes the picture.
+
+### Mistakes we made along the way
+
+- **We first used the starter notebook's X mixer unchanged.** Almost every answer it produced broke a rule, for example a vehicle that never charged.
+- **We spent a long time tuning the penalty weight.** Too small and answers broke the rules; too large and the circuit stopped caring about cost. The XY mixer removed the need for it.
+- **We trusted the noisy simulator too much.** It predicted about twice as many valid answers as the real chip gave.
+- **We expected error mitigation to fix everything.** Zero-noise extrapolation helped, but our deeper circuit had too little signal left to recover.
 
 We built on an existing open-source EV-charging QAOA example (https://github.com/Yankee4567/ev-qaoa) as a reference when we started. We then rewrote the core code on our own problem instance (our own tariff and vehicle demands) and ran all of the studies ourselves; the first two commits in our history still contain that reference code. We used AI coding assistants (Claude) to help write and test code and to draft text. Every result was run, checked against brute force and discussed by the team.
 
@@ -68,15 +85,34 @@ flowchart LR
 4. **Optimise** (`evqaoa/evaluate.py`): a classical optimiser (COBYLA by default) tunes the 2p angles to lower the average cost.
 5. **Score**: sample 4,096 shots and report three numbers:
    - **valid share:** the fraction of shots that are valid plans;
-   - **P(optimal):** how often the cheapest plan appears;
+   - **P(optimal):** how often the best plan (lowest weighted cost) appears;
    - **approximation ratio:** how close the average plan is to the best (1 = optimal).
-6. **Studies** (`experiments/`, `notebooks/01`–`07`): one module and one executed notebook per question. A test suite (107 tests) checks the core and each study.
+6. **Studies** (`experiments/`, `notebooks/01`–`07`): one executed notebook per question. The **core story** is notebooks 01 → 05 → 06; notebooks 02, 03, 04 and 07 are **extended exploration**. Automated tests check the shared code.
 
-To run: open any notebook in Colab or Jupyter. The first cell installs all packages. The hardware notebooks replay our saved IBM results by default, so they run without an IBM account.
+To run: open any notebook in Colab or Jupyter and run it from the top. The first cell installs all packages, and in Colab the second cell downloads the rest of the project. The hardware notebooks replay our saved IBM results by default, so they run without an IBM account.
+
+### Glossary
+
+| Term | Meaning |
+|---|---|
+| Qubit | A quantum bit. Each of our 12 qubits stands for one yes/no choice: does this vehicle charge in this hour? |
+| QUBO | A way of writing a problem as yes/no choices with a cost to minimise. QAOA needs the problem in this form. |
+| Hamiltonian | The cost function rewritten in qubit language. Lower energy means a better plan. |
+| QAOA | Quantum Approximate Optimization Algorithm: a circuit that alternates "apply the cost" and "mix", with angles tuned by a normal computer. |
+| Mixer | The circuit step that moves between plans. The X mixer flips any qubit; the XY mixer only moves a charging hour within one vehicle. |
+| Dicke state | A starting state that is an equal mix of all valid plans. |
+| p (depth) | How many cost-and-mix layers the circuit has. More layers can find better answers but add more noise. |
+| Shot | One run of the circuit followed by a measurement. Each shot gives one plan. |
+| Approximation ratio | How close the average plan is to the best one (1 = always the best). |
+| Optimiser (COBYLA, Powell, L-BFGS-B) | Standard classical methods that tune the circuit's angles. |
+| Dynamical decoupling, twirling | IBM's built-in tricks that reduce noise while the circuit runs. |
+| ZNE | Zero-noise extrapolation: run with extra noise on purpose, then estimate the zero-noise answer. |
 
 ---
 
 ## Results
+
+Results 1 and 4 are our **core story**; results 2, 3 and 5 come from our **extended exploration**.
 
 ### 1. The XY mixer keeps every answer valid (notebook 01)
 
@@ -84,7 +120,7 @@ To run: open any notebook in Colab or Jupyter. The first cell installs all packa
 
 - **Without a penalty, the X mixer almost never produces a valid plan.**
 - **A penalty of 5 raises the valid share to 78%,** but the circuit finds the optimal plan only 1.8% of the time, no better than picking a random valid plan (2.8%).
-- **The XY mixer with a Dicke start gives 100% valid plans** and finds the optimal plan **10.7%** of the time, almost 4× random.
+- **The XY mixer with a Dicke start gives 100% valid plans** and finds the optimal plan **10.7%** of the time at p = 3, almost 4× random.
 - **The Dicke start matters:** XY from a single basis state is also 100% valid but only reaches 2.2% optimal.
 
 **Lesson:** for problems with rules, building the rules into the mixer works far better than adding a penalty.
@@ -119,7 +155,7 @@ We ran three circuits on two real 156-qubit IBM chips (4,096 shots each, with IB
 | **P(optimal), invalid shots discarded:** XY + Dicke, p = 2 | 10.4% | 8.2% | 6.9% | 8.4% |
 
 - **Noise removes most valid answers.** The real chips kept 15–35% valid shots. The noisy simulator was too optimistic, by about 2× on ibm_fez.
-- **The useful signal survives.** After discarding invalid shots, our main circuit still finds the cheapest plan **2.5–3× more often than random** on both chips.
+- **The useful signal survives.** After discarding invalid shots, our main circuit still finds the best plan **2.5–3× more often than random** on both chips.
 - **Both chips rank the three circuits in the same order.** ibm_kingston was less noisy than ibm_fez.
 - **Measurement error is small** (about 1.5% per qubit). Most of the noise comes from the 357 two-qubit gates in the main circuit.
 
@@ -127,7 +163,7 @@ We ran three circuits on two real 156-qubit IBM chips (4,096 shots each, with IB
 
 ![Zero-noise extrapolation vs raw hardware and ideal values](results/07_hardware_extra/zne_vs_raw_summary.png)
 
-Zero-noise extrapolation runs the circuit at higher noise levels on purpose and extrapolates back to zero noise. On ibm_fez:
+Zero-noise extrapolation runs the circuit at higher noise levels on purpose and extrapolates back to zero noise. This was a separate run on ibm_fez that measures over all shots, so its "Real chip" values (16.0%, 1.1%) differ slightly from the result-4 table (16.9%) and do not discard invalid shots:
 
 | | Ideal | Real chip | Real chip + ZNE |
 |---|---|---|---|
@@ -143,7 +179,7 @@ Zero-noise extrapolation runs the circuit at higher noise levels on purpose and 
 ## Conclusions
 
 1. **QAOA works on a real scheduling problem, and the mixer is what makes it work.** With the XY mixer, every simulated answer was a valid charging plan.
-2. **On today's real hardware, noise is the main limit.** Valid answers fell from 100% to 15–35%. Even so, the circuit still favours the cheapest plan clearly above chance on two different chips.
+2. **On today's real hardware, noise is the main limit.** Valid answers fell from 100% to 15–35%. Even so, the circuit still favours the best plan clearly above chance on two different chips.
 3. **Shallower circuits survive noise better, deeper circuits find better answers.** Choosing the depth is a trade-off on current hardware.
 
 ## Limitations

@@ -3,3 +3,6 @@ __pycache__/
 .ipynb_checkpoints/
 .pytest_cache/
 .DS_Store
+
+# organizer files kept locally, not part of the submission
+Hackathon launch.pptx
