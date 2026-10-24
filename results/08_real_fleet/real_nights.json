@@ -1,0 +1,5694 @@
+{
+ "fleet": "fleet2-warehouse-delivery",
+ "window": [
+  22,
+  2
+ ],
+ "tariff": [
+  32,
+  14,
+  9,
+  21
+ ],
+ "tariff_is_placeholder": true,
+ "weights": [
+  0.5,
+  0.3,
+  0.2
+ ],
+ "seed": 0,
+ "restarts": 4,
+ "maxiter": 3000,
+ "runtime_s": 160.22784161567688,
+ "versions": {
+  "python": "3.14.4",
+  "numpy": "2.5.4",
+  "scipy": "1.18.1",
+  "qiskit": "2.3.1"
+ },
+ "summary": {
+  "nights": 50,
+  "distinct_problems": 10,
+  "demand_mix": {
+   "1-1-1": 4,
+   "1-1-2": 6,
+   "1-1-3": 6,
+   "1-2-2": 5,
+   "1-2-3": 12,
+   "1-2-4": 3,
+   "1-3-3": 2,
+   "2-2-2": 2,
+   "2-2-3": 5,
+   "2-3-3": 5
+  },
+  "units": {
+   "immediate": {
+    "dollars": 130.22,
+    "peak_kw": 300.0,
+    "start_stops": 2.94
+   },
+   "delayed": {
+    "dollars": 92.68,
+    "peak_kw": 300.0,
+    "start_stops": 2.94
+   },
+   "qaoa_p1": {
+    "dollars": 99.0926285756874,
+    "peak_kw": 224.17983350322757,
+    "start_stops": 4.6554227380861235
+   },
+   "qaoa_p2": {
+    "dollars": 94.6712066501352,
+    "peak_kw": 233.0473367630813,
+    "start_stops": 4.395853474258298
+   },
+   "best": {
+    "dollars": 95.16,
+    "peak_kw": 202.0,
+    "start_stops": 3.62
+   }
+  },
+  "p1": {
+   "approx_ratio_median": 0.7771290573177823,
+   "p_optimal_median": 0.07380813340430518,
+   "gain_median": 2.436498832873273,
+   "gain_min": 1.7457188609641154,
+   "gain_max": 3.5431411401043214,
+   "nights_beating_random": 50,
+   "nights_most_likely_optimal": 19,
+   "nights_converged": 50
+  },
+  "p2": {
+   "approx_ratio_median": 0.8183209208308795,
+   "p_optimal_median": 0.10011437925036346,
+   "gain_median": 2.663548677290901,
+   "gain_min": 0.6790152776413084,
+   "gain_max": 7.999998690108278,
+   "nights_beating_random": 46,
+   "nights_most_likely_optimal": 9,
+   "nights_converged": 48
+  }
+ },
+ "nights": [
+  {
+   "night": 0,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 64,
+     "miles": 194.40743321011286,
+     "kwh_needed": 349.9333797782032,
+     "hours_needed": 4,
+     "leaves_at": 7.612777777777778,
+     "returns_at": 16.241666666666667
+    },
+    {
+     "day_id": 53,
+     "miles": 73.28706523483496,
+     "kwh_needed": 131.91671742270293,
+     "hours_needed": 2,
+     "leaves_at": 9.019444444444446,
+     "returns_at": 16.747500000000002
+    },
+    {
+     "day_id": 84,
+     "miles": 27.149504579880038,
+     "kwh_needed": 48.86910824378407,
+     "hours_needed": 1,
+     "leaves_at": 7.8549999999999995,
+     "returns_at": 16.521666666666665
+    }
+   ],
+   "demand": [
+    4,
+    2,
+    1
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 24,
+   "n_optimal": 2,
+   "p_opt_random": 0.08333333333333333,
+   "ar_random": 0.5273922571219861,
+   "rules": {
+    "immediate": {
+     "dollars": 154.0,
+     "peak_kw": 300.0,
+     "start_stops": 2.0
+    },
+    "delayed": {
+     "dollars": 127.0,
+     "peak_kw": 300.0,
+     "start_stops": 2.0
+    }
+   },
+   "best": {
+    "dollars": 120.0,
+    "peak_kw": 200.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     2.7451574070161353,
+     19.97664324877582
+    ],
+    "energy": 0.8019330840064678,
+    "nfev": 283,
+    "converged": true,
+    "approx_ratio": 0.7103277383111277,
+    "p_optimal": 0.199393317642588,
+    "gain_vs_random": 2.392719811711056,
+    "expected": {
+     "dollars": 128.3908661721157,
+     "peak_kw": 235.20537840375889,
+     "start_stops": 3.2280383648728868
+    },
+    "most_likely": {
+     "dollars": 120.0,
+     "peak_kw": 200.0,
+     "start_stops": 3.0,
+     "probability": 0.1324366597622701,
+     "is_optimal": true
+    }
+   },
+   "p2": {
+    "theta": [
+     1.757826328965229,
+     2.549989408027454,
+     7.113454562561938,
+     -17.12776867472842
+    ],
+    "energy": 0.7860930497556312,
+    "nfev": 1917,
+    "converged": true,
+    "approx_ratio": 0.8034703794500864,
+    "p_optimal": 0.3020804767714852,
+    "gain_vs_random": 3.6249657212578223,
+    "expected": {
+     "dollars": 130.3161347246408,
+     "peak_kw": 225.744387390873,
+     "start_stops": 2.7771700466403733
+    },
+    "most_likely": {
+     "dollars": 120.0,
+     "peak_kw": 200.0,
+     "start_stops": 3.0,
+     "probability": 0.2923502270358719,
+     "is_optimal": true
+    }
+   }
+  },
+  {
+   "night": 1,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 2,
+     "miles": 33.389696338421224,
+     "kwh_needed": 60.101453409158204,
+     "hours_needed": 1,
+     "leaves_at": 9.014166666666666,
+     "returns_at": 17.815833333333334
+    },
+    {
+     "day_id": 8,
+     "miles": 40.56363084801107,
+     "kwh_needed": 73.01453552641993,
+     "hours_needed": 1,
+     "leaves_at": 8.950833333333332,
+     "returns_at": 17.969166666666666
+    },
+    {
+     "day_id": 4,
+     "miles": 52.43842036341648,
+     "kwh_needed": 94.38915665414967,
+     "hours_needed": 1,
+     "leaves_at": 9.098055555555556,
+     "returns_at": 18.205555555555556
+    }
+   ],
+   "demand": [
+    1,
+    1,
+    1
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 64,
+   "n_optimal": 6,
+   "p_opt_random": 0.09375,
+   "ar_random": 0.7500000000000002,
+   "rules": {
+    "immediate": {
+     "dollars": 96.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 63.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 44.0,
+    "peak_kw": 100.0,
+    "start_stops": 5.0
+   },
+   "p1": {
+    "theta": [
+     2.8103591949483597,
+     11.987798124902014
+    ],
+    "energy": 0.5545338396131096,
+    "nfev": 1101,
+    "converged": true,
+    "approx_ratio": 0.8547616339469449,
+    "p_optimal": 0.26092196597654715,
+    "gain_vs_random": 2.7831676370831695,
+    "expected": {
+     "dollars": 50.797828345079886,
+     "peak_kw": 139.22136422958,
+     "start_stops": 4.83393591614417
+    },
+    "most_likely": {
+     "dollars": 44.0,
+     "peak_kw": 100.0,
+     "start_stops": 5.0,
+     "probability": 0.04348699432942453,
+     "is_optimal": true
+    }
+   },
+   "p2": {
+    "theta": [
+     1.9252859490417094,
+     3.8200062680565128,
+     10.967418740065161,
+     -4.729140740038546
+    ],
+    "energy": 0.542536134296975,
+    "nfev": 3904,
+    "converged": true,
+    "approx_ratio": 0.8844466780281028,
+    "p_optimal": 0.2520756904656819,
+    "gain_vs_random": 2.6888073649672735,
+    "expected": {
+     "dollars": 41.40191940987965,
+     "peak_kw": 169.4929440352024,
+     "start_stops": 5.3212837501124035
+    },
+    "most_likely": {
+     "dollars": 32.0,
+     "peak_kw": 200.0,
+     "start_stops": 6.0,
+     "probability": 0.10331217183200056,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 2,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 65,
+     "miles": 126.95789973084636,
+     "kwh_needed": 228.52421951552347,
+     "hours_needed": 3,
+     "leaves_at": 9.023055555555556,
+     "returns_at": 14.640555555555554
+    },
+    {
+     "day_id": 52,
+     "miles": 67.85563812946225,
+     "kwh_needed": 122.14014863303206,
+     "hours_needed": 2,
+     "leaves_at": 10.297777777777778,
+     "returns_at": 17.46722222222222
+    },
+    {
+     "day_id": 91,
+     "miles": 133.98012964965906,
+     "kwh_needed": 241.16423336938632,
+     "hours_needed": 3,
+     "leaves_at": 8.381388888888889,
+     "returns_at": 17.334444444444443
+    }
+   ],
+   "demand": [
+    3,
+    2,
+    3
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 96,
+   "n_optimal": 2,
+   "p_opt_random": 0.020833333333333332,
+   "ar_random": 0.5752069322296945,
+   "rules": {
+    "immediate": {
+     "dollars": 156.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 118.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 129.0,
+    "peak_kw": 300.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     2.6205914839231705,
+     20.318604485959494
+    ],
+    "energy": 0.7450331680667847,
+    "nfev": 391,
+    "converged": true,
+    "approx_ratio": 0.7665586730485741,
+    "p_optimal": 0.07380894644885164,
+    "gain_vs_random": 3.5428294295448786,
+    "expected": {
+     "dollars": 136.6326082229033,
+     "peak_kw": 293.2722307034752,
+     "start_stops": 4.195509793127689
+    },
+    "most_likely": {
+     "dollars": 122.0,
+     "peak_kw": 300.0,
+     "start_stops": 4.0,
+     "probability": 0.07337942346831407,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     0.7982914075875647,
+     1.9342164205362156,
+     8.396096825773945,
+     11.10593770325758
+    ],
+    "energy": 0.7297457091795132,
+    "nfev": 5033,
+    "converged": true,
+    "approx_ratio": 0.8183209174444311,
+    "p_optimal": 0.10011766129333369,
+    "gain_vs_random": 4.805647742080017,
+    "expected": {
+     "dollars": 132.02028475914543,
+     "peak_kw": 296.62969693193077,
+     "start_stops": 3.7162854452655325
+    },
+    "most_likely": {
+     "dollars": 133.0,
+     "peak_kw": 300.0,
+     "start_stops": 4.0,
+     "probability": 0.18085849183838165,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 3,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 73,
+     "miles": 46.20494529079427,
+     "kwh_needed": 83.1689015234297,
+     "hours_needed": 1,
+     "leaves_at": 7.872222222222223,
+     "returns_at": 15.85611111111111
+    },
+    {
+     "day_id": 56,
+     "miles": 107.7092447322092,
+     "kwh_needed": 193.87664051797657,
+     "hours_needed": 2,
+     "leaves_at": 9.02888888888889,
+     "returns_at": 15.075277777777778
+    },
+    {
+     "day_id": 64,
+     "miles": 194.40743321011286,
+     "kwh_needed": 349.9333797782032,
+     "hours_needed": 4,
+     "leaves_at": 7.612777777777778,
+     "returns_at": 16.241666666666667
+    }
+   ],
+   "demand": [
+    1,
+    2,
+    4
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 24,
+   "n_optimal": 2,
+   "p_opt_random": 0.08333333333333333,
+   "ar_random": 0.5273922571219867,
+   "rules": {
+    "immediate": {
+     "dollars": 154.0,
+     "peak_kw": 300.0,
+     "start_stops": 2.0
+    },
+    "delayed": {
+     "dollars": 127.0,
+     "peak_kw": 300.0,
+     "start_stops": 2.0
+    }
+   },
+   "best": {
+    "dollars": 120.0,
+    "peak_kw": 200.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     2.745127961388475,
+     19.974038508869423
+    ],
+    "energy": 0.8019330837289826,
+    "nfev": 269,
+    "converged": true,
+    "approx_ratio": 0.7103277399427972,
+    "p_optimal": 0.1993982960848008,
+    "gain_vs_random": 2.39277955301761,
+    "expected": {
+     "dollars": 128.39037073429157,
+     "peak_kw": 235.20632710071578,
+     "start_stops": 3.228067336635764
+    },
+    "most_likely": {
+     "dollars": 120.0,
+     "peak_kw": 200.0,
+     "start_stops": 3.0,
+     "probability": 0.13244431100055776,
+     "is_optimal": true
+    }
+   },
+   "p2": {
+    "theta": [
+     0.7393006424166351,
+     1.8368509416525622,
+     9.209032245465806,
+     16.427228455691964
+    ],
+    "energy": 0.7938718556347775,
+    "nfev": 1517,
+    "converged": true,
+    "approx_ratio": 0.7577294098904609,
+    "p_optimal": 0.11297317575464741,
+    "gain_vs_random": 1.355678109055769,
+    "expected": {
+     "dollars": 125.4881471957996,
+     "peak_kw": 258.84029535878915,
+     "start_stops": 3.0155248661790917
+    },
+    "most_likely": {
+     "dollars": 108.0,
+     "peak_kw": 300.0,
+     "start_stops": 4.0,
+     "probability": 0.162859733141208,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 4,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 82,
+     "miles": 25.40453960387261,
+     "kwh_needed": 45.7281712869707,
+     "hours_needed": 1,
+     "leaves_at": 7.767222222222222,
+     "returns_at": 16.363333333333333
+    },
+    {
+     "day_id": 68,
+     "miles": 49.7303485416721,
+     "kwh_needed": 89.51462737500978,
+     "hours_needed": 1,
+     "leaves_at": 7.655,
+     "returns_at": 16.92388888888889
+    },
+    {
+     "day_id": 29,
+     "miles": 75.11262707385805,
+     "kwh_needed": 135.2027287329445,
+     "hours_needed": 2,
+     "leaves_at": 8.81638888888889,
+     "returns_at": 17.026944444444442
+    }
+   ],
+   "demand": [
+    1,
+    1,
+    2
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 96,
+   "n_optimal": 4,
+   "p_opt_random": 0.041666666666666664,
+   "ar_random": 0.6895576820128482,
+   "rules": {
+    "immediate": {
+     "dollars": 110.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 72.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 53.0,
+    "peak_kw": 200.0,
+    "start_stops": 5.0
+   },
+   "p1": {
+    "theta": [
+     2.818578497012506,
+     12.792659828237017
+    ],
+    "energy": 0.6153938384016407,
+    "nfev": 577,
+    "converged": true,
+    "approx_ratio": 0.819032542656104,
+    "p_optimal": 0.10349795391878494,
+    "gain_vs_random": 2.483950894050839,
+    "expected": {
+     "dollars": 69.3608254920061,
+     "peak_kw": 179.10612019262857,
+     "start_stops": 5.059456405718168
+    },
+    "most_likely": {
+     "dollars": 53.0,
+     "peak_kw": 200.0,
+     "start_stops": 5.0,
+     "probability": 0.03233543078133714,
+     "is_optimal": true
+    }
+   },
+   "p2": {
+    "theta": [
+     5.828626651518535,
+     -0.27059527397190697,
+     10.209745855026958,
+     16.737073684822985
+    ],
+    "energy": 0.5961050825261651,
+    "nfev": 6382,
+    "converged": true,
+    "approx_ratio": 0.8718881738860778,
+    "p_optimal": 0.21555199646737644,
+    "gain_vs_random": 5.1732479152170345,
+    "expected": {
+     "dollars": 61.45562951175694,
+     "peak_kw": 189.1858451797562,
+     "start_stops": 5.248846890614865
+    },
+    "most_likely": {
+     "dollars": 53.0,
+     "peak_kw": 200.0,
+     "start_stops": 5.0,
+     "probability": 0.060216753144930475,
+     "is_optimal": true
+    }
+   }
+  },
+  {
+   "night": 5,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 85,
+     "miles": 27.729591760656476,
+     "kwh_needed": 49.913265169181656,
+     "hours_needed": 1,
+     "leaves_at": 7.7825,
+     "returns_at": 16.26527777777778
+    },
+    {
+     "day_id": 56,
+     "miles": 107.7092447322092,
+     "kwh_needed": 193.87664051797657,
+     "hours_needed": 2,
+     "leaves_at": 9.02888888888889,
+     "returns_at": 15.075277777777778
+    },
+    {
+     "day_id": 4,
+     "miles": 52.43842036341648,
+     "kwh_needed": 94.38915665414967,
+     "hours_needed": 1,
+     "leaves_at": 9.098055555555556,
+     "returns_at": 18.205555555555556
+    }
+   ],
+   "demand": [
+    1,
+    2,
+    1
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 96,
+   "n_optimal": 4,
+   "p_opt_random": 0.041666666666666664,
+   "ar_random": 0.6895576820128482,
+   "rules": {
+    "immediate": {
+     "dollars": 110.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 72.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 53.0,
+    "peak_kw": 200.0,
+    "start_stops": 5.0
+   },
+   "p1": {
+    "theta": [
+     2.818482353994282,
+     12.790996156597268
+    ],
+    "energy": 0.6153938505458112,
+    "nfev": 651,
+    "converged": true,
+    "approx_ratio": 0.8190325093782814,
+    "p_optimal": 0.10349316659926935,
+    "gain_vs_random": 2.4838359983824647,
+    "expected": {
+     "dollars": 69.35913557895645,
+     "peak_kw": 179.11150922058746,
+     "start_stops": 5.059549615947572
+    },
+    "most_likely": {
+     "dollars": 53.0,
+     "peak_kw": 200.0,
+     "start_stops": 5.0,
+     "probability": 0.03233646606580252,
+     "is_optimal": true
+    }
+   },
+   "p2": {
+    "theta": [
+     2.845046976868001,
+     3.2264506001029236,
+     12.788666296102507,
+     -4.367973969920995
+    ],
+    "energy": 0.6140906396019166,
+    "nfev": 6090,
+    "converged": false,
+    "approx_ratio": 0.822603607354224,
+    "p_optimal": 0.10950872892370735,
+    "gain_vs_random": 2.6282094941689764,
+    "expected": {
+     "dollars": 68.58000748465389,
+     "peak_kw": 179.8366965844516,
+     "start_stops": 5.099129021395407
+    },
+    "most_likely": {
+     "dollars": 53.0,
+     "peak_kw": 200.0,
+     "start_stops": 5.0,
+     "probability": 0.030663161075600104,
+     "is_optimal": true
+    }
+   }
+  },
+  {
+   "night": 6,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 18,
+     "miles": 79.9207899359009,
+     "kwh_needed": 143.85742188462163,
+     "hours_needed": 2,
+     "leaves_at": 9.120833333333334,
+     "returns_at": 17.860833333333336
+    },
+    {
+     "day_id": 84,
+     "miles": 27.149504579880038,
+     "kwh_needed": 48.86910824378407,
+     "hours_needed": 1,
+     "leaves_at": 7.8549999999999995,
+     "returns_at": 16.521666666666665
+    },
+    {
+     "day_id": 9,
+     "miles": 38.138893010106344,
+     "kwh_needed": 68.65000741819142,
+     "hours_needed": 1,
+     "leaves_at": 9.163611111111111,
+     "returns_at": 19.104166666666668
+    }
+   ],
+   "demand": [
+    2,
+    1,
+    1
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 96,
+   "n_optimal": 4,
+   "p_opt_random": 0.041666666666666664,
+   "ar_random": 0.6895576820128482,
+   "rules": {
+    "immediate": {
+     "dollars": 110.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 72.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 53.0,
+    "peak_kw": 200.0,
+    "start_stops": 5.0
+   },
+   "p1": {
+    "theta": [
+     2.8184882588202695,
+     12.795418383461024
+    ],
+    "energy": 0.6153938250175017,
+    "nfev": 789,
+    "converged": true,
+    "approx_ratio": 0.8190325793317258,
+    "p_optimal": 0.10350880440990548,
+    "gain_vs_random": 2.4842113058377318,
+    "expected": {
+     "dollars": 69.35907599789087,
+     "peak_kw": 179.1128554298073,
+     "start_stops": 5.0594897791959434
+    },
+    "most_likely": {
+     "dollars": 53.0,
+     "peak_kw": 200.0,
+     "start_stops": 5.0,
+     "probability": 0.032339516702062275,
+     "is_optimal": true
+    }
+   },
+   "p2": {
+    "theta": [
+     2.151336373626148,
+     1.4378951359433576,
+     -9.343573481424368,
+     20.448560871458042
+    ],
+    "energy": 0.6146493634811095,
+    "nfev": 8985,
+    "converged": true,
+    "approx_ratio": 0.821072575311066,
+    "p_optimal": 0.05492992230334861,
+    "gain_vs_random": 1.3183181352803668,
+    "expected": {
+     "dollars": 68.05033813134689,
+     "peak_kw": 185.59318797069778,
+     "start_stops": 5.057648022439471
+    },
+    "most_likely": {
+     "dollars": 64.0,
+     "peak_kw": 200.0,
+     "start_stops": 5.0,
+     "probability": 0.05765950196637922,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 7,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 32,
+     "miles": 103.63986677575215,
+     "kwh_needed": 186.55176019635388,
+     "hours_needed": 2,
+     "leaves_at": 8.4825,
+     "returns_at": 18.037222222222223
+    },
+    {
+     "day_id": 54,
+     "miles": 116.52088154244842,
+     "kwh_needed": 209.73758677640717,
+     "hours_needed": 3,
+     "leaves_at": 8.282222222222224,
+     "returns_at": 15.83888888888889
+    },
+    {
+     "day_id": 8,
+     "miles": 40.56363084801107,
+     "kwh_needed": 73.01453552641993,
+     "hours_needed": 1,
+     "leaves_at": 8.950833333333332,
+     "returns_at": 17.969166666666666
+    }
+   ],
+   "demand": [
+    2,
+    3,
+    1
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 96,
+   "n_optimal": 2,
+   "p_opt_random": 0.020833333333333332,
+   "ar_random": 0.6070287539936106,
+   "rules": {
+    "immediate": {
+     "dollars": 133.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 95.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 106.0,
+    "peak_kw": 200.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     2.760159591241934,
+     15.942097214445125
+    ],
+    "energy": 0.7186366023448643,
+    "nfev": 556,
+    "converged": true,
+    "approx_ratio": 0.762206565830877,
+    "p_optimal": 0.036369142936752405,
+    "gain_vs_random": 1.7457188609641154,
+    "expected": {
+     "dollars": 104.90494638338114,
+     "peak_kw": 227.05896479398677,
+     "start_stops": 4.688715711640833
+    },
+    "most_likely": {
+     "dollars": 99.0,
+     "peak_kw": 200.0,
+     "start_stops": 4.0,
+     "probability": 0.0457900965938202,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     3.7114293475842683,
+     1.1367724716692507,
+     7.595721795090127,
+     3.627168902542726
+    ],
+    "energy": 0.7088985981092896,
+    "nfev": 3772,
+    "converged": true,
+    "approx_ratio": 0.7953095578649072,
+    "p_optimal": 0.05184823674969209,
+    "gain_vs_random": 2.4887153639852206,
+    "expected": {
+     "dollars": 104.12659035947557,
+     "peak_kw": 233.62461666756667,
+     "start_stops": 4.178079631870218
+    },
+    "most_likely": {
+     "dollars": 110.0,
+     "peak_kw": 200.0,
+     "start_stops": 4.0,
+     "probability": 0.07663160816323471,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 8,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 3,
+     "miles": 68.04609885890916,
+     "kwh_needed": 122.4829779460365,
+     "hours_needed": 2,
+     "leaves_at": 9.270555555555557,
+     "returns_at": 18.876944444444444
+    },
+    {
+     "day_id": 1,
+     "miles": 82.33731429562616,
+     "kwh_needed": 148.2071657321271,
+     "hours_needed": 2,
+     "leaves_at": 8.930277777777777,
+     "returns_at": 17.226666666666667
+    },
+    {
+     "day_id": 41,
+     "miles": 81.64126551148166,
+     "kwh_needed": 146.954277920667,
+     "hours_needed": 2,
+     "leaves_at": 8.574444444444444,
+     "returns_at": 16.911944444444444
+    }
+   ],
+   "demand": [
+    2,
+    2,
+    2
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 216,
+   "n_optimal": 3,
+   "p_opt_random": 0.013888888888888888,
+   "ar_random": 0.6586620926243565,
+   "rules": {
+    "immediate": {
+     "dollars": 138.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 90.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 106.0,
+    "peak_kw": 200.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     2.7741299404866537,
+     19.529026535602146
+    ],
+    "energy": 0.6403532983218481,
+    "nfev": 1577,
+    "converged": true,
+    "approx_ratio": 0.7990364591222328,
+    "p_optimal": 0.024427608592809714,
+    "gain_vs_random": 1.7587878186822996,
+    "expected": {
+     "dollars": 102.47959255291144,
+     "peak_kw": 241.82600948460114,
+     "start_stops": 5.515871428893001
+    },
+    "most_likely": {
+     "dollars": 99.0,
+     "peak_kw": 200.0,
+     "start_stops": 6.0,
+     "probability": 0.02671922299247249,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     2.7956278704095268,
+     3.849526774703824,
+     7.8850197553844295,
+     6.617084852458054
+    ],
+    "energy": 0.6216039067761676,
+    "nfev": 4805,
+    "converged": true,
+    "approx_ratio": 0.8501711633377249,
+    "p_optimal": 0.07700511286470041,
+    "gain_vs_random": 5.54436812625843,
+    "expected": {
+     "dollars": 96.90927149675304,
+     "peak_kw": 259.4659979493045,
+     "start_stops": 4.650338271180252
+    },
+    "most_likely": {
+     "dollars": 69.0,
+     "peak_kw": 300.0,
+     "start_stops": 6.0,
+     "probability": 0.08769590214077537,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 9,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 66,
+     "miles": 55.58666233976237,
+     "kwh_needed": 100.05599221157227,
+     "hours_needed": 2,
+     "leaves_at": 7.442222222222222,
+     "returns_at": 16.02138888888889
+    },
+    {
+     "day_id": 53,
+     "miles": 73.28706523483496,
+     "kwh_needed": 131.91671742270293,
+     "hours_needed": 2,
+     "leaves_at": 9.019444444444446,
+     "returns_at": 16.747500000000002
+    },
+    {
+     "day_id": 67,
+     "miles": 47.98010568796006,
+     "kwh_needed": 86.36419023832812,
+     "hours_needed": 1,
+     "leaves_at": 7.6049999999999995,
+     "returns_at": 15.189722222222223
+    }
+   ],
+   "demand": [
+    2,
+    2,
+    1
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 144,
+   "n_optimal": 4,
+   "p_opt_random": 0.027777777777777776,
+   "ar_random": 0.6627597020776169,
+   "rules": {
+    "immediate": {
+     "dollars": 124.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 81.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 85.0,
+    "peak_kw": 200.0,
+    "start_stops": 4.0
+   },
+   "p1": {
+    "theta": [
+     2.8062929439884026,
+     15.470031645484672
+    ],
+    "energy": 0.640778920002751,
+    "nfev": 605,
+    "converged": true,
+    "approx_ratio": 0.7995180204077845,
+    "p_optimal": 0.07172776852590748,
+    "gain_vs_random": 2.5821996669326697,
+    "expected": {
+     "dollars": 86.49738989336856,
+     "peak_kw": 214.12181786585532,
+     "start_stops": 5.32770618948428
+    },
+    "most_likely": {
+     "dollars": 67.0,
+     "peak_kw": 200.0,
+     "start_stops": 5.0,
+     "probability": 0.03444427413203117,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     -0.42448524779098595,
+     2.857074442292071,
+     12.253714450287998,
+     19.24971758278108
+    ],
+    "energy": 0.6210719030646406,
+    "nfev": 5536,
+    "converged": true,
+    "approx_ratio": 0.8549541448875497,
+    "p_optimal": 0.09922330445221171,
+    "gain_vs_random": 3.5720389602796216,
+    "expected": {
+     "dollars": 78.18939517973851,
+     "peak_kw": 219.04553335419436,
+     "start_stops": 5.342226140029869
+    },
+    "most_likely": {
+     "dollars": 67.0,
+     "peak_kw": 200.0,
+     "start_stops": 5.0,
+     "probability": 0.0775599053163399,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 10,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 76,
+     "miles": 56.78677071121507,
+     "kwh_needed": 102.21618728018713,
+     "hours_needed": 2,
+     "leaves_at": 7.585277777777778,
+     "returns_at": 16.279166666666665
+    },
+    {
+     "day_id": 40,
+     "miles": 86.37468383440606,
+     "kwh_needed": 155.4744309019309,
+     "hours_needed": 2,
+     "leaves_at": 8.835277777777778,
+     "returns_at": 17.00861111111111
+    },
+    {
+     "day_id": 48,
+     "miles": 88.88614526837702,
+     "kwh_needed": 159.99506148307864,
+     "hours_needed": 2,
+     "leaves_at": 8.60388888888889,
+     "returns_at": 17.369444444444444
+    }
+   ],
+   "demand": [
+    2,
+    2,
+    2
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 216,
+   "n_optimal": 3,
+   "p_opt_random": 0.013888888888888888,
+   "ar_random": 0.6586620926243565,
+   "rules": {
+    "immediate": {
+     "dollars": 138.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 90.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 106.0,
+    "peak_kw": 200.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     2.7741434827813594,
+     19.528313212496855
+    ],
+    "energy": 0.640353302104927,
+    "nfev": 944,
+    "converged": true,
+    "approx_ratio": 0.7990364488047447,
+    "p_optimal": 0.024427226868291834,
+    "gain_vs_random": 1.7587603345170122,
+    "expected": {
+     "dollars": 102.47985827929286,
+     "peak_kw": 241.82438491741001,
+     "start_stops": 5.515883473875453
+    },
+    "most_likely": {
+     "dollars": 99.0,
+     "peak_kw": 200.0,
+     "start_stops": 6.0,
+     "probability": 0.026719212611252104,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     2.7954421726986647,
+     3.849539399828353,
+     7.894992756412319,
+     6.614104621933753
+    ],
+    "energy": 0.6216039573378433,
+    "nfev": 8846,
+    "converged": true,
+    "approx_ratio": 0.8501710254422457,
+    "p_optimal": 0.0770393015228433,
+    "gain_vs_random": 5.546829709644718,
+    "expected": {
+     "dollars": 96.90905518638172,
+     "peak_kw": 259.45879984110314,
+     "start_stops": 4.6505086471678885
+    },
+    "most_likely": {
+     "dollars": 69.0,
+     "peak_kw": 300.0,
+     "start_stops": 6.0,
+     "probability": 0.08772184959917766,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 11,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 97,
+     "miles": 152.94188735277095,
+     "kwh_needed": 275.2953972349877,
+     "hours_needed": 3,
+     "leaves_at": 8.446111111111112,
+     "returns_at": 17.244444444444447
+    },
+    {
+     "day_id": 39,
+     "miles": 99.408440167149,
+     "kwh_needed": 178.9351923008682,
+     "hours_needed": 2,
+     "leaves_at": 8.435,
+     "returns_at": 17.97611111111111
+    },
+    {
+     "day_id": 70,
+     "miles": 51.023061823178175,
+     "kwh_needed": 91.84151128172071,
+     "hours_needed": 1,
+     "leaves_at": 7.556666666666667,
+     "returns_at": 16.608611111111113
+    }
+   ],
+   "demand": [
+    3,
+    2,
+    1
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 96,
+   "n_optimal": 2,
+   "p_opt_random": 0.020833333333333332,
+   "ar_random": 0.6070287539936107,
+   "rules": {
+    "immediate": {
+     "dollars": 133.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 95.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 106.0,
+    "peak_kw": 200.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     2.760198476317209,
+     15.939711362208259
+    ],
+    "energy": 0.7186366033297407,
+    "nfev": 499,
+    "converged": true,
+    "approx_ratio": 0.7622065624829266,
+    "p_optimal": 0.03637137157103908,
+    "gain_vs_random": 1.7458258354098757,
+    "expected": {
+     "dollars": 104.90567200889102,
+     "peak_kw": 227.05559309878936,
+     "start_stops": 4.688737481009594
+    },
+    "most_likely": {
+     "dollars": 99.0,
+     "peak_kw": 200.0,
+     "start_stops": 4.0,
+     "probability": 0.04578612528079261,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     0.7268421219726767,
+     2.1167347349665437,
+     7.639598335293525,
+     9.573253559585915
+    ],
+    "energy": 0.7066929780415423,
+    "nfev": 3968,
+    "converged": true,
+    "approx_ratio": 0.8028072567533517,
+    "p_optimal": 0.03857145791816124,
+    "gain_vs_random": 1.8514299800717395,
+    "expected": {
+     "dollars": 99.74627037741335,
+     "peak_kw": 242.3033520743233,
+     "start_stops": 4.2727825441080185
+    },
+    "most_likely": {
+     "dollars": 87.0,
+     "peak_kw": 300.0,
+     "start_stops": 5.0,
+     "probability": 0.12172671832912994,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 12,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 83,
+     "miles": 23.44796463031901,
+     "kwh_needed": 42.20633633457422,
+     "hours_needed": 1,
+     "leaves_at": 7.271388888888889,
+     "returns_at": 16.173333333333336
+    },
+    {
+     "day_id": 71,
+     "miles": 47.49087716006294,
+     "kwh_needed": 85.48357888811329,
+     "hours_needed": 1,
+     "leaves_at": 7.26,
+     "returns_at": 14.005555555555556
+    },
+    {
+     "day_id": 69,
+     "miles": 49.56920336239041,
+     "kwh_needed": 89.22456605230275,
+     "hours_needed": 1,
+     "leaves_at": 7.5136111111111115,
+     "returns_at": 16.1075
+    }
+   ],
+   "demand": [
+    1,
+    1,
+    1
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 64,
+   "n_optimal": 6,
+   "p_opt_random": 0.09375,
+   "ar_random": 0.7500000000000002,
+   "rules": {
+    "immediate": {
+     "dollars": 96.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 63.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 44.0,
+    "peak_kw": 100.0,
+    "start_stops": 5.0
+   },
+   "p1": {
+    "theta": [
+     2.810473508036647,
+     12.007079125623287
+    ],
+    "energy": 0.5545338428744321,
+    "nfev": 630,
+    "converged": true,
+    "approx_ratio": 0.8547616258776936,
+    "p_optimal": 0.2611737453244544,
+    "gain_vs_random": 2.785853283460847,
+    "expected": {
+     "dollars": 50.7975684655719,
+     "peak_kw": 139.21113293426987,
+     "start_stops": 4.833940047287861
+    },
+    "most_likely": {
+     "dollars": 44.0,
+     "peak_kw": 100.0,
+     "start_stops": 5.0,
+     "probability": 0.043528957554075744,
+     "is_optimal": true
+    }
+   },
+   "p2": {
+    "theta": [
+     1.9253278323367555,
+     0.6784132924795706,
+     10.962862703717029,
+     -4.721911893256752
+    ],
+    "energy": 0.5425362006789843,
+    "nfev": 4283,
+    "converged": true,
+    "approx_ratio": 0.884446513783956,
+    "p_optimal": 0.25201961542943113,
+    "gain_vs_random": 2.6882092312472654,
+    "expected": {
+     "dollars": 41.3991134420866,
+     "peak_kw": 169.5027202861553,
+     "start_stops": 5.3215712791317
+    },
+    "most_likely": {
+     "dollars": 32.0,
+     "peak_kw": 200.0,
+     "start_stops": 6.0,
+     "probability": 0.10333669776005731,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 13,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 13,
+     "miles": 83.31903530216158,
+     "kwh_needed": 149.97426354389086,
+     "hours_needed": 2,
+     "leaves_at": 11.379166666666666,
+     "returns_at": 17.252222222222223
+    },
+    {
+     "day_id": 59,
+     "miles": 141.31322034756508,
+     "kwh_needed": 254.36379662561714,
+     "hours_needed": 3,
+     "leaves_at": 7.549444444444444,
+     "returns_at": 14.460833333333333
+    },
+    {
+     "day_id": 73,
+     "miles": 46.20494529079427,
+     "kwh_needed": 83.1689015234297,
+     "hours_needed": 1,
+     "leaves_at": 7.872222222222223,
+     "returns_at": 15.85611111111111
+    }
+   ],
+   "demand": [
+    2,
+    3,
+    1
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 96,
+   "n_optimal": 2,
+   "p_opt_random": 0.020833333333333332,
+   "ar_random": 0.6070287539936106,
+   "rules": {
+    "immediate": {
+     "dollars": 133.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 95.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 106.0,
+    "peak_kw": 200.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     2.760276042148939,
+     15.93669310884073
+    ],
+    "energy": 0.7186366091415937,
+    "nfev": 519,
+    "converged": true,
+    "approx_ratio": 0.7622065427263399,
+    "p_optimal": 0.03637567293459097,
+    "gain_vs_random": 1.7460323008603666,
+    "expected": {
+     "dollars": 104.90713579404164,
+     "peak_kw": 227.04925667203722,
+     "start_stops": 4.688758620700493
+    },
+    "most_likely": {
+     "dollars": 99.0,
+     "peak_kw": 200.0,
+     "start_stops": 4.0,
+     "probability": 0.04577956916514767,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     0.726834275952716,
+     2.116757612389468,
+     7.63840776523711,
+     9.572267098063056
+    ],
+    "energy": 0.7066929750718134,
+    "nfev": 6934,
+    "converged": true,
+    "approx_ratio": 0.8028072668485323,
+    "p_optimal": 0.03857590837774046,
+    "gain_vs_random": 1.8516436021315423,
+    "expected": {
+     "dollars": 99.7473841165808,
+     "peak_kw": 242.29994688602943,
+     "start_stops": 4.272746502780931
+    },
+    "most_likely": {
+     "dollars": 87.0,
+     "peak_kw": 300.0,
+     "start_stops": 5.0,
+     "probability": 0.12170256063369876,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 14,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 39,
+     "miles": 99.408440167149,
+     "kwh_needed": 178.9351923008682,
+     "hours_needed": 2,
+     "leaves_at": 8.435,
+     "returns_at": 17.97611111111111
+    },
+    {
+     "day_id": 44,
+     "miles": 119.67409124776854,
+     "kwh_needed": 215.4133642459834,
+     "hours_needed": 3,
+     "leaves_at": 8.9225,
+     "returns_at": 18.62388888888889
+    },
+    {
+     "day_id": 33,
+     "miles": 97.54911083382133,
+     "kwh_needed": 175.5883995008784,
+     "hours_needed": 2,
+     "leaves_at": 8.581944444444444,
+     "returns_at": 17.2775
+    }
+   ],
+   "demand": [
+    2,
+    3,
+    2
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 144,
+   "n_optimal": 2,
+   "p_opt_random": 0.013888888888888888,
+   "ar_random": 0.5923051558046963,
+   "rules": {
+    "immediate": {
+     "dollars": 147.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 104.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 120.0,
+    "peak_kw": 200.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     -0.4055226960685454,
+     19.935771929781943
+    ],
+    "energy": 0.7081686749933921,
+    "nfev": 677,
+    "converged": true,
+    "approx_ratio": 0.7488984763847845,
+    "p_optimal": 0.03383666033673982,
+    "gain_vs_random": 2.436239544245267,
+    "expected": {
+     "dollars": 120.81301488231243,
+     "peak_kw": 266.2525586575787,
+     "start_stops": 4.885617118134588
+    },
+    "most_likely": {
+     "dollars": 108.0,
+     "peak_kw": 300.0,
+     "start_stops": 4.0,
+     "probability": 0.035743578843980134,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     0.8089730699289363,
+     1.7426942624546122,
+     10.553035332162544,
+     12.923008378433234
+    ],
+    "energy": 0.689135327219223,
+    "nfev": 4664,
+    "converged": true,
+    "approx_ratio": 0.8078405722782237,
+    "p_optimal": 0.016673202682341633,
+    "gain_vs_random": 1.2004705931285977,
+    "expected": {
+     "dollars": 113.60342267526316,
+     "peak_kw": 287.31130628669007,
+     "start_stops": 4.207928833639794
+    },
+    "most_likely": {
+     "dollars": 101.0,
+     "peak_kw": 300.0,
+     "start_stops": 5.0,
+     "probability": 0.12842735708598277,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 15,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 94,
+     "miles": 143.9031581958801,
+     "kwh_needed": 259.0256847525842,
+     "hours_needed": 3,
+     "leaves_at": 8.335833333333333,
+     "returns_at": 18.366388888888892
+    },
+    {
+     "day_id": 88,
+     "miles": 24.445453869911024,
+     "kwh_needed": 44.00181696583984,
+     "hours_needed": 1,
+     "leaves_at": 7.639444444444444,
+     "returns_at": 17.616944444444446
+    },
+    {
+     "day_id": 8,
+     "miles": 40.56363084801107,
+     "kwh_needed": 73.01453552641993,
+     "hours_needed": 1,
+     "leaves_at": 8.950833333333332,
+     "returns_at": 17.969166666666666
+    }
+   ],
+   "demand": [
+    3,
+    1,
+    1
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 64,
+   "n_optimal": 4,
+   "p_opt_random": 0.0625,
+   "ar_random": 0.6636600032504469,
+   "rules": {
+    "immediate": {
+     "dollars": 119.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 86.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 85.0,
+    "peak_kw": 200.0,
+    "start_stops": 4.0
+   },
+   "p1": {
+    "theta": [
+     -0.3808641521925579,
+     12.489995034964787
+    ],
+    "energy": 0.7037627199231876,
+    "nfev": 389,
+    "converged": true,
+    "approx_ratio": 0.8064633201463188,
+    "p_optimal": 0.14719677664823605,
+    "gain_vs_random": 2.355148426371777,
+    "expected": {
+     "dollars": 88.12387852185714,
+     "peak_kw": 209.76340298901647,
+     "start_stops": 4.4147142680685505
+    },
+    "most_likely": {
+     "dollars": 85.0,
+     "peak_kw": 200.0,
+     "start_stops": 4.0,
+     "probability": 0.038722232524075015,
+     "is_optimal": true
+    }
+   },
+   "p2": {
+    "theta": [
+     -0.5313228642741769,
+     -0.3090251824990467,
+     9.572846518033279,
+     17.325549407534858
+    ],
+    "energy": 0.6852048076609696,
+    "nfev": 3975,
+    "converged": true,
+    "approx_ratio": 0.8716557910625943,
+    "p_optimal": 0.23493334758199402,
+    "gain_vs_random": 3.7589335613119044,
+    "expected": {
+     "dollars": 81.56527096791625,
+     "peak_kw": 210.07332715132887,
+     "start_stops": 4.4536974982207145
+    },
+    "most_likely": {
+     "dollars": 67.0,
+     "peak_kw": 200.0,
+     "start_stops": 5.0,
+     "probability": 0.09143260568663757,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 16,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 25,
+     "miles": 147.67691904156231,
+     "kwh_needed": 265.81845427481215,
+     "hours_needed": 3,
+     "leaves_at": 8.47888888888889,
+     "returns_at": 17.149166666666666
+    },
+    {
+     "day_id": 58,
+     "miles": 39.118721451115455,
+     "kwh_needed": 70.41369861200782,
+     "hours_needed": 1,
+     "leaves_at": 9.302777777777779,
+     "returns_at": 14.085555555555556
+    },
+    {
+     "day_id": 67,
+     "miles": 47.98010568796006,
+     "kwh_needed": 86.36419023832812,
+     "hours_needed": 1,
+     "leaves_at": 7.6049999999999995,
+     "returns_at": 15.189722222222223
+    }
+   ],
+   "demand": [
+    3,
+    1,
+    1
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 64,
+   "n_optimal": 4,
+   "p_opt_random": 0.0625,
+   "ar_random": 0.6636600032504469,
+   "rules": {
+    "immediate": {
+     "dollars": 119.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 86.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 85.0,
+    "peak_kw": 200.0,
+    "start_stops": 4.0
+   },
+   "p1": {
+    "theta": [
+     2.7606675008711075,
+     12.4861750052956
+    ],
+    "energy": 0.7037627178687207,
+    "nfev": 344,
+    "converged": true,
+    "approx_ratio": 0.8064633273634979,
+    "p_optimal": 0.14719655873604542,
+    "gain_vs_random": 2.355144939776727,
+    "expected": {
+     "dollars": 88.12341424730927,
+     "peak_kw": 209.7661349889823,
+     "start_stops": 4.414682837005264
+    },
+    "most_likely": {
+     "dollars": 85.0,
+     "peak_kw": 200.0,
+     "start_stops": 4.0,
+     "probability": 0.038720288953505634,
+     "is_optimal": true
+    }
+   },
+   "p2": {
+    "theta": [
+     1.6595158846033855,
+     0.7905584802592903,
+     19.687316847577303,
+     -17.37685893200993
+    ],
+    "energy": 0.6990191948468627,
+    "nfev": 5464,
+    "converged": true,
+    "approx_ratio": 0.8231269467552516,
+    "p_optimal": 0.12511058389768526,
+    "gain_vs_random": 2.001769342362964,
+    "expected": {
+     "dollars": 74.96364543085548,
+     "peak_kw": 243.153481299247,
+     "start_stops": 4.656560869252881
+    },
+    "most_likely": {
+     "dollars": 62.0,
+     "peak_kw": 300.0,
+     "start_stops": 5.0,
+     "probability": 0.21296658020439616,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 17,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 51,
+     "miles": 93.5863557128588,
+     "kwh_needed": 168.45544028314586,
+     "hours_needed": 2,
+     "leaves_at": 8.707777777777777,
+     "returns_at": 16.987222222222222
+    },
+    {
+     "day_id": 60,
+     "miles": 123.4792523553342,
+     "kwh_needed": 222.26265423960155,
+     "hours_needed": 3,
+     "leaves_at": 7.166388888888889,
+     "returns_at": 14.362222222222222
+    },
+    {
+     "day_id": 36,
+     "miles": 73.92421054061936,
+     "kwh_needed": 133.06357897311486,
+     "hours_needed": 2,
+     "leaves_at": 8.61888888888889,
+     "returns_at": 15.441666666666666
+    }
+   ],
+   "demand": [
+    2,
+    3,
+    2
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 144,
+   "n_optimal": 2,
+   "p_opt_random": 0.013888888888888888,
+   "ar_random": 0.5923051558046963,
+   "rules": {
+    "immediate": {
+     "dollars": 147.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 104.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 120.0,
+    "peak_kw": 200.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     2.7360372903564056,
+     19.94020043824713
+    ],
+    "energy": 0.708168663896288,
+    "nfev": 795,
+    "converged": true,
+    "approx_ratio": 0.7488985107500776,
+    "p_optimal": 0.033841339823458674,
+    "gain_vs_random": 2.436576467289025,
+    "expected": {
+     "dollars": 120.81275809611789,
+     "peak_kw": 266.2572135129484,
+     "start_stops": 4.885524674404542
+    },
+    "most_likely": {
+     "dollars": 108.0,
+     "peak_kw": 300.0,
+     "start_stops": 4.0,
+     "probability": 0.03575293368560744,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     2.865059443504411,
+     3.813657814838271,
+     9.31477168999901,
+     8.0678425343221
+    ],
+    "energy": 0.6950104301551014,
+    "nfev": 7081,
+    "converged": true,
+    "approx_ratio": 0.7896466694115751,
+    "p_optimal": 0.06179770195309503,
+    "gain_vs_random": 4.449434540622843,
+    "expected": {
+     "dollars": 116.5556736487085,
+     "peak_kw": 278.99419322242653,
+     "start_stops": 4.361525729638032
+    },
+    "most_likely": {
+     "dollars": 90.0,
+     "peak_kw": 300.0,
+     "start_stops": 5.0,
+     "probability": 0.07693579497089424,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 18,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 26,
+     "miles": 155.95439658023471,
+     "kwh_needed": 280.71791384442247,
+     "hours_needed": 3,
+     "leaves_at": 7.9655555555555555,
+     "returns_at": 16.361111111111114
+    },
+    {
+     "day_id": 89,
+     "miles": 20.8267209106388,
+     "kwh_needed": 37.48809763914984,
+     "hours_needed": 1,
+     "leaves_at": 7.5008333333333335,
+     "returns_at": 15.167499999999999
+    },
+    {
+     "day_id": 34,
+     "miles": 83.79694349668077,
+     "kwh_needed": 150.8344982940254,
+     "hours_needed": 2,
+     "leaves_at": 8.643888888888888,
+     "returns_at": 17.698055555555555
+    }
+   ],
+   "demand": [
+    3,
+    1,
+    2
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 96,
+   "n_optimal": 2,
+   "p_opt_random": 0.020833333333333332,
+   "ar_random": 0.6070287539936107,
+   "rules": {
+    "immediate": {
+     "dollars": 133.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 95.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 106.0,
+    "peak_kw": 200.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     2.760175961881162,
+     15.948598183633479
+    ],
+    "energy": 0.7186366099916722,
+    "nfev": 487,
+    "converged": true,
+    "approx_ratio": 0.7622065398366161,
+    "p_optimal": 0.03636947432611676,
+    "gain_vs_random": 1.7457347676536044,
+    "expected": {
+     "dollars": 104.90532116196854,
+     "peak_kw": 227.05921601585464,
+     "start_stops": 4.688628768863377
+    },
+    "most_likely": {
+     "dollars": 99.0,
+     "peak_kw": 200.0,
+     "start_stops": 4.0,
+     "probability": 0.04579432504839495,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     2.2460481961308174,
+     2.617107457654255,
+     8.120460666149365,
+     -8.001622576690158
+    ],
+    "energy": 0.7059485213941701,
+    "nfev": 3647,
+    "converged": true,
+    "approx_ratio": 0.8053379336632688,
+    "p_optimal": 0.01660702300052656,
+    "gain_vs_random": 0.7971371040252749,
+    "expected": {
+     "dollars": 104.02485982239604,
+     "peak_kw": 221.9479880722253,
+     "start_stops": 4.3666203892398485
+    },
+    "most_likely": {
+     "dollars": 88.0,
+     "peak_kw": 200.0,
+     "start_stops": 4.0,
+     "probability": 0.14379745221979104,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 19,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 62,
+     "miles": 42.05475336457032,
+     "kwh_needed": 75.69855605622658,
+     "hours_needed": 1,
+     "leaves_at": 9.398055555555555,
+     "returns_at": 15.324444444444444
+    },
+    {
+     "day_id": 9,
+     "miles": 38.138893010106344,
+     "kwh_needed": 68.65000741819142,
+     "hours_needed": 1,
+     "leaves_at": 9.163611111111111,
+     "returns_at": 19.104166666666668
+    },
+    {
+     "day_id": 5,
+     "miles": 37.761741174873045,
+     "kwh_needed": 67.97113411477149,
+     "hours_needed": 1,
+     "leaves_at": 8.536388888888888,
+     "returns_at": 16.830833333333334
+    }
+   ],
+   "demand": [
+    1,
+    1,
+    1
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 64,
+   "n_optimal": 6,
+   "p_opt_random": 0.09375,
+   "ar_random": 0.7500000000000002,
+   "rules": {
+    "immediate": {
+     "dollars": 96.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 63.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 44.0,
+    "peak_kw": 100.0,
+    "start_stops": 5.0
+   },
+   "p1": {
+    "theta": [
+     2.8104280845877474,
+     11.99062377668593
+    ],
+    "energy": 0.5545338273999737,
+    "nfev": 561,
+    "converged": true,
+    "approx_ratio": 0.8547616641650133,
+    "p_optimal": 0.26095635311508286,
+    "gain_vs_random": 2.7835344332275507,
+    "expected": {
+     "dollars": 50.79868536751356,
+     "peak_kw": 139.21652542762678,
+     "start_stops": 4.833891983253606
+    },
+    "most_likely": {
+     "dollars": 44.0,
+     "peak_kw": 100.0,
+     "start_stops": 5.0,
+     "probability": 0.04349272551918047,
+     "is_optimal": true
+    }
+   },
+   "p2": {
+    "theta": [
+     1.9252925535340526,
+     0.6783137480662833,
+     10.949548846536901,
+     -4.712456654909842
+    ],
+    "energy": 0.5425364275955903,
+    "nfev": 5514,
+    "converged": true,
+    "approx_ratio": 0.8844459523408073,
+    "p_optimal": 0.2518027958153013,
+    "gain_vs_random": 2.6858964886965473,
+    "expected": {
+     "dollars": 41.3888068848057,
+     "peak_kw": 169.53720200343855,
+     "start_stops": 5.322472483528173
+    },
+    "most_likely": {
+     "dollars": 32.0,
+     "peak_kw": 200.0,
+     "start_stops": 6.0,
+     "probability": 0.10344247816189545,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 20,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 34,
+     "miles": 83.79694349668077,
+     "kwh_needed": 150.8344982940254,
+     "hours_needed": 2,
+     "leaves_at": 8.643888888888888,
+     "returns_at": 17.698055555555555
+    },
+    {
+     "day_id": 79,
+     "miles": 23.30161476931792,
+     "kwh_needed": 41.94290658477225,
+     "hours_needed": 1,
+     "leaves_at": 7.6066666666666665,
+     "returns_at": 15.938333333333334
+    },
+    {
+     "day_id": 41,
+     "miles": 81.64126551148166,
+     "kwh_needed": 146.954277920667,
+     "hours_needed": 2,
+     "leaves_at": 8.574444444444444,
+     "returns_at": 16.911944444444444
+    }
+   ],
+   "demand": [
+    2,
+    1,
+    2
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 144,
+   "n_optimal": 4,
+   "p_opt_random": 0.027777777777777776,
+   "ar_random": 0.6627597020776169,
+   "rules": {
+    "immediate": {
+     "dollars": 124.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 81.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 85.0,
+    "peak_kw": 200.0,
+    "start_stops": 4.0
+   },
+   "p1": {
+    "theta": [
+     2.8063338374457607,
+     15.452686651870227
+    ],
+    "energy": 0.6407789213929735,
+    "nfev": 708,
+    "converged": true,
+    "approx_ratio": 0.7995180164970684,
+    "p_optimal": 0.07167928252395199,
+    "gain_vs_random": 2.580454170862272,
+    "expected": {
+     "dollars": 86.49791916187316,
+     "peak_kw": 214.11196498461808,
+     "start_stops": 5.328104461641491
+    },
+    "most_likely": {
+     "dollars": 67.0,
+     "peak_kw": 200.0,
+     "start_stops": 5.0,
+     "probability": 0.03442159303007532,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     0.9057663062383313,
+     1.5585737469728222,
+     9.39633674311537,
+     13.0653615449452
+    ],
+    "energy": 0.6321544201419187,
+    "nfev": 4404,
+    "converged": true,
+    "approx_ratio": 0.8237788636070527,
+    "p_optimal": 0.10463284624264163,
+    "gain_vs_random": 3.766782464735099,
+    "expected": {
+     "dollars": 84.58324451210746,
+     "peak_kw": 223.0672526451392,
+     "start_stops": 4.760487780050458
+    },
+    "most_likely": {
+     "dollars": 85.0,
+     "peak_kw": 200.0,
+     "start_stops": 4.0,
+     "probability": 0.04021455787971203,
+     "is_optimal": true
+    }
+   }
+  },
+  {
+   "night": 21,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 8,
+     "miles": 40.56363084801107,
+     "kwh_needed": 73.01453552641993,
+     "hours_needed": 1,
+     "leaves_at": 8.950833333333332,
+     "returns_at": 17.969166666666666
+    },
+    {
+     "day_id": 87,
+     "miles": 24.257915256204427,
+     "kwh_needed": 43.66424746116797,
+     "hours_needed": 1,
+     "leaves_at": 7.888055555555555,
+     "returns_at": 17.121111111111112
+    },
+    {
+     "day_id": 6,
+     "miles": 37.30643386700738,
+     "kwh_needed": 67.15158096061329,
+     "hours_needed": 1,
+     "leaves_at": 8.950833333333332,
+     "returns_at": 17.06972222222222
+    }
+   ],
+   "demand": [
+    1,
+    1,
+    1
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 64,
+   "n_optimal": 6,
+   "p_opt_random": 0.09375,
+   "ar_random": 0.7500000000000002,
+   "rules": {
+    "immediate": {
+     "dollars": 96.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 63.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 44.0,
+    "peak_kw": 100.0,
+    "start_stops": 5.0
+   },
+   "p1": {
+    "theta": [
+     2.810351285516528,
+     11.990262740409445
+    ],
+    "energy": 0.554533827727353,
+    "nfev": 805,
+    "converged": true,
+    "approx_ratio": 0.8547616633550026,
+    "p_optimal": 0.26095526526817797,
+    "gain_vs_random": 2.783522829527232,
+    "expected": {
+     "dollars": 50.797405873996084,
+     "peak_kw": 139.22148759899807,
+     "start_stops": 4.833955821083782
+    },
+    "most_likely": {
+     "dollars": 44.0,
+     "peak_kw": 100.0,
+     "start_stops": 5.0,
+     "probability": 0.043492544211363,
+     "is_optimal": true
+    }
+   },
+   "p2": {
+    "theta": [
+     -0.5001968096832845,
+     2.888713788916832,
+     8.46831996769676,
+     16.23079749282224
+    ],
+    "energy": 0.5386659417511543,
+    "nfev": 8530,
+    "converged": true,
+    "approx_ratio": 0.8940224121620921,
+    "p_optimal": 0.32962970718672735,
+    "gain_vs_random": 3.5160502099917585,
+    "expected": {
+     "dollars": 43.04835707739707,
+     "peak_kw": 156.1711327769326,
+     "start_stops": 5.258641319514705
+    },
+    "most_likely": {
+     "dollars": 32.0,
+     "peak_kw": 200.0,
+     "start_stops": 6.0,
+     "probability": 0.0929560100429663,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 22,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 58,
+     "miles": 39.118721451115455,
+     "kwh_needed": 70.41369861200782,
+     "hours_needed": 1,
+     "leaves_at": 9.302777777777779,
+     "returns_at": 14.085555555555556
+    },
+    {
+     "day_id": 87,
+     "miles": 24.257915256204427,
+     "kwh_needed": 43.66424746116797,
+     "hours_needed": 1,
+     "leaves_at": 7.888055555555555,
+     "returns_at": 17.121111111111112
+    },
+    {
+     "day_id": 15,
+     "miles": 81.05014116884735,
+     "kwh_needed": 145.89025410392523,
+     "hours_needed": 2,
+     "leaves_at": 9.2925,
+     "returns_at": 17.15833333333333
+    }
+   ],
+   "demand": [
+    1,
+    1,
+    2
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 96,
+   "n_optimal": 4,
+   "p_opt_random": 0.041666666666666664,
+   "ar_random": 0.6895576820128482,
+   "rules": {
+    "immediate": {
+     "dollars": 110.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 72.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 53.0,
+    "peak_kw": 200.0,
+    "start_stops": 5.0
+   },
+   "p1": {
+    "theta": [
+     2.818562785534768,
+     12.792227830881433
+    ],
+    "energy": 0.6153938407073076,
+    "nfev": 1152,
+    "converged": true,
+    "approx_ratio": 0.819032536338046,
+    "p_optimal": 0.10349660377988956,
+    "gain_vs_random": 2.4839184907173495,
+    "expected": {
+     "dollars": 69.36055536254707,
+     "peak_kw": 179.10693834441452,
+     "start_stops": 5.059473638492463
+    },
+    "most_likely": {
+     "dollars": 53.0,
+     "peak_kw": 200.0,
+     "start_stops": 5.0,
+     "probability": 0.0323354848077849,
+     "is_optimal": true
+    }
+   },
+   "p2": {
+    "theta": [
+     2.8419989406519295,
+     0.07143260585393878,
+     12.488374508404233,
+     -1.6108608593707026
+    ],
+    "energy": 0.6143960683687604,
+    "nfev": 10831,
+    "converged": false,
+    "approx_ratio": 0.8217666622255935,
+    "p_optimal": 0.10848664785790745,
+    "gain_vs_random": 2.603679548589779,
+    "expected": {
+     "dollars": 68.63911002642743,
+     "peak_kw": 179.9189752061988,
+     "start_stops": 5.100082481150988
+    },
+    "most_likely": {
+     "dollars": 53.0,
+     "peak_kw": 200.0,
+     "start_stops": 5.0,
+     "probability": 0.031700814685943914,
+     "is_optimal": true
+    }
+   }
+  },
+  {
+   "night": 23,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 71,
+     "miles": 47.49087716006294,
+     "kwh_needed": 85.48357888811329,
+     "hours_needed": 1,
+     "leaves_at": 7.26,
+     "returns_at": 14.005555555555556
+    },
+    {
+     "day_id": 79,
+     "miles": 23.30161476931792,
+     "kwh_needed": 41.94290658477225,
+     "hours_needed": 1,
+     "leaves_at": 7.6066666666666665,
+     "returns_at": 15.938333333333334
+    },
+    {
+     "day_id": 23,
+     "miles": 141.04327187500581,
+     "kwh_needed": 253.87788937501048,
+     "hours_needed": 3,
+     "leaves_at": 8.626111111111111,
+     "returns_at": 16.89527777777778
+    }
+   ],
+   "demand": [
+    1,
+    1,
+    3
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 64,
+   "n_optimal": 4,
+   "p_opt_random": 0.0625,
+   "ar_random": 0.6636600032504474,
+   "rules": {
+    "immediate": {
+     "dollars": 119.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 86.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 85.0,
+    "peak_kw": 200.0,
+    "start_stops": 4.0
+   },
+   "p1": {
+    "theta": [
+     2.7607022712021085,
+     12.48791337903893
+    ],
+    "energy": 0.7037627179427617,
+    "nfev": 363,
+    "converged": true,
+    "approx_ratio": 0.8064633271033977,
+    "p_optimal": 0.14719580508301494,
+    "gain_vs_random": 2.355132881328239,
+    "expected": {
+     "dollars": 88.12373043741609,
+     "peak_kw": 209.76451492474934,
+     "start_stops": 4.414698391265335
+    },
+    "most_likely": {
+     "dollars": 85.0,
+     "peak_kw": 200.0,
+     "start_stops": 4.0,
+     "probability": 0.03872104492954083,
+     "is_optimal": true
+    }
+   },
+   "p2": {
+    "theta": [
+     1.6594996811896028,
+     0.7906103812481121,
+     19.687102681053293,
+     -17.381402872002756
+    ],
+    "energy": 0.6990191970901166,
+    "nfev": 5932,
+    "converged": true,
+    "approx_ratio": 0.8231269388748789,
+    "p_optimal": 0.12512006737611103,
+    "gain_vs_random": 2.0019210780177765,
+    "expected": {
+     "dollars": 74.96335381030437,
+     "peak_kw": 243.1572855092884,
+     "start_stops": 4.65653632280897
+    },
+    "most_likely": {
+     "dollars": 62.0,
+     "peak_kw": 300.0,
+     "start_stops": 5.0,
+     "probability": 0.2129709507577147,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 24,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 100,
+     "miles": 126.48912467462928,
+     "kwh_needed": 227.68042441433272,
+     "hours_needed": 3,
+     "leaves_at": 8.475277777777778,
+     "returns_at": 17.21722222222222
+    },
+    {
+     "day_id": 42,
+     "miles": 97.93472425963877,
+     "kwh_needed": 176.2825036673498,
+     "hours_needed": 2,
+     "leaves_at": 8.706388888888888,
+     "returns_at": 18.575
+    },
+    {
+     "day_id": 57,
+     "miles": 124.54764908768664,
+     "kwh_needed": 224.18576835783594,
+     "hours_needed": 3,
+     "leaves_at": 9.462777777777777,
+     "returns_at": 15.819444444444445
+    }
+   ],
+   "demand": [
+    3,
+    2,
+    3
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 96,
+   "n_optimal": 2,
+   "p_opt_random": 0.020833333333333332,
+   "ar_random": 0.5752069322296945,
+   "rules": {
+    "immediate": {
+     "dollars": 156.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 118.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 129.0,
+    "peak_kw": 300.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     2.6205938465837035,
+     20.319624805725997
+    ],
+    "energy": 0.7450331674795718,
+    "nfev": 400,
+    "converged": true,
+    "approx_ratio": 0.7665586750368347,
+    "p_optimal": 0.07381180459019565,
+    "gain_vs_random": 3.5429666203293912,
+    "expected": {
+     "dollars": 136.63276397731244,
+     "peak_kw": 293.27215370622696,
+     "start_stops": 4.195490528361228
+    },
+    "most_likely": {
+     "dollars": 122.0,
+     "peak_kw": 300.0,
+     "start_stops": 4.0,
+     "probability": 0.07338131340476986,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     0.7982475685847886,
+     1.934238270885157,
+     8.397122487796283,
+     11.107093385270236
+    ],
+    "energy": 0.7297457073102254,
+    "nfev": 6818,
+    "converged": true,
+    "approx_ratio": 0.8183209237737062,
+    "p_optimal": 0.10011095232805232,
+    "gain_vs_random": 4.805325711746512,
+    "expected": {
+     "dollars": 132.01928424313797,
+     "peak_kw": 296.63020984431614,
+     "start_stops": 3.7163086505720173
+    },
+    "most_likely": {
+     "dollars": 133.0,
+     "peak_kw": 300.0,
+     "start_stops": 4.0,
+     "probability": 0.18088546530584995,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 25,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 63,
+     "miles": 49.676931267131074,
+     "kwh_needed": 89.41847628083593,
+     "hours_needed": 1,
+     "leaves_at": 9.387777777777778,
+     "returns_at": 17.35611111111111
+    },
+    {
+     "day_id": 9,
+     "miles": 38.138893010106344,
+     "kwh_needed": 68.65000741819142,
+     "hours_needed": 1,
+     "leaves_at": 9.163611111111111,
+     "returns_at": 19.104166666666668
+    },
+    {
+     "day_id": 59,
+     "miles": 141.31322034756508,
+     "kwh_needed": 254.36379662561714,
+     "hours_needed": 3,
+     "leaves_at": 7.549444444444444,
+     "returns_at": 14.460833333333333
+    }
+   ],
+   "demand": [
+    1,
+    1,
+    3
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 64,
+   "n_optimal": 4,
+   "p_opt_random": 0.0625,
+   "ar_random": 0.6636600032504474,
+   "rules": {
+    "immediate": {
+     "dollars": 119.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 86.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 85.0,
+    "peak_kw": 200.0,
+    "start_stops": 4.0
+   },
+   "p1": {
+    "theta": [
+     2.7606751041109296,
+     12.483561649429262
+    ],
+    "energy": 0.7037627206558359,
+    "nfev": 342,
+    "converged": true,
+    "approx_ratio": 0.8064633175725837,
+    "p_optimal": 0.14719038160586811,
+    "gain_vs_random": 2.35504610569389,
+    "expected": {
+     "dollars": 88.12383671591688,
+     "peak_kw": 209.76535332196187,
+     "start_stops": 4.414670173696836
+    },
+    "most_likely": {
+     "dollars": 85.0,
+     "peak_kw": 200.0,
+     "start_stops": 4.0,
+     "probability": 0.03871804890958366,
+     "is_optimal": true
+    }
+   },
+   "p2": {
+    "theta": [
+     1.659461437841907,
+     0.7905821553478756,
+     19.68680106889411,
+     -17.37890969239466
+    ],
+    "energy": 0.6990191953478317,
+    "nfev": 5199,
+    "converged": true,
+    "approx_ratio": 0.8231269449953872,
+    "p_optimal": 0.12511574587439026,
+    "gain_vs_random": 2.001851933990244,
+    "expected": {
+     "dollars": 74.96318605152493,
+     "peak_kw": 243.15726798269827,
+     "start_stops": 4.6565424677467675
+    },
+    "most_likely": {
+     "dollars": 62.0,
+     "peak_kw": 300.0,
+     "start_stops": 5.0,
+     "probability": 0.21298068438765097,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 26,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 90,
+     "miles": 129.07806802044524,
+     "kwh_needed": 232.34052243680145,
+     "hours_needed": 3,
+     "leaves_at": 8.359722222222222,
+     "returns_at": 16.547777777777778
+    },
+    {
+     "day_id": 68,
+     "miles": 49.7303485416721,
+     "kwh_needed": 89.51462737500978,
+     "hours_needed": 1,
+     "leaves_at": 7.655,
+     "returns_at": 16.92388888888889
+    },
+    {
+     "day_id": 89,
+     "miles": 20.8267209106388,
+     "kwh_needed": 37.48809763914984,
+     "hours_needed": 1,
+     "leaves_at": 7.5008333333333335,
+     "returns_at": 15.167499999999999
+    }
+   ],
+   "demand": [
+    3,
+    1,
+    1
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 64,
+   "n_optimal": 4,
+   "p_opt_random": 0.0625,
+   "ar_random": 0.6636600032504469,
+   "rules": {
+    "immediate": {
+     "dollars": 119.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 86.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 85.0,
+    "peak_kw": 200.0,
+    "start_stops": 4.0
+   },
+   "p1": {
+    "theta": [
+     2.760702563335642,
+     12.483243844917554
+    ],
+    "energy": 0.7037627216280178,
+    "nfev": 329,
+    "converged": true,
+    "approx_ratio": 0.806463314157386,
+    "p_optimal": 0.1471863927178282,
+    "gain_vs_random": 2.3549822834852514,
+    "expected": {
+     "dollars": 88.12428578827759,
+     "peak_kw": 209.76383275778994,
+     "start_stops": 4.414673381870646
+    },
+    "most_likely": {
+     "dollars": 85.0,
+     "peak_kw": 200.0,
+     "start_stops": 4.0,
+     "probability": 0.03871728777606542,
+     "is_optimal": true
+    }
+   },
+   "p2": {
+    "theta": [
+     2.7476034968667227,
+     0.13553421161442308,
+     11.07282075729061,
+     13.164720058726658
+    ],
+    "energy": 0.7011514540584838,
+    "nfev": 3514,
+    "converged": true,
+    "approx_ratio": 0.8156364896027748,
+    "p_optimal": 0.1470604353714155,
+    "gain_vs_random": 2.352966965942648,
+    "expected": {
+     "dollars": 85.94303015010308,
+     "peak_kw": 214.65703149103643,
+     "start_stops": 4.423389974892651
+    },
+    "most_likely": {
+     "dollars": 90.0,
+     "peak_kw": 200.0,
+     "start_stops": 4.0,
+     "probability": 0.047228975393610505,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 27,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 38,
+     "miles": 89.37107692441585,
+     "kwh_needed": 160.86793846394852,
+     "hours_needed": 2,
+     "leaves_at": 8.965833333333332,
+     "returns_at": 18.285555555555558
+    },
+    {
+     "day_id": 93,
+     "miles": 153.45690385843125,
+     "kwh_needed": 276.22242694517627,
+     "hours_needed": 3,
+     "leaves_at": 8.381944444444445,
+     "returns_at": 17.685277777777777
+    },
+    {
+     "day_id": 5,
+     "miles": 37.761741174873045,
+     "kwh_needed": 67.97113411477149,
+     "hours_needed": 1,
+     "leaves_at": 8.536388888888888,
+     "returns_at": 16.830833333333334
+    }
+   ],
+   "demand": [
+    2,
+    3,
+    1
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 96,
+   "n_optimal": 2,
+   "p_opt_random": 0.020833333333333332,
+   "ar_random": 0.6070287539936106,
+   "rules": {
+    "immediate": {
+     "dollars": 133.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 95.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 106.0,
+    "peak_kw": 200.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     2.760189344036555,
+     15.93633219911115
+    ],
+    "energy": 0.7186366089738039,
+    "nfev": 473,
+    "converged": true,
+    "approx_ratio": 0.762206543296718,
+    "p_optimal": 0.03637115793411182,
+    "gain_vs_random": 1.7458155808373672,
+    "expected": {
+     "dollars": 104.90546710841329,
+     "peak_kw": 227.05550863116014,
+     "start_stops": 4.688782928471455
+    },
+    "most_likely": {
+     "dollars": 99.0,
+     "peak_kw": 200.0,
+     "start_stops": 4.0,
+     "probability": 0.04578395213556344,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     0.7268701302108181,
+     2.116731703474296,
+     7.637386421720556,
+     9.571486625854979
+    ],
+    "energy": 0.7066929735478706,
+    "nfev": 6710,
+    "converged": true,
+    "approx_ratio": 0.8028072720289638,
+    "p_optimal": 0.038584162105761315,
+    "gain_vs_random": 1.8520397810765432,
+    "expected": {
+     "dollars": 99.74850741149221,
+     "peak_kw": 242.29895088932858,
+     "start_stops": 4.272660368661937
+    },
+    "most_likely": {
+     "dollars": 87.0,
+     "peak_kw": 300.0,
+     "start_stops": 5.0,
+     "probability": 0.12168117122523249,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 28,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 64,
+     "miles": 194.40743321011286,
+     "kwh_needed": 349.9333797782032,
+     "hours_needed": 4,
+     "leaves_at": 7.612777777777778,
+     "returns_at": 16.241666666666667
+    },
+    {
+     "day_id": 51,
+     "miles": 93.5863557128588,
+     "kwh_needed": 168.45544028314586,
+     "hours_needed": 2,
+     "leaves_at": 8.707777777777777,
+     "returns_at": 16.987222222222222
+    },
+    {
+     "day_id": 77,
+     "miles": 46.86982776810004,
+     "kwh_needed": 84.36568998258007,
+     "hours_needed": 1,
+     "leaves_at": 7.386388888888889,
+     "returns_at": 16.249166666666667
+    }
+   ],
+   "demand": [
+    4,
+    2,
+    1
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 24,
+   "n_optimal": 2,
+   "p_opt_random": 0.08333333333333333,
+   "ar_random": 0.5273922571219861,
+   "rules": {
+    "immediate": {
+     "dollars": 154.0,
+     "peak_kw": 300.0,
+     "start_stops": 2.0
+    },
+    "delayed": {
+     "dollars": 127.0,
+     "peak_kw": 300.0,
+     "start_stops": 2.0
+    }
+   },
+   "best": {
+    "dollars": 120.0,
+    "peak_kw": 200.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     2.745146592404849,
+     19.973222527213785
+    ],
+    "energy": 0.8019330838730647,
+    "nfev": 333,
+    "converged": true,
+    "approx_ratio": 0.7103277390955651,
+    "p_optimal": 0.19939457500512986,
+    "gain_vs_random": 2.3927349000615585,
+    "expected": {
+     "dollars": 128.39049166702324,
+     "peak_kw": 235.20590064842594,
+     "start_stops": 3.2280622155734755
+    },
+    "most_likely": {
+     "dollars": 120.0,
+     "peak_kw": 200.0,
+     "start_stops": 3.0,
+     "probability": 0.13244238672671935,
+     "is_optimal": true
+    }
+   },
+   "p2": {
+    "theta": [
+     -0.5262035521472078,
+     2.7576354268386996,
+     14.638867749286721,
+     21.34478861733127
+    ],
+    "energy": 0.7866711010185774,
+    "nfev": 820,
+    "converged": true,
+    "approx_ratio": 0.8000713197958009,
+    "p_optimal": 0.3133798236420677,
+    "gain_vs_random": 3.7605578837048124,
+    "expected": {
+     "dollars": 121.33380344349875,
+     "peak_kw": 238.45678486168617,
+     "start_stops": 3.361883322538662
+    },
+    "most_likely": {
+     "dollars": 120.0,
+     "peak_kw": 200.0,
+     "start_stops": 3.0,
+     "probability": 0.207993270695965,
+     "is_optimal": true
+    }
+   }
+  },
+  {
+   "night": 29,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 48,
+     "miles": 88.88614526837702,
+     "kwh_needed": 159.99506148307864,
+     "hours_needed": 2,
+     "leaves_at": 8.60388888888889,
+     "returns_at": 17.369444444444444
+    },
+    {
+     "day_id": 96,
+     "miles": 156.32188399621856,
+     "kwh_needed": 281.37939119319344,
+     "hours_needed": 3,
+     "leaves_at": 8.464722222222221,
+     "returns_at": 17.4425
+    },
+    {
+     "day_id": 45,
+     "miles": 94.76098153359266,
+     "kwh_needed": 170.5697667604668,
+     "hours_needed": 2,
+     "leaves_at": 8.686944444444444,
+     "returns_at": 16.97472222222222
+    }
+   ],
+   "demand": [
+    2,
+    3,
+    2
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 144,
+   "n_optimal": 2,
+   "p_opt_random": 0.013888888888888888,
+   "ar_random": 0.5923051558046963,
+   "rules": {
+    "immediate": {
+     "dollars": 147.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 104.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 120.0,
+    "peak_kw": 200.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     2.7360399225753036,
+     19.939958655748303
+    ],
+    "energy": 0.7081686643445861,
+    "nfev": 764,
+    "converged": true,
+    "approx_ratio": 0.7488985093617966,
+    "p_optimal": 0.033841109713309156,
+    "gain_vs_random": 2.4365598993582593,
+    "expected": {
+     "dollars": 120.81279151524582,
+     "peak_kw": 266.2568902437737,
+     "start_stops": 4.885529150252982
+    },
+    "most_likely": {
+     "dollars": 108.0,
+     "peak_kw": 300.0,
+     "start_stops": 4.0,
+     "probability": 0.03575236446602485,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     0.8088870817003301,
+     1.7427311004459343,
+     10.551597982022615,
+     12.920409241578078
+    ],
+    "energy": 0.6891353377294636,
+    "nfev": 4923,
+    "converged": true,
+    "approx_ratio": 0.8078405397303181,
+    "p_optimal": 0.016676045973096014,
+    "gain_vs_random": 1.200675310062913,
+    "expected": {
+     "dollars": 113.60335443168373,
+     "peak_kw": 287.3126369860089,
+     "start_stops": 4.207849436559958
+    },
+    "most_likely": {
+     "dollars": 101.0,
+     "peak_kw": 300.0,
+     "start_stops": 5.0,
+     "probability": 0.12842549024121727,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 30,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 95,
+     "miles": 123.01393677288223,
+     "kwh_needed": 221.42508619118803,
+     "hours_needed": 3,
+     "leaves_at": 8.13361111111111,
+     "returns_at": 16.40583333333333
+    },
+    {
+     "day_id": 5,
+     "miles": 37.761741174873045,
+     "kwh_needed": 67.97113411477149,
+     "hours_needed": 1,
+     "leaves_at": 8.536388888888888,
+     "returns_at": 16.830833333333334
+    },
+    {
+     "day_id": 44,
+     "miles": 119.67409124776854,
+     "kwh_needed": 215.4133642459834,
+     "hours_needed": 3,
+     "leaves_at": 8.9225,
+     "returns_at": 18.62388888888889
+    }
+   ],
+   "demand": [
+    3,
+    1,
+    3
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 64,
+   "n_optimal": 3,
+   "p_opt_random": 0.046875,
+   "ar_random": 0.5807708779443251,
+   "rules": {
+    "immediate": {
+     "dollars": 142.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 109.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 120.0,
+    "peak_kw": 200.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     2.4089931748761,
+     15.926148033274062
+    ],
+    "energy": 0.7494119787529648,
+    "nfev": 213,
+    "converged": true,
+    "approx_ratio": 0.7876994380631258,
+    "p_optimal": 0.14312969790507035,
+    "gain_vs_random": 3.0534335553081675,
+    "expected": {
+     "dollars": 118.91096171828292,
+     "peak_kw": 268.3546515334837,
+     "start_stops": 3.7827566607223497
+    },
+    "most_likely": {
+     "dollars": 119.0,
+     "peak_kw": 300.0,
+     "start_stops": 4.0,
+     "probability": 0.104997605487421,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     1.5695257355813268,
+     2.3561063207105635,
+     0.006235313782798352,
+     0.0184449992678536
+    ],
+    "energy": 0.7250708972029045,
+    "nfev": 2125,
+    "converged": true,
+    "approx_ratio": 0.875952798406942,
+    "p_optimal": 0.37499984131320707,
+    "gain_vs_random": 7.999996614681751,
+    "expected": {
+     "dollars": 125.5000012608212,
+     "peak_kw": 225.00000367532468,
+     "start_stops": 3.0000012169061536
+    },
+    "most_likely": {
+     "dollars": 131.0,
+     "peak_kw": 200.0,
+     "start_stops": 3.0,
+     "probability": 0.12500002284219558,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 31,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 61,
+     "miles": 105.33140840349827,
+     "kwh_needed": 189.59653512629689,
+     "hours_needed": 2,
+     "leaves_at": 10.578333333333333,
+     "returns_at": 15.825555555555555
+    },
+    {
+     "day_id": 95,
+     "miles": 123.01393677288223,
+     "kwh_needed": 221.42508619118803,
+     "hours_needed": 3,
+     "leaves_at": 8.13361111111111,
+     "returns_at": 16.40583333333333
+    },
+    {
+     "day_id": 98,
+     "miles": 148.1327630361736,
+     "kwh_needed": 266.6389734651125,
+     "hours_needed": 3,
+     "leaves_at": 8.399444444444445,
+     "returns_at": 17.353611111111114
+    }
+   ],
+   "demand": [
+    2,
+    3,
+    3
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 96,
+   "n_optimal": 2,
+   "p_opt_random": 0.020833333333333332,
+   "ar_random": 0.5752069322296945,
+   "rules": {
+    "immediate": {
+     "dollars": 156.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 118.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 129.0,
+    "peak_kw": 300.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     2.6205683641734994,
+     20.32028030477262
+    ],
+    "energy": 0.7450331670260466,
+    "nfev": 304,
+    "converged": true,
+    "approx_ratio": 0.7665586765724388,
+    "p_optimal": 0.07381241264058765,
+    "gain_vs_random": 3.5429958067482072,
+    "expected": {
+     "dollars": 136.63238367411884,
+     "peak_kw": 293.27272391810135,
+     "start_stops": 4.195489992855297
+    },
+    "most_likely": {
+     "dollars": 122.0,
+     "peak_kw": 300.0,
+     "start_stops": 4.0,
+     "probability": 0.0733859829361182,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     3.6286969424794453,
+     4.214950977652124,
+     5.131444239869667,
+     8.841229448082865
+    ],
+    "energy": 0.7301926709852226,
+    "nfev": 6882,
+    "converged": true,
+    "approx_ratio": 0.8168075366796262,
+    "p_optimal": 0.10353781703833123,
+    "gain_vs_random": 4.9698152178398995,
+    "expected": {
+     "dollars": 133.2878290983105,
+     "peak_kw": 295.445936878953,
+     "start_stops": 3.691811713100793
+    },
+    "most_likely": {
+     "dollars": 133.0,
+     "peak_kw": 300.0,
+     "start_stops": 4.0,
+     "probability": 0.11629890897139526,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 32,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 42,
+     "miles": 97.93472425963877,
+     "kwh_needed": 176.2825036673498,
+     "hours_needed": 2,
+     "leaves_at": 8.706388888888888,
+     "returns_at": 18.575
+    },
+    {
+     "day_id": 83,
+     "miles": 23.44796463031901,
+     "kwh_needed": 42.20633633457422,
+     "hours_needed": 1,
+     "leaves_at": 7.271388888888889,
+     "returns_at": 16.173333333333336
+    },
+    {
+     "day_id": 76,
+     "miles": 56.78677071121507,
+     "kwh_needed": 102.21618728018713,
+     "hours_needed": 2,
+     "leaves_at": 7.585277777777778,
+     "returns_at": 16.279166666666665
+    }
+   ],
+   "demand": [
+    2,
+    1,
+    2
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 144,
+   "n_optimal": 4,
+   "p_opt_random": 0.027777777777777776,
+   "ar_random": 0.6627597020776169,
+   "rules": {
+    "immediate": {
+     "dollars": 124.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 81.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 85.0,
+    "peak_kw": 200.0,
+    "start_stops": 4.0
+   },
+   "p1": {
+    "theta": [
+     2.806341562180604,
+     15.46858005624015
+    ],
+    "energy": 0.6407789151933353,
+    "nfev": 592,
+    "converged": true,
+    "approx_ratio": 0.7995180339367408,
+    "p_optimal": 0.07172101209711228,
+    "gain_vs_random": 2.5819564354960423,
+    "expected": {
+     "dollars": 86.49841321075277,
+     "peak_kw": 214.1184061979829,
+     "start_stops": 5.32770300138672
+    },
+    "most_likely": {
+     "dollars": 67.0,
+     "peak_kw": 200.0,
+     "start_stops": 5.0,
+     "probability": 0.03443890527320792,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     3.849243108377027,
+     1.3114619468774118,
+     11.10387842833256,
+     -3.1746503579616463
+    ],
+    "energy": 0.6308051930400334,
+    "nfev": 2607,
+    "converged": true,
+    "approx_ratio": 0.8275742590140026,
+    "p_optimal": 0.12984530815001352,
+    "gain_vs_random": 4.674431093400487,
+    "expected": {
+     "dollars": 86.66037855806687,
+     "peak_kw": 216.4923065167972,
+     "start_stops": 4.822116714492351
+    },
+    "most_likely": {
+     "dollars": 85.0,
+     "peak_kw": 200.0,
+     "start_stops": 4.0,
+     "probability": 0.05955906040515581,
+     "is_optimal": true
+    }
+   }
+  },
+  {
+   "night": 33,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 23,
+     "miles": 141.04327187500581,
+     "kwh_needed": 253.87788937501048,
+     "hours_needed": 3,
+     "leaves_at": 8.626111111111111,
+     "returns_at": 16.89527777777778
+    },
+    {
+     "day_id": 80,
+     "miles": 24.593398960852717,
+     "kwh_needed": 44.26811812953489,
+     "hours_needed": 1,
+     "leaves_at": 7.666944444444445,
+     "returns_at": 16.328333333333333
+    },
+    {
+     "day_id": 53,
+     "miles": 73.28706523483496,
+     "kwh_needed": 131.91671742270293,
+     "hours_needed": 2,
+     "leaves_at": 9.019444444444446,
+     "returns_at": 16.747500000000002
+    }
+   ],
+   "demand": [
+    3,
+    1,
+    2
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 96,
+   "n_optimal": 2,
+   "p_opt_random": 0.020833333333333332,
+   "ar_random": 0.6070287539936107,
+   "rules": {
+    "immediate": {
+     "dollars": 133.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 95.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 106.0,
+    "peak_kw": 200.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     2.760229925975683,
+     15.941377691501456
+    ],
+    "energy": 0.7186366025914238,
+    "nfev": 361,
+    "converged": true,
+    "approx_ratio": 0.7622065649927321,
+    "p_optimal": 0.036372887892104994,
+    "gain_vs_random": 1.7458986188210397,
+    "expected": {
+     "dollars": 104.90629102586891,
+     "peak_kw": 227.05366660146743,
+     "start_stops": 4.688708982693715
+    },
+    "most_likely": {
+     "dollars": 99.0,
+     "peak_kw": 200.0,
+     "start_stops": 4.0,
+     "probability": 0.04578574491917854,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     0.7267903880721499,
+     2.1166419817332915,
+     7.641054794964675,
+     9.558813552051792
+    ],
+    "energy": 0.7066929720898305,
+    "nfev": 2676,
+    "converged": true,
+    "approx_ratio": 0.8028072769853688,
+    "p_optimal": 0.03858847194501989,
+    "gain_vs_random": 1.8522466533609547,
+    "expected": {
+     "dollars": 99.75524056914503,
+     "peak_kw": 242.28302135748487,
+     "start_stops": 4.27245710607785
+    },
+    "most_likely": {
+     "dollars": 87.0,
+     "peak_kw": 300.0,
+     "start_stops": 5.0,
+     "probability": 0.12155272809053239,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 34,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 30,
+     "miles": 149.30909129114093,
+     "kwh_needed": 268.75636432405366,
+     "hours_needed": 3,
+     "leaves_at": 8.686111111111112,
+     "returns_at": 17.36916666666667
+    },
+    {
+     "day_id": 74,
+     "miles": 54.52725040592542,
+     "kwh_needed": 98.14905073066576,
+     "hours_needed": 1,
+     "leaves_at": 7.6130555555555555,
+     "returns_at": 16.92388888888889
+    },
+    {
+     "day_id": 76,
+     "miles": 56.78677071121507,
+     "kwh_needed": 102.21618728018713,
+     "hours_needed": 2,
+     "leaves_at": 7.585277777777778,
+     "returns_at": 16.279166666666665
+    }
+   ],
+   "demand": [
+    3,
+    1,
+    2
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 96,
+   "n_optimal": 2,
+   "p_opt_random": 0.020833333333333332,
+   "ar_random": 0.6070287539936107,
+   "rules": {
+    "immediate": {
+     "dollars": 133.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 95.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 106.0,
+    "peak_kw": 200.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     2.7602329734073656,
+     15.941468931585893
+    ],
+    "energy": 0.7186366026301065,
+    "nfev": 474,
+    "converged": true,
+    "approx_ratio": 0.7622065648612355,
+    "p_optimal": 0.03637304034305251,
+    "gain_vs_random": 1.7459059364665206,
+    "expected": {
+     "dollars": 104.90635038980525,
+     "peak_kw": 227.053464322239,
+     "start_stops": 4.688707122655485
+    },
+    "most_likely": {
+     "dollars": 99.0,
+     "peak_kw": 200.0,
+     "start_stops": 4.0,
+     "probability": 0.04578565269745468,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     2.246093188233157,
+     2.617165898712423,
+     8.124028578308636,
+     -7.9977875701410985
+    ],
+    "energy": 0.7059485345121551,
+    "nfev": 2037,
+    "converged": true,
+    "approx_ratio": 0.8053378890705017,
+    "p_optimal": 0.016604264415857113,
+    "gain_vs_random": 0.7970046919611414,
+    "expected": {
+     "dollars": 104.02448049706794,
+     "peak_kw": 221.95111376908255,
+     "start_stops": 4.366657905109575
+    },
+    "most_likely": {
+     "dollars": 88.0,
+     "peak_kw": 200.0,
+     "start_stops": 4.0,
+     "probability": 0.1437873419748829,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 35,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 12,
+     "miles": 75.47595178348647,
+     "kwh_needed": 135.85671321027564,
+     "hours_needed": 2,
+     "leaves_at": 8.774166666666668,
+     "returns_at": 18.984722222222224
+    },
+    {
+     "day_id": 18,
+     "miles": 79.9207899359009,
+     "kwh_needed": 143.85742188462163,
+     "hours_needed": 2,
+     "leaves_at": 9.120833333333334,
+     "returns_at": 17.860833333333336
+    },
+    {
+     "day_id": 92,
+     "miles": 121.52793975636504,
+     "kwh_needed": 218.7502915614571,
+     "hours_needed": 3,
+     "leaves_at": 8.924999999999999,
+     "returns_at": 17.879166666666666
+    }
+   ],
+   "demand": [
+    2,
+    2,
+    3
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 144,
+   "n_optimal": 2,
+   "p_opt_random": 0.013888888888888888,
+   "ar_random": 0.5923051558046963,
+   "rules": {
+    "immediate": {
+     "dollars": 147.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 104.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 120.0,
+    "peak_kw": 200.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     2.7360757384946894,
+     19.937793743053355
+    ],
+    "energy": 0.7081686693213316,
+    "nfev": 684,
+    "converged": true,
+    "approx_ratio": 0.7488984939499095,
+    "p_optimal": 0.03383941342205953,
+    "gain_vs_random": 2.4364377663882864,
+    "expected": {
+     "dollars": 120.81337150222542,
+     "peak_kw": 266.2529972571766,
+     "start_stops": 4.885561033162405
+    },
+    "most_likely": {
+     "dollars": 108.0,
+     "peak_kw": 300.0,
+     "start_stops": 4.0,
+     "probability": 0.03574642263091409,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     0.8089514157991933,
+     1.7426699358602673,
+     10.552569746664362,
+     12.927346618120593
+    ],
+    "energy": 0.6891353122405067,
+    "nfev": 6552,
+    "converged": true,
+    "approx_ratio": 0.8078406186640168,
+    "p_optimal": 0.01667929739872978,
+    "gain_vs_random": 1.2009094127085442,
+    "expected": {
+     "dollars": 113.60364695142748,
+     "peak_kw": 287.31291808522565,
+     "start_stops": 4.207868618524998
+    },
+    "most_likely": {
+     "dollars": 101.0,
+     "peak_kw": 300.0,
+     "start_stops": 5.0,
+     "probability": 0.12842715401038765,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 36,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 96,
+     "miles": 156.32188399621856,
+     "kwh_needed": 281.37939119319344,
+     "hours_needed": 3,
+     "leaves_at": 8.464722222222221,
+     "returns_at": 17.4425
+    },
+    {
+     "day_id": 92,
+     "miles": 121.52793975636504,
+     "kwh_needed": 218.7502915614571,
+     "hours_needed": 3,
+     "leaves_at": 8.924999999999999,
+     "returns_at": 17.879166666666666
+    },
+    {
+     "day_id": 68,
+     "miles": 49.7303485416721,
+     "kwh_needed": 89.51462737500978,
+     "hours_needed": 1,
+     "leaves_at": 7.655,
+     "returns_at": 16.92388888888889
+    }
+   ],
+   "demand": [
+    3,
+    3,
+    1
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 64,
+   "n_optimal": 3,
+   "p_opt_random": 0.046875,
+   "ar_random": 0.5807708779443256,
+   "rules": {
+    "immediate": {
+     "dollars": 142.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 109.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 120.0,
+    "peak_kw": 200.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     2.4089411915660404,
+     15.92598074810574
+    ],
+    "energy": 0.749411978694462,
+    "nfev": 225,
+    "converged": true,
+    "approx_ratio": 0.7876994382752394,
+    "p_optimal": 0.1431227470780922,
+    "gain_vs_random": 3.0532852709993,
+    "expected": {
+     "dollars": 118.91075750865026,
+     "peak_kw": 268.35580578040896,
+     "start_stops": 3.7827488109907774
+    },
+    "most_likely": {
+     "dollars": 119.0,
+     "peak_kw": 300.0,
+     "start_stops": 4.0,
+     "probability": 0.10500588619773664,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     1.5700017671897277,
+     2.356175490398616,
+     0.0052925655465463,
+     0.013599092068768208
+    ],
+    "energy": 0.7250708847220932,
+    "nfev": 1819,
+    "converged": true,
+    "approx_ratio": 0.8759528436585685,
+    "p_optimal": 0.3749999385988255,
+    "gain_vs_random": 7.999998690108278,
+    "expected": {
+     "dollars": 125.50000177543089,
+     "peak_kw": 224.999997707182,
+     "start_stops": 3.0000005910063354
+    },
+    "most_likely": {
+     "dollars": 131.0,
+     "peak_kw": 200.0,
+     "start_stops": 3.0,
+     "probability": 0.12500002250820297,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 37,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 87,
+     "miles": 24.257915256204427,
+     "kwh_needed": 43.66424746116797,
+     "hours_needed": 1,
+     "leaves_at": 7.888055555555555,
+     "returns_at": 17.121111111111112
+    },
+    {
+     "day_id": 12,
+     "miles": 75.47595178348647,
+     "kwh_needed": 135.85671321027564,
+     "hours_needed": 2,
+     "leaves_at": 8.774166666666668,
+     "returns_at": 18.984722222222224
+    },
+    {
+     "day_id": 2,
+     "miles": 33.389696338421224,
+     "kwh_needed": 60.101453409158204,
+     "hours_needed": 1,
+     "leaves_at": 9.014166666666666,
+     "returns_at": 17.815833333333334
+    }
+   ],
+   "demand": [
+    1,
+    2,
+    1
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 96,
+   "n_optimal": 4,
+   "p_opt_random": 0.041666666666666664,
+   "ar_random": 0.6895576820128482,
+   "rules": {
+    "immediate": {
+     "dollars": 110.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 72.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 53.0,
+    "peak_kw": 200.0,
+    "start_stops": 5.0
+   },
+   "p1": {
+    "theta": [
+     2.8184731758556616,
+     12.810460518425488
+    ],
+    "energy": 0.6153938383892911,
+    "nfev": 2021,
+    "converged": true,
+    "approx_ratio": 0.819032542689945,
+    "p_optimal": 0.10356231013150935,
+    "gain_vs_random": 2.4854954431562244,
+    "expected": {
+     "dollars": 69.35824439820664,
+     "peak_kw": 179.1196859489685,
+     "start_stops": 5.059312957451166
+    },
+    "most_likely": {
+     "dollars": 53.0,
+     "peak_kw": 200.0,
+     "start_stops": 5.0,
+     "probability": 0.03235066614964852,
+     "is_optimal": true
+    }
+   },
+   "p2": {
+    "theta": [
+     2.8451449015108277,
+     0.08887022447273986,
+     13.050139913498771,
+     -6.156187490841757
+    ],
+    "energy": 0.61399918631141,
+    "nfev": 9750,
+    "converged": true,
+    "approx_ratio": 0.8228542104220935,
+    "p_optimal": 0.1100500360785523,
+    "gain_vs_random": 2.641200865885255,
+    "expected": {
+     "dollars": 68.60099875728514,
+     "peak_kw": 179.7221351697807,
+     "start_stops": 5.096203812644859
+    },
+    "most_likely": {
+     "dollars": 53.0,
+     "peak_kw": 200.0,
+     "start_stops": 5.0,
+     "probability": 0.030077059261614487,
+     "is_optimal": true
+    }
+   }
+  },
+  {
+   "night": 38,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 38,
+     "miles": 89.37107692441585,
+     "kwh_needed": 160.86793846394852,
+     "hours_needed": 2,
+     "leaves_at": 8.965833333333332,
+     "returns_at": 18.285555555555558
+    },
+    {
+     "day_id": 95,
+     "miles": 123.01393677288223,
+     "kwh_needed": 221.42508619118803,
+     "hours_needed": 3,
+     "leaves_at": 8.13361111111111,
+     "returns_at": 16.40583333333333
+    },
+    {
+     "day_id": 82,
+     "miles": 25.40453960387261,
+     "kwh_needed": 45.7281712869707,
+     "hours_needed": 1,
+     "leaves_at": 7.767222222222222,
+     "returns_at": 16.363333333333333
+    }
+   ],
+   "demand": [
+    2,
+    3,
+    1
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 96,
+   "n_optimal": 2,
+   "p_opt_random": 0.020833333333333332,
+   "ar_random": 0.6070287539936106,
+   "rules": {
+    "immediate": {
+     "dollars": 133.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 95.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 106.0,
+    "peak_kw": 200.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     2.760228984677597,
+     15.938945586520104
+    ],
+    "energy": 0.7186366043761551,
+    "nfev": 544,
+    "converged": true,
+    "approx_ratio": 0.7622065589257861,
+    "p_optimal": 0.03637303108764247,
+    "gain_vs_random": 1.7459054922068387,
+    "expected": {
+     "dollars": 104.90625133718413,
+     "peak_kw": 227.05319427503912,
+     "start_stops": 4.688740383884081
+    },
+    "most_likely": {
+     "dollars": 99.0,
+     "peak_kw": 200.0,
+     "start_stops": 4.0,
+     "probability": 0.0457838795606229,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     0.7268583304215928,
+     2.116738523617445,
+     7.639015423712091,
+     9.57067116600994
+    ],
+    "energy": 0.7066929719029317,
+    "nfev": 4477,
+    "converged": true,
+    "approx_ratio": 0.8028072776207053,
+    "p_optimal": 0.03857865083982269,
+    "gain_vs_random": 1.851775240311489,
+    "expected": {
+     "dollars": 99.74849340537948,
+     "peak_kw": 242.29798402853618,
+     "start_stops": 4.272689189855569
+    },
+    "most_likely": {
+     "dollars": 87.0,
+     "peak_kw": 300.0,
+     "start_stops": 5.0,
+     "probability": 0.12168463064710654,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 39,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 96,
+     "miles": 156.32188399621856,
+     "kwh_needed": 281.37939119319344,
+     "hours_needed": 3,
+     "leaves_at": 8.464722222222221,
+     "returns_at": 17.4425
+    },
+    {
+     "day_id": 90,
+     "miles": 129.07806802044524,
+     "kwh_needed": 232.34052243680145,
+     "hours_needed": 3,
+     "leaves_at": 8.359722222222222,
+     "returns_at": 16.547777777777778
+    },
+    {
+     "day_id": 38,
+     "miles": 89.37107692441585,
+     "kwh_needed": 160.86793846394852,
+     "hours_needed": 2,
+     "leaves_at": 8.965833333333332,
+     "returns_at": 18.285555555555558
+    }
+   ],
+   "demand": [
+    3,
+    3,
+    2
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 96,
+   "n_optimal": 2,
+   "p_opt_random": 0.020833333333333332,
+   "ar_random": 0.5752069322296945,
+   "rules": {
+    "immediate": {
+     "dollars": 156.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 118.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 129.0,
+    "peak_kw": 300.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     2.620572601631747,
+     20.318319926167373
+    ],
+    "energy": 0.745033168187428,
+    "nfev": 396,
+    "converged": true,
+    "approx_ratio": 0.7665586726400841,
+    "p_optimal": 0.07380732035975873,
+    "gain_vs_random": 3.542751377268419,
+    "expected": {
+     "dollars": 136.6322405480502,
+     "peak_kw": 293.2726705215209,
+     "start_stops": 4.1955231583002295
+    },
+    "most_likely": {
+     "dollars": 122.0,
+     "peak_kw": 300.0,
+     "start_stops": 4.0,
+     "probability": 0.0733812284784033,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     0.7981825359277943,
+     1.9342120083546566,
+     8.397216959527679,
+     11.105931318615502
+    ],
+    "energy": 0.729745709048494,
+    "nfev": 7328,
+    "converged": true,
+    "approx_ratio": 0.8183209178880527,
+    "p_optimal": 0.10011109720739322,
+    "gain_vs_random": 4.805332665954875,
+    "expected": {
+     "dollars": 132.0195616249194,
+     "peak_kw": 296.6303997556653,
+     "start_stops": 3.7163063422505047
+    },
+    "most_likely": {
+     "dollars": 133.0,
+     "peak_kw": 300.0,
+     "start_stops": 4.0,
+     "probability": 0.18087408284661827,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 40,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 35,
+     "miles": 41.567350653370234,
+     "kwh_needed": 74.82123117606642,
+     "hours_needed": 1,
+     "leaves_at": 9.8275,
+     "returns_at": 17.888333333333332
+    },
+    {
+     "day_id": 49,
+     "miles": 62.62079848836483,
+     "kwh_needed": 112.7174372790567,
+     "hours_needed": 2,
+     "leaves_at": 8.851944444444444,
+     "returns_at": 17.97111111111111
+    },
+    {
+     "day_id": 23,
+     "miles": 141.04327187500581,
+     "kwh_needed": 253.87788937501048,
+     "hours_needed": 3,
+     "leaves_at": 8.626111111111111,
+     "returns_at": 16.89527777777778
+    }
+   ],
+   "demand": [
+    1,
+    2,
+    3
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 96,
+   "n_optimal": 2,
+   "p_opt_random": 0.020833333333333332,
+   "ar_random": 0.6070287539936107,
+   "rules": {
+    "immediate": {
+     "dollars": 133.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 95.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 106.0,
+    "peak_kw": 200.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     2.7602130086350223,
+     15.935704475848135
+    ],
+    "energy": 0.7186366103556054,
+    "nfev": 512,
+    "converged": true,
+    "approx_ratio": 0.7622065385994757,
+    "p_optimal": 0.036372447148007574,
+    "gain_vs_random": 1.7458774631043636,
+    "expected": {
+     "dollars": 104.90591633023985,
+     "peak_kw": 227.05364038354057,
+     "start_stops": 4.68878561644892
+    },
+    "most_likely": {
+     "dollars": 99.0,
+     "peak_kw": 200.0,
+     "start_stops": 4.0,
+     "probability": 0.045782182961019505,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     0.7268142038322081,
+     2.1167250017716066,
+     7.639165342326234,
+     9.567764531029864
+    ],
+    "energy": 0.7066929676755529,
+    "nfev": 2477,
+    "converged": true,
+    "approx_ratio": 0.802807291991092,
+    "p_optimal": 0.038579983892816784,
+    "gain_vs_random": 1.8518392268552057,
+    "expected": {
+     "dollars": 99.75002642957898,
+     "peak_kw": 242.29398148689108,
+     "start_stops": 4.27265399739697
+    },
+    "most_likely": {
+     "dollars": 87.0,
+     "peak_kw": 300.0,
+     "start_stops": 5.0,
+     "probability": 0.1216515139184114,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 41,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 14,
+     "miles": 93.09159579198838,
+     "kwh_needed": 167.5648724255791,
+     "hours_needed": 2,
+     "leaves_at": 8.700833333333332,
+     "returns_at": 17.628333333333334
+    },
+    {
+     "day_id": 79,
+     "miles": 23.30161476931792,
+     "kwh_needed": 41.94290658477225,
+     "hours_needed": 1,
+     "leaves_at": 7.6066666666666665,
+     "returns_at": 15.938333333333334
+    },
+    {
+     "day_id": 93,
+     "miles": 153.45690385843125,
+     "kwh_needed": 276.22242694517627,
+     "hours_needed": 3,
+     "leaves_at": 8.381944444444445,
+     "returns_at": 17.685277777777777
+    }
+   ],
+   "demand": [
+    2,
+    1,
+    3
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 96,
+   "n_optimal": 2,
+   "p_opt_random": 0.020833333333333332,
+   "ar_random": 0.6070287539936103,
+   "rules": {
+    "immediate": {
+     "dollars": 133.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 95.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 106.0,
+    "peak_kw": 200.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     2.7601764982366106,
+     15.936103520147189
+    ],
+    "energy": 0.7186366097136714,
+    "nfev": 497,
+    "converged": true,
+    "approx_ratio": 0.7622065407816413,
+    "p_optimal": 0.03637050227376748,
+    "gain_vs_random": 1.745784109140839,
+    "expected": {
+     "dollars": 104.90521838372803,
+     "peak_kw": 227.05639622979697,
+     "start_stops": 4.688788784670127
+    },
+    "most_likely": {
+     "dollars": 99.0,
+     "peak_kw": 200.0,
+     "start_stops": 4.0,
+     "probability": 0.045784462966092856,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     2.246189683467175,
+     2.617304311354096,
+     8.133443223873146,
+     -7.995707096165402
+    ],
+    "energy": 0.7059485766681372,
+    "nfev": 2628,
+    "converged": true,
+    "approx_ratio": 0.8053377457670995,
+    "p_optimal": 0.016586115331711344,
+    "gain_vs_random": 0.7961335359221445,
+    "expected": {
+     "dollars": 104.02187940064132,
+     "peak_kw": 221.95966716101924,
+     "start_stops": 4.366824047713742
+    },
+    "most_likely": {
+     "dollars": 88.0,
+     "peak_kw": 200.0,
+     "start_stops": 4.0,
+     "probability": 0.14379179306548365,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 42,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 67,
+     "miles": 47.98010568796006,
+     "kwh_needed": 86.36419023832812,
+     "hours_needed": 1,
+     "leaves_at": 7.6049999999999995,
+     "returns_at": 15.189722222222223
+    },
+    {
+     "day_id": 43,
+     "miles": 55.6507317906986,
+     "kwh_needed": 100.17131722325749,
+     "hours_needed": 2,
+     "leaves_at": 8.502777777777778,
+     "returns_at": 14.910833333333334
+    },
+    {
+     "day_id": 55,
+     "miles": 147.08157131346792,
+     "kwh_needed": 264.7468283642423,
+     "hours_needed": 3,
+     "leaves_at": 7.584722222222222,
+     "returns_at": 14.9025
+    }
+   ],
+   "demand": [
+    1,
+    2,
+    3
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 96,
+   "n_optimal": 2,
+   "p_opt_random": 0.020833333333333332,
+   "ar_random": 0.6070287539936107,
+   "rules": {
+    "immediate": {
+     "dollars": 133.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 95.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 106.0,
+    "peak_kw": 200.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     2.7602048353853985,
+     15.94554713223637
+    ],
+    "energy": 0.718636604430039,
+    "nfev": 411,
+    "converged": true,
+    "approx_ratio": 0.7622065587426154,
+    "p_optimal": 0.036371237624336944,
+    "gain_vs_random": 1.7458194059681733,
+    "expected": {
+     "dollars": 104.90584710464056,
+     "peak_kw": 227.05642730111083,
+     "start_stops": 4.688661262571772
+    },
+    "most_likely": {
+     "dollars": 99.0,
+     "peak_kw": 200.0,
+     "start_stops": 4.0,
+     "probability": 0.04579037526137536,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     0.7670694014647489,
+     2.7667371332672657,
+     -11.188524570664843,
+     9.151431562796441
+    ],
+    "energy": 0.704634771105845,
+    "nfev": 3664,
+    "converged": true,
+    "approx_ratio": 0.8098038451865206,
+    "p_optimal": 0.014146151617527258,
+    "gain_vs_random": 0.6790152776413084,
+    "expected": {
+     "dollars": 102.67103515323116,
+     "peak_kw": 218.33288773274677,
+     "start_stops": 4.533062186661315
+    },
+    "most_likely": {
+     "dollars": 99.0,
+     "peak_kw": 200.0,
+     "start_stops": 4.0,
+     "probability": 0.13258496312927726,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 43,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 92,
+     "miles": 121.52793975636504,
+     "kwh_needed": 218.7502915614571,
+     "hours_needed": 3,
+     "leaves_at": 8.924999999999999,
+     "returns_at": 17.879166666666666
+    },
+    {
+     "day_id": 70,
+     "miles": 51.023061823178175,
+     "kwh_needed": 91.84151128172071,
+     "hours_needed": 1,
+     "leaves_at": 7.556666666666667,
+     "returns_at": 16.608611111111113
+    },
+    {
+     "day_id": 4,
+     "miles": 52.43842036341648,
+     "kwh_needed": 94.38915665414967,
+     "hours_needed": 1,
+     "leaves_at": 9.098055555555556,
+     "returns_at": 18.205555555555556
+    }
+   ],
+   "demand": [
+    3,
+    1,
+    1
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 64,
+   "n_optimal": 4,
+   "p_opt_random": 0.0625,
+   "ar_random": 0.6636600032504469,
+   "rules": {
+    "immediate": {
+     "dollars": 119.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 86.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 85.0,
+    "peak_kw": 200.0,
+    "start_stops": 4.0
+   },
+   "p1": {
+    "theta": [
+     2.7606658730181106,
+     12.4856854393565
+    ],
+    "energy": 0.703762718131872,
+    "nfev": 376,
+    "converged": true,
+    "approx_ratio": 0.8064633264390684,
+    "p_optimal": 0.1471957744606313,
+    "gain_vs_random": 2.355132391370101,
+    "expected": {
+     "dollars": 88.12344760771549,
+     "peak_kw": 209.76615252376257,
+     "start_stops": 4.414679917779499
+    },
+    "most_likely": {
+     "dollars": 85.0,
+     "peak_kw": 200.0,
+     "start_stops": 4.0,
+     "probability": 0.03871992564140072,
+     "is_optimal": true
+    }
+   },
+   "p2": {
+    "theta": [
+     0.7450328736527525,
+     2.783580431912439,
+     -8.095495283061807,
+     6.0860878593392265
+    ],
+    "energy": 0.6879282783131067,
+    "nfev": 4339,
+    "converged": true,
+    "approx_ratio": 0.8620884551051845,
+    "p_optimal": 0.1776143734681105,
+    "gain_vs_random": 2.841829975489768,
+    "expected": {
+     "dollars": 90.94215374224714,
+     "peak_kw": 205.12453830399687,
+     "start_stops": 3.8748307567513844
+    },
+    "most_likely": {
+     "dollars": 97.0,
+     "peak_kw": 200.0,
+     "start_stops": 3.0,
+     "probability": 0.05708215944206419,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 44,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 52,
+     "miles": 67.85563812946225,
+     "kwh_needed": 122.14014863303206,
+     "hours_needed": 2,
+     "leaves_at": 10.297777777777778,
+     "returns_at": 17.46722222222222
+    },
+    {
+     "day_id": 62,
+     "miles": 42.05475336457032,
+     "kwh_needed": 75.69855605622658,
+     "hours_needed": 1,
+     "leaves_at": 9.398055555555555,
+     "returns_at": 15.324444444444444
+    },
+    {
+     "day_id": 18,
+     "miles": 79.9207899359009,
+     "kwh_needed": 143.85742188462163,
+     "hours_needed": 2,
+     "leaves_at": 9.120833333333334,
+     "returns_at": 17.860833333333336
+    }
+   ],
+   "demand": [
+    2,
+    1,
+    2
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 144,
+   "n_optimal": 4,
+   "p_opt_random": 0.027777777777777776,
+   "ar_random": 0.6627597020776169,
+   "rules": {
+    "immediate": {
+     "dollars": 124.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 81.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 85.0,
+    "peak_kw": 200.0,
+    "start_stops": 4.0
+   },
+   "p1": {
+    "theta": [
+     2.806212784434702,
+     15.471057145181586
+    ],
+    "energy": 0.6407789270050792,
+    "nfev": 445,
+    "converged": true,
+    "approx_ratio": 0.7995180007101338,
+    "p_optimal": 0.07173528095143922,
+    "gain_vs_random": 2.582470114251812,
+    "expected": {
+     "dollars": 86.4956739332047,
+     "peak_kw": 214.12685227905493,
+     "start_stops": 5.327745430105907
+    },
+    "most_likely": {
+     "dollars": 67.0,
+     "peak_kw": 200.0,
+     "start_stops": 5.0,
+     "probability": 0.034451586471654146,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     5.858705144609913,
+     -0.28455043799471175,
+     12.245189754978277,
+     19.228416733371905
+    ],
+    "energy": 0.6210721227009256,
+    "nfev": 2043,
+    "converged": true,
+    "approx_ratio": 0.8549535270474943,
+    "p_optimal": 0.09918408107002424,
+    "gain_vs_random": 3.570626918520873,
+    "expected": {
+     "dollars": 78.18383545928764,
+     "peak_kw": 219.05198305060438,
+     "start_stops": 5.342959268971519
+    },
+    "most_likely": {
+     "dollars": 67.0,
+     "peak_kw": 200.0,
+     "start_stops": 5.0,
+     "probability": 0.07750034510699505,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 45,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 2,
+     "miles": 33.389696338421224,
+     "kwh_needed": 60.101453409158204,
+     "hours_needed": 1,
+     "leaves_at": 9.014166666666666,
+     "returns_at": 17.815833333333334
+    },
+    {
+     "day_id": 33,
+     "miles": 97.54911083382133,
+     "kwh_needed": 175.5883995008784,
+     "hours_needed": 2,
+     "leaves_at": 8.581944444444444,
+     "returns_at": 17.2775
+    },
+    {
+     "day_id": 72,
+     "miles": 54.988508474367336,
+     "kwh_needed": 98.9793152538612,
+     "hours_needed": 1,
+     "leaves_at": 7.4255555555555555,
+     "returns_at": 15.769166666666667
+    }
+   ],
+   "demand": [
+    1,
+    2,
+    1
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 96,
+   "n_optimal": 4,
+   "p_opt_random": 0.041666666666666664,
+   "ar_random": 0.6895576820128482,
+   "rules": {
+    "immediate": {
+     "dollars": 110.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 72.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 53.0,
+    "peak_kw": 200.0,
+    "start_stops": 5.0
+   },
+   "p1": {
+    "theta": [
+     2.818566482300359,
+     12.808665588503665
+    ],
+    "energy": 0.6153938269996556,
+    "nfev": 1086,
+    "converged": true,
+    "approx_ratio": 0.8190325739001679,
+    "p_optimal": 0.10355485851808272,
+    "gain_vs_random": 2.485316604433985,
+    "expected": {
+     "dollars": 69.3600112964213,
+     "peak_kw": 179.11311699618258,
+     "start_stops": 5.059265273926866
+    },
+    "most_likely": {
+     "dollars": 53.0,
+     "peak_kw": 200.0,
+     "start_stops": 5.0,
+     "probability": 0.03234721395834359,
+     "is_optimal": true
+    }
+   },
+   "p2": {
+    "theta": [
+     0.5712028385534983,
+     2.3926712532155667,
+     7.634815678695991,
+     9.7327274851469
+    ],
+    "energy": 0.6096863559872276,
+    "nfev": 3757,
+    "converged": true,
+    "approx_ratio": 0.8346723582924943,
+    "p_optimal": 0.12841261140481927,
+    "gain_vs_random": 3.0819026737156627,
+    "expected": {
+     "dollars": 65.21272006663115,
+     "peak_kw": 196.39256891002174,
+     "start_stops": 5.00682806791097
+    },
+    "most_likely": {
+     "dollars": 64.0,
+     "peak_kw": 200.0,
+     "start_stops": 5.0,
+     "probability": 0.06750228656508056,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 46,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 52,
+     "miles": 67.85563812946225,
+     "kwh_needed": 122.14014863303206,
+     "hours_needed": 2,
+     "leaves_at": 10.297777777777778,
+     "returns_at": 17.46722222222222
+    },
+    {
+     "day_id": 15,
+     "miles": 81.05014116884735,
+     "kwh_needed": 145.89025410392523,
+     "hours_needed": 2,
+     "leaves_at": 9.2925,
+     "returns_at": 17.15833333333333
+    },
+    {
+     "day_id": 91,
+     "miles": 133.98012964965906,
+     "kwh_needed": 241.16423336938632,
+     "hours_needed": 3,
+     "leaves_at": 8.381388888888889,
+     "returns_at": 17.334444444444443
+    }
+   ],
+   "demand": [
+    2,
+    2,
+    3
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 144,
+   "n_optimal": 2,
+   "p_opt_random": 0.013888888888888888,
+   "ar_random": 0.5923051558046963,
+   "rules": {
+    "immediate": {
+     "dollars": 147.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 104.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 120.0,
+    "peak_kw": 200.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     -0.4055230780271763,
+     19.940795719560846
+    ],
+    "energy": 0.7081686633310591,
+    "nfev": 738,
+    "converged": true,
+    "approx_ratio": 0.7488985125004671,
+    "p_optimal": 0.03384306021823855,
+    "gain_vs_random": 2.436700335713176,
+    "expected": {
+     "dollars": 120.81356376384883,
+     "peak_kw": 266.2548501782386,
+     "start_stops": 4.885487685797544
+    },
+    "most_likely": {
+     "dollars": 108.0,
+     "peak_kw": 300.0,
+     "start_stops": 4.0,
+     "probability": 0.03575166071784264,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     0.809418038296102,
+     1.7416712574080147,
+     10.557333640016795,
+     13.125786700282893
+    ],
+    "energy": 0.689135335352422,
+    "nfev": 9362,
+    "converged": true,
+    "approx_ratio": 0.8078405470914936,
+    "p_optimal": 0.016803752725585458,
+    "gain_vs_random": 1.209870196242153,
+    "expected": {
+     "dollars": 113.59943735906648,
+     "peak_kw": 287.37554113437136,
+     "start_stops": 4.207232177527102
+    },
+    "most_likely": {
+     "dollars": 101.0,
+     "peak_kw": 300.0,
+     "start_stops": 5.0,
+     "probability": 0.12868898199805442,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 47,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 85,
+     "miles": 27.729591760656476,
+     "kwh_needed": 49.913265169181656,
+     "hours_needed": 1,
+     "leaves_at": 7.7825,
+     "returns_at": 16.26527777777778
+    },
+    {
+     "day_id": 7,
+     "miles": 101.54619103526792,
+     "kwh_needed": 182.78314386348228,
+     "hours_needed": 2,
+     "leaves_at": 9.267222222222223,
+     "returns_at": 18.711944444444445
+    },
+    {
+     "day_id": 51,
+     "miles": 93.5863557128588,
+     "kwh_needed": 168.45544028314586,
+     "hours_needed": 2,
+     "leaves_at": 8.707777777777777,
+     "returns_at": 16.987222222222222
+    }
+   ],
+   "demand": [
+    1,
+    2,
+    2
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 144,
+   "n_optimal": 4,
+   "p_opt_random": 0.027777777777777776,
+   "ar_random": 0.6627597020776169,
+   "rules": {
+    "immediate": {
+     "dollars": 124.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 81.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 85.0,
+    "peak_kw": 200.0,
+    "start_stops": 4.0
+   },
+   "p1": {
+    "theta": [
+     2.8064092469932125,
+     15.447014793539939
+    ],
+    "energy": 0.640778954665993,
+    "nfev": 874,
+    "converged": true,
+    "approx_ratio": 0.7995179228995822,
+    "p_optimal": 0.07165969351317857,
+    "gain_vs_random": 2.5797489664744284,
+    "expected": {
+     "dollars": 86.49944264397972,
+     "peak_kw": 214.10519819989753,
+     "start_stops": 5.328184760036778
+    },
+    "most_likely": {
+     "dollars": 67.0,
+     "peak_kw": 200.0,
+     "start_stops": 5.0,
+     "probability": 0.03440939390305324,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     0.9063231364379281,
+     1.5593520123926106,
+     9.405260179905556,
+     11.965994211507212
+    ],
+    "energy": 0.6321614234474575,
+    "nfev": 4310,
+    "converged": true,
+    "approx_ratio": 0.8237591632069952,
+    "p_optimal": 0.10447625423537715,
+    "gain_vs_random": 3.7611451524735777,
+    "expected": {
+     "dollars": 84.52991260099378,
+     "peak_kw": 223.18112899095715,
+     "start_stops": 4.762088847316626
+    },
+    "most_likely": {
+     "dollars": 85.0,
+     "peak_kw": 200.0,
+     "start_stops": 4.0,
+     "probability": 0.04011702266539319,
+     "is_optimal": true
+    }
+   }
+  },
+  {
+   "night": 48,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 65,
+     "miles": 126.95789973084636,
+     "kwh_needed": 228.52421951552347,
+     "hours_needed": 3,
+     "leaves_at": 9.023055555555556,
+     "returns_at": 14.640555555555554
+    },
+    {
+     "day_id": 23,
+     "miles": 141.04327187500581,
+     "kwh_needed": 253.87788937501048,
+     "hours_needed": 3,
+     "leaves_at": 8.626111111111111,
+     "returns_at": 16.89527777777778
+    },
+    {
+     "day_id": 36,
+     "miles": 73.92421054061936,
+     "kwh_needed": 133.06357897311486,
+     "hours_needed": 2,
+     "leaves_at": 8.61888888888889,
+     "returns_at": 15.441666666666666
+    }
+   ],
+   "demand": [
+    3,
+    3,
+    2
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 96,
+   "n_optimal": 2,
+   "p_opt_random": 0.020833333333333332,
+   "ar_random": 0.5752069322296945,
+   "rules": {
+    "immediate": {
+     "dollars": 156.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 118.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 129.0,
+    "peak_kw": 300.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     2.6205154793326377,
+     20.322296738990783
+    ],
+    "energy": 0.7450331670496751,
+    "nfev": 343,
+    "converged": true,
+    "approx_ratio": 0.7665586764924343,
+    "p_optimal": 0.07381544041884003,
+    "gain_vs_random": 3.5431411401043214,
+    "expected": {
+     "dollars": 136.6316679577476,
+     "peak_kw": 293.2738917371575,
+     "start_stops": 4.195477186478595
+    },
+    "most_likely": {
+     "dollars": 122.0,
+     "peak_kw": 300.0,
+     "start_stops": 4.0,
+     "probability": 0.07339708207114654,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     -0.48540385903008804,
+     2.7737213114718204,
+     13.02945764167273,
+     24.016731870358498
+    ],
+    "energy": 0.7297594820371995,
+    "nfev": 6776,
+    "converged": true,
+    "approx_ratio": 0.8182742835315717,
+    "p_optimal": 0.09345012085305858,
+    "gain_vs_random": 4.4856058009468125,
+    "expected": {
+     "dollars": 130.91330112341961,
+     "peak_kw": 297.3528966445682,
+     "start_stops": 4.000055677927029
+    },
+    "most_likely": {
+     "dollars": 122.0,
+     "peak_kw": 300.0,
+     "start_stops": 4.0,
+     "probability": 0.12853288637470509,
+     "is_optimal": false
+    }
+   }
+  },
+  {
+   "night": 49,
+   "fleet": "fleet2-warehouse-delivery",
+   "trucks": [
+    {
+     "day_id": 14,
+     "miles": 93.09159579198838,
+     "kwh_needed": 167.5648724255791,
+     "hours_needed": 2,
+     "leaves_at": 8.700833333333332,
+     "returns_at": 17.628333333333334
+    },
+    {
+     "day_id": 95,
+     "miles": 123.01393677288223,
+     "kwh_needed": 221.42508619118803,
+     "hours_needed": 3,
+     "leaves_at": 8.13361111111111,
+     "returns_at": 16.40583333333333
+    },
+    {
+     "day_id": 58,
+     "miles": 39.118721451115455,
+     "kwh_needed": 70.41369861200782,
+     "hours_needed": 1,
+     "leaves_at": 9.302777777777779,
+     "returns_at": 14.085555555555556
+    }
+   ],
+   "demand": [
+    2,
+    3,
+    1
+   ],
+   "tariff": [
+    32,
+    14,
+    9,
+    21
+   ],
+   "n_valid": 96,
+   "n_optimal": 2,
+   "p_opt_random": 0.020833333333333332,
+   "ar_random": 0.6070287539936106,
+   "rules": {
+    "immediate": {
+     "dollars": 133.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    },
+    "delayed": {
+     "dollars": 95.0,
+     "peak_kw": 300.0,
+     "start_stops": 3.0
+    }
+   },
+   "best": {
+    "dollars": 106.0,
+    "peak_kw": 200.0,
+    "start_stops": 3.0
+   },
+   "p1": {
+    "theta": [
+     2.7602218553992177,
+     15.946252851075272
+    ],
+    "energy": 0.7186366058115703,
+    "nfev": 602,
+    "converged": true,
+    "approx_ratio": 0.7622065540462916,
+    "p_optimal": 0.036372072584828316,
+    "gain_vs_random": 1.7458594840717592,
+    "expected": {
+     "dollars": 104.90618064389447,
+     "peak_kw": 227.0553411746185,
+     "start_stops": 4.688648377414625
+    },
+    "most_likely": {
+     "dollars": 99.0,
+     "peak_kw": 200.0,
+     "start_stops": 4.0,
+     "probability": 0.04579001369427758,
+     "is_optimal": false
+    }
+   },
+   "p2": {
+    "theta": [
+     0.7267974826024536,
+     2.1167206080535608,
+     7.638852629776262,
+     9.569137871254929
+    ],
+    "energy": 0.7066929693777773,
+    "nfev": 2456,
+    "converged": true,
+    "approx_ratio": 0.8028072862046168,
+    "p_optimal": 0.038577843307714035,
+    "gain_vs_random": 1.8517364787702737,
+    "expected": {
+     "dollars": 99.74894671053386,
+     "peak_kw": 242.29678105648736,
+     "start_stops": 4.272696487836672
+    },
+    "most_likely": {
+     "dollars": 87.0,
+     "peak_kw": 300.0,
+     "start_stops": 5.0,
+     "probability": 0.12166958558681935,
+     "is_optimal": false
+    }
+   }
+  }
+ ]
+}
