@@ -60,11 +60,12 @@ flowchart TB
     subgraph back["Qiskit backends"]
         S1["Statevector<br/>(exact)"]
         S2["AerSimulator + FakeFez<br/>(IBM Fez noise model)"]
+        S3["Real ibm_fez<br/>(Qiskit Runtime)"]
     end
 
     core --> exp
     exp --> back
-    exp --> nb["notebooks/ 01–05<br/>(executed)"]
+    exp --> nb["notebooks/ 01–06<br/>(executed)"]
     nb --> R["results/<br/>PNG plots + JSON numbers"]
     T["tests/ · pytest"] -.checks.-> core
     T -.checks.-> exp
@@ -79,6 +80,7 @@ flowchart TB
 | 03 | [`03_scaling_and_transfer`](notebooks/03_scaling_and_transfer.ipynb) | Does it scale, and can angles be reused? | Up to 25 qubits (5 × 5) with a fast valid-subspace simulator. At p = 1, starting from the 12-qubit angles reaches the target in 1–68 evaluations instead of ~870–1,420. |
 | 04 | [`04_optimizers_and_cvar`](notebooks/04_optimizers_and_cvar.ipynb) | Which classical optimiser, and does CVaR help? | With exact energies, L-BFGS-B scores best at p = 2 (approx. ratio 0.827). With 1024-shot noise, Powell holds up best (0.802) while L-BFGS-B drops to 0.644. CVaR gave no gain over the plain average. |
 | 05 | [`05_noisy_simulation`](notebooks/05_noisy_simulation.ipynb) | What happens on a noisy IBM chip? | On FakeFez at p = 2, valid share drops from 100% to 34–44%. XY + Dicke with invalid shots discarded finds the optimum 8.2% of the time, about 3× a random valid plan. |
+| 06 | [`06_real_hardware`](notebooks/06_real_hardware.ipynb) | Does it hold up on a real IBM quantum computer? | On real **ibm_fez** (8 s of QPU time), valid share was 15–26%, about half of FakeFez's prediction. With invalid shots discarded, XY + Dicke at p = 2 still finds the optimum 6.9% of the time, 2.5× a random valid plan. Readout correction adds only 0.4–2.4 points. |
 
 Every notebook ends with a **Findings & limitations** section. On a problem this small a laptop finds the exact answer instantly. The point of the study is to measure how well the quantum method works and what limits it today.
 
@@ -101,6 +103,8 @@ python -m venv .venv && .venv/bin/pip install -r requirements.txt
 ```
 
 In Google Colab, clone the repository first (`!git clone https://github.com/SakxamShrestha/ev-qaoa-iq-hackathon && %cd ev-qaoa-iq-hackathon`), because the notebooks import `evqaoa/` and `experiments/`.
+
+Notebook 06 re-runs from the saved hardware counts with no IBM account needed. To send new jobs, save your own IBM Quantum account once with `QiskitRuntimeService.save_account(...)` (keys live in `~/.qiskit/`, never in the repo) and set `RUN_ON_IBM = True`.
 
 ## References
 

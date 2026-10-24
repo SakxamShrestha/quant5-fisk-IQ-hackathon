@@ -89,12 +89,19 @@ def calibrate_readout(backend, simulator, physical, shots=4096, seed=3):
             qc.x(range(n))
         qc.measure_all()
         tc = transpile(qc, backend, initial_layout=physical, optimization_level=0)
-        prepared[label] = normalise(sample(tc, simulator, shots, seed + label))
+        prepared[label] = sample(tc, simulator, shots, seed + label)
+    return flip_rates(prepared[0], prepared[1])
+
+
+def flip_rates(all_zero, all_one):
+    """Per-bit (P(read 1 | 0), P(read 0 | 1)) from counts of the all-0 and all-1 circuits."""
+    all_zero, all_one = normalise(all_zero), normalise(all_one)
+    n = len(next(iter(all_zero)))
     rates = []
     for i in range(n):                       # bit i is character n-1-i
         ch = n - 1 - i
-        p10 = sum(v for k, v in prepared[0].items() if k[ch] == '1')
-        p01 = sum(v for k, v in prepared[1].items() if k[ch] == '0')
+        p10 = sum(v for k, v in all_zero.items() if k[ch] == '1')
+        p01 = sum(v for k, v in all_one.items() if k[ch] == '0')
         rates.append((p10, p01))
     return rates
 

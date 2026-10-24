@@ -1,0 +1,510 @@
+{
+  "backend": "ibm_fez",
+  "job_id": "dbe13vvgdj9s73fl0mt0",
+  "shots": 4096,
+  "options": {
+    "dynamical_decoupling": {
+      "enable": true,
+      "sequence_type": "XpXm"
+    },
+    "twirling": {
+      "enable_gates": true,
+      "enable_measure": true
+    }
+  },
+  "timestamp_utc": "2026-10-24T02:03:43.993873+00:00",
+  "usage": {
+    "qpu_charge_time_seconds": 8,
+    "value": 0.125032,
+    "unit": "resource_units",
+    "status": "complete",
+    "details": [
+      {
+        "value": 0.125032,
+        "unit": "resource_units",
+        "metric": {
+          "id": "caffe3ca-729c-5750-8777-df63bbf8bfd9",
+          "value": 8
+        }
+      }
+    ]
+  },
+  "readout_corrected": true,
+  "random_valid_rate": 0.03515625,
+  "runs": {
+    "xy_dicke_p2": {
+      "config": {
+        "mixer": "xy",
+        "start": "dicke",
+        "reps": 2,
+        "penalty": 0.0,
+        "angle_seed": 2,
+        "fakefez_config": "XY + Dicke"
+      },
+      "record": {
+        "run": "xy_dicke_p2",
+        "backend": "ibm_fez",
+        "job_id": "dbe13vvgdj9s73fl0mt0",
+        "shots": 4096,
+        "error_suppression": "DD XpXm, twirling gate+measure",
+        "two_qubit_gates": 357,
+        "depth": 387
+      },
+      "fakefez_circuit_stats": {
+        "depth": 389,
+        "two_qubit_gates": 357
+      },
+      "study05_fakefez": {
+        "config": "XY + Dicke",
+        "p": 2,
+        "depth": 389,
+        "two_qubit_gates": 357,
+        "valid_rate": 0.340576171875,
+        "p_optimal": 0.02783203125,
+        "p_optimal_postselected": 0.08172043010752689,
+        "approx_ratio": 0.7789631165794844,
+        "hellinger_vs_ideal": 0.31604615344958764
+      },
+      "top10": [
+        {
+          "bitstring": "110000011100",
+          "valid": true,
+          "ideal": 0.03809572402886531,
+          "fakefez": 0.0087890625,
+          "hardware": 0.0048828125,
+          "hardware_readout": 0.005408383243705398
+        },
+        {
+          "bitstring": "110001001100",
+          "valid": true,
+          "ideal": 0.03163135928992804,
+          "fakefez": 0.009521484375,
+          "hardware": 0.00341796875,
+          "hardware_readout": 0.003706766829825527
+        },
+        {
+          "bitstring": "110000101100",
+          "valid": true,
+          "ideal": 0.029969185604256158,
+          "fakefez": 0.005859375,
+          "hardware": 0.004150390625,
+          "hardware_readout": 0.00471779233984616
+        },
+        {
+          "bitstring": "110000010110",
+          "valid": true,
+          "ideal": 0.02698419129893497,
+          "fakefez": 0.0078125,
+          "hardware": 0.004150390625,
+          "hardware_readout": 0.004675182051267586
+        },
+        {
+          "bitstring": "011000011100",
+          "valid": true,
+          "ideal": 0.0269841912989349,
+          "fakefez": 0.007568359375,
+          "hardware": 0.0048828125,
+          "hardware_readout": 0.005420847026666018
+        },
+        {
+          "bitstring": "001110000011",
+          "valid": true,
+          "ideal": 0.026914154452410997,
+          "fakefez": 0.005615234375,
+          "hardware": 0.001220703125,
+          "hardware_readout": 0.001225472252673769
+        },
+        {
+          "bitstring": "001101000011",
+          "valid": true,
+          "ideal": 0.02556098568418063,
+          "fakefez": 0.00927734375,
+          "hardware": 0.0029296875,
+          "hardware_readout": 0.0031338272004347964
+        },
+        {
+          "bitstring": "011001001100",
+          "valid": true,
+          "ideal": 0.025149736755040432,
+          "fakefez": 0.0068359375,
+          "hardware": 0.00244140625,
+          "hardware_readout": 0.0026492198258349802
+        },
+        {
+          "bitstring": "110001000110",
+          "valid": true,
+          "ideal": 0.025149736755040415,
+          "fakefez": 0.00732421875,
+          "hardware": 0.00341796875,
+          "hardware_readout": 0.003712446065638478
+        },
+        {
+          "bitstring": "001101001100",
+          "valid": true,
+          "ideal": 0.024911406730200692,
+          "fakefez": 0.00732421875,
+          "hardware": 0.001220703125,
+          "hardware_readout": 0.0012623538506266443
+        }
+      ],
+      "scores": {
+        "ideal": {
+          "valid_rate": 0.9999999999999996,
+          "p_optimal": 0.1037911960582712,
+          "p_optimal_valid": 0.10379119605827124,
+          "mean_valid_energy": 0.6381593170843987,
+          "approx_ratio": 0.8068870014121345
+        },
+        "fakefez": {
+          "valid_rate": 0.340576171875,
+          "p_optimal": 0.02783203125,
+          "p_optimal_valid": 0.08172043010752689,
+          "mean_valid_energy": 0.6480859935348015,
+          "approx_ratio": 0.7789631165794844
+        },
+        "hardware": {
+          "valid_rate": 0.168701171875,
+          "p_optimal": 0.01171875,
+          "p_optimal_valid": 0.0694645441389291,
+          "mean_valid_energy": 0.656036563428183,
+          "approx_ratio": 0.7565980481534139
+        },
+        "hardware_readout": {
+          "valid_rate": 0.1790236217359891,
+          "p_optimal": 0.012863118492395142,
+          "p_optimal_valid": 0.0718515152786079,
+          "mean_valid_energy": 0.6547066673943052,
+          "approx_ratio": 0.7603390649856786
+        },
+        "hardware_valid": {
+          "valid_rate": 1.0,
+          "p_optimal": 0.0694645441389291,
+          "p_optimal_valid": 0.0694645441389291,
+          "mean_valid_energy": 0.6560365634281827,
+          "approx_ratio": 0.7565980481534146
+        }
+      },
+      "hellinger": {
+        "hardware_vs_ideal": 0.1368590771782928,
+        "hardware_vs_fakefez": 0.46357202609247855,
+        "fakefez_vs_ideal": 0.31604615344958764
+      }
+    },
+    "xy_dicke_p1": {
+      "config": {
+        "mixer": "xy",
+        "start": "dicke",
+        "reps": 1,
+        "penalty": 0.0,
+        "angle_seed": 1,
+        "fakefez_config": "XY + Dicke"
+      },
+      "record": {
+        "run": "xy_dicke_p1",
+        "backend": "ibm_fez",
+        "job_id": "dbe13vvgdj9s73fl0mt0",
+        "shots": 4096,
+        "error_suppression": "DD XpXm, twirling gate+measure",
+        "two_qubit_gates": 209,
+        "depth": 282
+      },
+      "fakefez_circuit_stats": {
+        "depth": 284,
+        "two_qubit_gates": 209
+      },
+      "study05_fakefez": {
+        "config": "XY + Dicke",
+        "p": 1,
+        "depth": 284,
+        "two_qubit_gates": 209,
+        "valid_rate": 0.51025390625,
+        "p_optimal": 0.018310546875,
+        "p_optimal_postselected": 0.03588516746411483,
+        "approx_ratio": 0.7102778345671728,
+        "hellinger_vs_ideal": 0.5003018550651636
+      },
+      "top10": [
+        {
+          "bitstring": "011010000110",
+          "valid": true,
+          "ideal": 0.013176937102845027,
+          "fakefez": 0.006103515625,
+          "hardware": 0.001708984375,
+          "hardware_readout": 0.0016123391687865758
+        },
+        {
+          "bitstring": "011001001001",
+          "valid": true,
+          "ideal": 0.012574483294260124,
+          "fakefez": 0.005126953125,
+          "hardware": 0.002685546875,
+          "hardware_readout": 0.0028920516404886336
+        },
+        {
+          "bitstring": "100101000110",
+          "valid": true,
+          "ideal": 0.012574483294260117,
+          "fakefez": 0.007568359375,
+          "hardware": 0.0029296875,
+          "hardware_readout": 0.0032087028716424612
+        },
+        {
+          "bitstring": "010110000110",
+          "valid": true,
+          "ideal": 0.01254804550970743,
+          "fakefez": 0.007080078125,
+          "hardware": 0.0029296875,
+          "hardware_readout": 0.0032551401264070997
+        },
+        {
+          "bitstring": "011010000101",
+          "valid": true,
+          "ideal": 0.012548045509707428,
+          "fakefez": 0.00537109375,
+          "hardware": 0.0029296875,
+          "hardware_readout": 0.003252322805289491
+        },
+        {
+          "bitstring": "011000010110",
+          "valid": true,
+          "ideal": 0.012376335048216992,
+          "fakefez": 0.005615234375,
+          "hardware": 0.00146484375,
+          "hardware_readout": 0.0014923679023521284
+        },
+        {
+          "bitstring": "011000011010",
+          "valid": true,
+          "ideal": 0.012322813147773585,
+          "fakefez": 0.005615234375,
+          "hardware": 0.0029296875,
+          "hardware_readout": 0.0032288088176300783
+        },
+        {
+          "bitstring": "101000010110",
+          "valid": true,
+          "ideal": 0.012322813147773582,
+          "fakefez": 0.0048828125,
+          "hardware": 0.003173828125,
+          "hardware_readout": 0.003565708375057429
+        },
+        {
+          "bitstring": "011000101001",
+          "valid": true,
+          "ideal": 0.012082530230579395,
+          "fakefez": 0.005615234375,
+          "hardware": 0.00390625,
+          "hardware_readout": 0.004441582711952925
+        },
+        {
+          "bitstring": "100100100110",
+          "valid": true,
+          "ideal": 0.012082530230579386,
+          "fakefez": 0.004150390625,
+          "hardware": 0.0029296875,
+          "hardware_readout": 0.0033770001683513366
+        }
+      ],
+      "scores": {
+        "ideal": {
+          "valid_rate": 1.0000000000000002,
+          "p_optimal": 0.03256627439337506,
+          "p_optimal_valid": 0.032566274393375054,
+          "mean_valid_energy": 0.6695783547841105,
+          "approx_ratio": 0.7185047926574765
+        },
+        "fakefez": {
+          "valid_rate": 0.51025390625,
+          "p_optimal": 0.018310546875,
+          "p_optimal_valid": 0.03588516746411483,
+          "mean_valid_energy": 0.6725029604263019,
+          "approx_ratio": 0.7102778345671728
+        },
+        "hardware": {
+          "valid_rate": 0.26123046875,
+          "p_optimal": 0.008056640625,
+          "p_optimal_valid": 0.0308411214953271,
+          "mean_valid_energy": 0.6759495306264914,
+          "approx_ratio": 0.7005825826045854
+        },
+        "hardware_readout": {
+          "valid_rate": 0.28549877989969846,
+          "p_optimal": 0.008789229005029257,
+          "p_optimal_valid": 0.03078552212418243,
+          "mean_valid_energy": 0.6759471311505847,
+          "approx_ratio": 0.7005893323651133
+        },
+        "hardware_valid": {
+          "valid_rate": 0.9999999999999997,
+          "p_optimal": 0.0308411214953271,
+          "p_optimal_valid": 0.030841121495327112,
+          "mean_valid_energy": 0.6759495306264914,
+          "approx_ratio": 0.7005825826045854
+        }
+      },
+      "hellinger": {
+        "hardware_vs_ideal": 0.25135887445645605,
+        "hardware_vs_fakefez": 0.5158126400207462,
+        "fakefez_vs_ideal": 0.5003018550651636
+      }
+    },
+    "x_penalty_p2": {
+      "config": {
+        "mixer": "x",
+        "start": "hadamard",
+        "reps": 2,
+        "penalty": 1.5,
+        "angle_seed": 2,
+        "fakefez_config": "X + penalty 1.5"
+      },
+      "record": {
+        "run": "x_penalty_p2",
+        "backend": "ibm_fez",
+        "job_id": "dbe13vvgdj9s73fl0mt0",
+        "shots": 4096,
+        "error_suppression": "DD XpXm, twirling gate+measure",
+        "two_qubit_gates": 305,
+        "depth": 486
+      },
+      "fakefez_circuit_stats": {
+        "depth": 482,
+        "two_qubit_gates": 305
+      },
+      "study05_fakefez": {
+        "config": "X + penalty 1.5",
+        "p": 2,
+        "depth": 482,
+        "two_qubit_gates": 305,
+        "valid_rate": 0.391357421875,
+        "p_optimal": 0.0126953125,
+        "p_optimal_postselected": 0.032439176543980035,
+        "approx_ratio": 0.6683071944924904,
+        "hellinger_vs_ideal": 0.6558745059500858
+      },
+      "top10": [
+        {
+          "bitstring": "001101001100",
+          "valid": true,
+          "ideal": 0.005660613364360858,
+          "fakefez": 0.001953125,
+          "hardware": 0.0009765625,
+          "hardware_readout": 0.0009895603477599448
+        },
+        {
+          "bitstring": "110001000011",
+          "valid": true,
+          "ideal": 0.005660613364360856,
+          "fakefez": 0.00390625,
+          "hardware": 0.001220703125,
+          "hardware_readout": 0.0012619174654496597
+        },
+        {
+          "bitstring": "001100101100",
+          "valid": true,
+          "ideal": 0.005631171077614202,
+          "fakefez": 0.001220703125,
+          "hardware": 0.000732421875,
+          "hardware_readout": 0.0007201967432507328
+        },
+        {
+          "bitstring": "110000100011",
+          "valid": true,
+          "ideal": 0.005631171077614189,
+          "fakefez": 0.0029296875,
+          "hardware": 0.0,
+          "hardware_readout": 0.0
+        },
+        {
+          "bitstring": "011000011100",
+          "valid": true,
+          "ideal": 0.0056287658949382485,
+          "fakefez": 0.00390625,
+          "hardware": 0.001708984375,
+          "hardware_readout": 0.0017960391476582768
+        },
+        {
+          "bitstring": "110000010110",
+          "valid": true,
+          "ideal": 0.005628765894938246,
+          "fakefez": 0.0029296875,
+          "hardware": 0.002197265625,
+          "hardware_readout": 0.002313970919650338
+        },
+        {
+          "bitstring": "110000101100",
+          "valid": true,
+          "ideal": 0.005619069928027143,
+          "fakefez": 0.002197265625,
+          "hardware": 0.0009765625,
+          "hardware_readout": 0.0009843552417034167
+        },
+        {
+          "bitstring": "011010000011",
+          "valid": true,
+          "ideal": 0.005604915687150603,
+          "fakefez": 0.002197265625,
+          "hardware": 0.0009765625,
+          "hardware_readout": 0.0009821278089816815
+        },
+        {
+          "bitstring": "001110000110",
+          "valid": true,
+          "ideal": 0.005604915687150595,
+          "fakefez": 0.0029296875,
+          "hardware": 0.0,
+          "hardware_readout": 0.0
+        },
+        {
+          "bitstring": "001110001100",
+          "valid": true,
+          "ideal": 0.005604439613471992,
+          "fakefez": 0.004150390625,
+          "hardware": 0.00146484375,
+          "hardware_readout": 0.0015288994347550681
+        }
+      ],
+      "scores": {
+        "ideal": {
+          "valid_rate": 0.7752011130313992,
+          "p_optimal": 0.022578758518598196,
+          "p_optimal_valid": 0.029126323658520928,
+          "mean_valid_energy": 0.6872844027355799,
+          "approx_ratio": 0.6686974229594193
+        },
+        "fakefez": {
+          "valid_rate": 0.391357421875,
+          "p_optimal": 0.0126953125,
+          "p_optimal_valid": 0.032439176543980035,
+          "mean_valid_energy": 0.687423125257756,
+          "approx_ratio": 0.6683071944924904
+        },
+        "hardware": {
+          "valid_rate": 0.149169921875,
+          "p_optimal": 0.006103515625,
+          "p_optimal_valid": 0.04091653027823241,
+          "mean_valid_energy": 0.6939562133826702,
+          "approx_ratio": 0.6499295228404384
+        },
+        "hardware_readout": {
+          "valid_rate": 0.1532031621514209,
+          "p_optimal": 0.00636148788051822,
+          "p_optimal_valid": 0.041523215259948336,
+          "mean_valid_energy": 0.6941261553492702,
+          "approx_ratio": 0.6494514736235345
+        },
+        "hardware_valid": {
+          "valid_rate": 1.0000000000000004,
+          "p_optimal": 0.0409165302782324,
+          "p_optimal_valid": 0.04091653027823238,
+          "mean_valid_energy": 0.6939562133826702,
+          "approx_ratio": 0.6499295228404384
+        }
+      },
+      "hellinger": {
+        "hardware_vs_ideal": 0.31788099727213626,
+        "hardware_vs_fakefez": 0.4158880426847866,
+        "fakefez_vs_ideal": 0.6558745059500858
+      }
+    }
+  }
+}
