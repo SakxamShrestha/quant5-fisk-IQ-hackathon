@@ -106,7 +106,11 @@ def _finish(fig, path, legend_ax=None):
     return fig
 
 
-def plot_metric_bars(results, path, reference=None):
+METRIC_BARS_TITLE = 'Real IBM chip vs ideal and FakeFez simulators, per QAOA run'
+SCHEDULE_AXIS_LABEL = 'charging schedule (bitstring)'
+
+
+def plot_metric_bars(results, path, reference=None, title=METRIC_BARS_TITLE):
     """Grouped bars: valid share / P(optimal) / approx ratio for each run and source.
 
     reference: optional {metric: value} drawn as a dashed 'random guess' line.
@@ -125,8 +129,10 @@ def plot_metric_bars(results, path, reference=None):
             ax.axhline(reference[metric], ls='--', color='grey', label='random guess')
         ax.set_xticks(range(len(names)))
         ax.set_xticklabels(names)
+        ax.set_xlabel(RUN_AXIS_LABEL)
         ax.set_ylabel(ylabel)
         ax.grid(axis='y', alpha=0.3)
+    fig.suptitle(title)
     axes[0].set_title('Valid schedules')
     axes[1].set_title('Chance of the optimal plan')
     axes[2].set_title('Approximation ratio')
@@ -145,6 +151,7 @@ def plot_fidelity(results, path):
                label=f'{LABELS[a]} vs {LABELS[b]}')
     ax.set_xticks(range(len(names)))
     ax.set_xticklabels(names)
+    ax.set_xlabel(RUN_AXIS_LABEL)
     ax.set_ylim(0, 1)
     ax.set_ylabel('Hellinger fidelity (1 = identical)')
     ax.set_title('How close is the real chip to the simulators?')
@@ -167,6 +174,7 @@ def plot_top_schedules(tops, path):
         ax.set_xticks(range(len(rows)))
         ax.set_xticklabels([r['bitstring'] + ('' if r['valid'] else ' ✗') for r in rows],
                            rotation=30, ha='right', fontsize=8, family='monospace')
+        ax.set_xlabel(SCHEDULE_AXIS_LABEL)
         ax.set_ylabel('probability')
         ax.set_title(f'{name}: top-{len(rows)} schedules of the ideal circuit (✗ = invalid)')
         ax.grid(axis='y', alpha=0.3)

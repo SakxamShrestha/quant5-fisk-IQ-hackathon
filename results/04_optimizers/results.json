@@ -12,7 +12,7 @@
     "n_valid": 144,
     "n_optimal": 4,
     "random_valid_ratio": 0.6627597020776169,
-    "runtime_s": 85.26662111282349
+    "runtime_s": 247.34005308151245
   },
   "exp1_exact": {
     "1 | COBYLA": {

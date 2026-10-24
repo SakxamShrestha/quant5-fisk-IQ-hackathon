@@ -110,6 +110,21 @@ def test_plots_write_png_files(tmp_path):
         assert (tmp_path / name).stat().st_size > 0
 
 
+def test_hardware_plots_label_both_axes_on_every_panel(tmp_path):
+    model, _, base = setup()
+    dists = {'ideal': {VALID[0]: 0.7, VALID[1]: 0.3}, 'fakefez': {VALID[0]: 8, INVALID: 2},
+             'hardware': {VALID[0]: 6, INVALID: 4}}
+    results = {'run_a': analyse_run(dists, model, base)}
+    tops = {'run_a': top_schedules(dists['ideal'], dists, k=10)}
+    figs = [plot_metric_bars(results, tmp_path / 'b.png'),
+            plot_fidelity(results, tmp_path / 'f.png'),
+            plot_top_schedules(tops, tmp_path / 't.png')]
+    for fig in figs:
+        for ax in fig.axes:
+            assert ax.get_xlabel() and ax.get_ylabel()
+    assert figs[0]._suptitle is not None and figs[0]._suptitle.get_text()
+
+
 def test_metric_bars_draw_random_guess_reference(tmp_path):
     model, _, base = setup()
     dists = {'ideal': {VALID[0]: 1}, 'fakefez': {VALID[0]: 1}, 'hardware': {VALID[0]: 1}}
