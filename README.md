@@ -16,6 +16,61 @@ The upstream README lists these as future work. Each one is a notebook here:
 | 04 | [`04_optimizers_and_cvar`](notebooks/04_optimizers_and_cvar.ipynb) | CVaR objective; optimizer comparison (upstream: COBYLA capped at 30 evaluations) |
 | 05 | [`05_noisy_simulation`](notebooks/05_noisy_simulation.ipynb) | Noisy simulation (FakeFez) compared with upstream's real `ibm_fez` counts |
 
+## How it works (high level)
+
+```mermaid
+flowchart LR
+    A["EV depot problem<br/>vehicles, time slots,<br/>prices, slots needed"] --> B["Three objectives<br/>cost · peak · battery wear"]
+    B --> C["QUBO<br/>weighted sum,<br/>optional penalty"]
+    C --> D["Ising Hamiltonian<br/>x = (1 - Z) / 2"]
+    D --> E["QAOA circuit<br/>X mixer or XY mixer<br/>(Dicke / basis start)"]
+    E --> F["Classical optimiser<br/>COBYLA · Powell · SPSA · ...<br/>tunes the angles"]
+    F -->|new angles| E
+    E --> G["Sample bitstrings<br/>ideal / noisy / real QPU"]
+    G --> H["Decode to schedules<br/>score vs brute-force optimum"]
+```
+
+The quantum computer proposes charging schedules, and a classical optimiser tunes its circuit angles until good schedules come out most often. Every answer is checked against the exact optimum found by brute force.
+
+## System architecture
+
+```mermaid
+flowchart TB
+    subgraph core["evqaoa/ (shared, tested core)"]
+        P["problem.py<br/>Instance, objectives,<br/>feasible schedules, Pareto"]
+        Q["qubo.py<br/>build_qubo,<br/>qubo_to_hamiltonian"]
+        C["circuits.py<br/>build_qaoa, X / XY mixers,<br/>Dicke start"]
+        A["analysis.py<br/>optimise, baselines,<br/>distribution_metrics"]
+        P --> Q --> C
+        P --> A
+    end
+
+    subgraph exp["experiments/ (one module per study)"]
+        E1["mixer_penalty.py"]
+        E2["pareto.py"]
+        E3["scaling.py<br/>+ feasible-subspace simulator"]
+        E4["optimizers.py<br/>SPSA, CVaR"]
+        E5["noise.py<br/>FakeFez, readout fix"]
+    end
+
+    subgraph nb["notebooks/ (executed, one per study)"]
+        N["01 · 02 · 03 · 04 · 05"]
+    end
+
+    core --> exp --> nb
+    nb --> R["results/<br/>PNG plots + JSON numbers"]
+    T["tests/ (pytest)"] -.checks.-> core
+    T -.checks.-> exp
+    U["upstream/<br/>original notebook +<br/>ibm_fez hardware counts"] -.hardware data.-> E5
+
+    subgraph back["Backends (Qiskit)"]
+        S1["Statevector<br/>(exact)"]
+        S2["AerSimulator<br/>(FakeFez noise)"]
+        S3["IBM QPU<br/>(upstream run)"]
+    end
+    exp --> back
+```
+
 ## Layout
 
 ```
