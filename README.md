@@ -1,6 +1,6 @@
 # Overnight EV Charging with QAOA
 
-[![Python 3.11+](https://img.shields.io/badge/python-3.11%2B-blue)](https://www.python.org/downloads/)
+[![Python 3.10–3.13](https://img.shields.io/badge/python-3.10--3.13-blue)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
 Interstate Quantum Hackathon for Beginners, Fall 2026 · **QAOA / Optimization for Energy & Grid** track
@@ -22,13 +22,13 @@ We use the **Quantum Approximate Optimisation Algorithm (QAOA)** to solve a conc
 
 ### The scenario
 
-A depot charges **three electric vehicles** overnight across **four one-hour slots** (10 pm -- 2 am). Electricity is priced by the hour under a time-of-use tariff:
+A depot charges **three electric vehicles** overnight across **four one-hour slots** (10 pm – 2 am). Electricity is priced by the hour under a time-of-use tariff:
 
 | Slot | 10 pm | 11 pm | 12 am | 1 am |
 |------|-------|-------|-------|------|
 | Price (cents/kWh) | 32 | 14 | 9 | 21 |
 
-Two vehicles need **two hours** of charge and the delivery van needs **one hour**. That gives **12 yes/no decisions** (vehicle x hour), so **12 qubits**. Of the 4,096 possible bitstrings, only **144 are valid** charging plans.
+Two vehicles need **two hours** of charge and the delivery van needs **one hour**. That gives **12 yes/no decisions** (vehicle × hour), so **12 qubits**. Of the 4,096 possible bitstrings, only **144 are valid** charging plans.
 
 ### Goals
 
@@ -71,7 +71,7 @@ The quantum circuit proposes charging plans and a classical optimiser tunes its 
   <img src="results/06_hardware/hardware_vs_simulators.png" width="48%" alt="Real hardware vs simulators" />
 </p>
 <p align="center">
-  <em>Left: XY + Dicke mixer achieves 100% valid plans vs 78% for the best penalty setting. Right: real IBM hardware results compared to simulators.</em>
+  <em>Left: the XY mixer with a Dicke start keeps 100% of plans valid, against 78% for the best penalty setting. Right: real IBM hardware results compared to simulators.</em>
 </p>
 
 ---
@@ -83,15 +83,15 @@ The quantum circuit proposes charging plans and a classical optimiser tunes its 
 | # | Notebook | Question | Main result |
 |---|---|---|---|
 | 01 | [`01_mixer_penalty_ablation`](notebooks/01_mixer_penalty_ablation.ipynb) | Penalty term vs XY mixer: which keeps answers valid? | XY + Dicke: **100% valid**, optimal plan 10.7% of the time at p = 3. Best penalty setting: 78% valid, 1.8% optimal, never better than a random valid plan. |
-| 05 | [`05_noisy_simulation`](notebooks/05_noisy_simulation.ipynb) | What happens on a noisy IBM chip? | On FakeFez at p = 2, valid share drops from 100% to 34--44%. XY + Dicke with invalid shots discarded finds the optimum 8.2% of the time, about 3x a random valid plan. |
-| 06 | [`06_real_hardware`](notebooks/06_real_hardware.ipynb) | Does it hold up on a real IBM quantum computer? | On real **ibm_fez** (8 s of QPU time), valid share was 15--26%, about half of FakeFez's prediction. With invalid shots discarded, XY + Dicke at p = 2 still finds the optimum 6.9% of the time, 2.5x a random valid plan. Readout correction adds only 0.4--2.4 points. |
+| 05 | [`05_noisy_simulation`](notebooks/05_noisy_simulation.ipynb) | What happens on a noisy IBM chip? | On FakeFez at p = 2, valid share drops from 100% to 34–44%. XY + Dicke with invalid shots discarded finds the optimum 8.2% of the time, about 3× a random valid plan. |
+| 06 | [`06_real_hardware`](notebooks/06_real_hardware.ipynb) | Does it hold up on a real IBM quantum computer? | On real **ibm_fez** (8 s of QPU time), valid share was 15–26%, about half of FakeFez's prediction. With invalid shots discarded, XY + Dicke at p = 2 still finds the optimum 6.9% of the time, 2.5× a random valid plan. Readout correction adds only 0.4–2.4 points. |
 
 **Extended exploration** (extra questions we followed up):
 
 | # | Notebook | Question | Main result |
 |---|---|---|---|
 | 02 | [`02_pareto_front`](notebooks/02_pareto_front.ipynb) | Can QAOA recover every best trade-off plan? | All 9 Pareto-optimal plans found from 45 weightings. Picking random valid plans finds them just as fast on a problem this small. |
-| 03 | [`03_scaling_and_transfer`](notebooks/03_scaling_and_transfer.ipynb) | Does it scale, and can angles be reused? | Up to 25 qubits (5 x 5) with a fast valid-subspace simulator. At p = 1, starting from the 12-qubit angles reaches the target in 1--68 evaluations instead of ~870--1,420. |
+| 03 | [`03_scaling_and_transfer`](notebooks/03_scaling_and_transfer.ipynb) | Does it scale, and can angles be reused? | Up to 25 qubits (5 × 5) with a fast valid-subspace simulator. At p = 1, starting from the 12-qubit angles reaches the target in 1–68 evaluations instead of ~870–1,420. |
 | 04 | [`04_optimizers_and_cvar`](notebooks/04_optimizers_and_cvar.ipynb) | Which classical optimiser, and does CVaR help? | With exact energies, L-BFGS-B scores best at p = 2 (approx. ratio 0.827). With 1024-shot noise, Powell holds up best (0.802) while L-BFGS-B drops to 0.644. CVaR gave no gain over the plain average. |
 | 07 | [`07_hardware_robustness`](notebooks/07_hardware_robustness.ipynb) | Does the result hold on a second chip, and does zero-noise extrapolation recover the noise-free answer? | On **ibm_kingston** (8 s of QPU time) the same circuits kept 22–35% valid shots, 1.3–1.7× more than ibm_fez and still below FakeFez. With invalid shots discarded, XY + Dicke p = 2 finds the optimum 8.4% vs 6.9% on fez, the same within shot noise. ZNE on ibm_fez (25 s) lifts p = 2 P(valid) from 0.16 to 0.39 ± 0.04 (ideal 1.0), about a quarter of the gap; the answer depends on the fit. |
 | 08 | [`08_real_fleet_data`](notebooks/08_real_fleet_data.ipynb) | Does the model work on real fleet data? | On 50 nights built from real delivery-truck schedules (NLR Fleet DNA), XY + Dicke returns a best plan a median 2.4× (p = 1) and 2.7× (p = 2) as often as a random valid plan; p = 1 beats random on all 50 nights. QAOA's plans cost about as much as the best plan and keep the depot peak near 230 kW, against 300 kW for simple charging rules. Prices are still placeholders, so the dollar figures are not real yet. |
@@ -128,7 +128,7 @@ tests/             pytest suite (test_core.py and test_real_data.py for evqaoa/,
 
 ## Run it
 
-**Requirements:** Python 3.11+, pip
+**Requirements:** Python 3.10–3.13 (the notebooks ran on 3.12), pip
 
 ```bash
 python -m venv .venv && .venv/bin/pip install -r requirements.txt
@@ -138,7 +138,7 @@ python -m venv .venv && .venv/bin/pip install -r requirements.txt
 
 ### Google Colab
 
-Open any notebook in Colab and run it from the top. The second cell clones the repo and installs dependencies automatically. To do it by hand:
+Open any notebook in Colab and run it from the top. The first code cell installs the packages and the second downloads the rest of the project (the notebooks import `evqaoa/` and `experiments/`). To do it by hand:
 
 ```
 !git clone https://github.com/SakxamShrestha/quant5-fisk-IQ-hackathon
