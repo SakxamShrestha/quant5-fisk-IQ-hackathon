@@ -8,7 +8,7 @@ Interstate Quantum Hackathon for Beginners, Fall 2026 · **QAOA / Optimization f
 **Team Quantum 5 · Rising-star category**
 Sakxam Shrestha · Riya Prasai · Mariam · Samyog Karki · Tesfaye Kefene
 
-> Link to the report: https://docs.google.com/document/d/1sB5kVuTig0f2gD7S0-ZY6JSiMfgtAo4XcQUymAhpaQ4/edit?tab=t.0
+> Link to the report: https://docs.google.com/document/d/14m4pxKpi7FrpBNpWCVsywmRgu0peby5ZUFamAt37xFg/edit?tab=t.0#heading=h.jqu4uqgfyqx0
 
 > **New to quantum computing?** Read [the project in plain language, with a tray-of-marbles analogy](https://claude.ai/artifact/R5rcXnj69nWHJXSWteLCsP) (supplementary, requires login).
 > 
