@@ -4,6 +4,10 @@ Interstate Quantum Hackathon for Beginners, Fall 2026 · **QAOA / Optimization f
 
 **Team Quantum 5 · Rising-star category**
 
+**New to quantum computing? Start here:** [the project in plain language, with a tray-of-marbles analogy](https://claude.ai/artifact/R5rcXnj69nWHJXSWteLCsP)
+
+**Ran on a real quantum computer:** [one-page summary of our ibm_fez run](https://claude.ai/artifact/DGH4oZcUtW7WnpmY4rKqpv)
+
 ## The problem
 
 A depot charges three electric vehicles overnight, from 10 pm to 2 am. Electricity is priced by the hour (32, 14, 9 and 21 cents/kWh). Two vehicles need two hours of charge and the delivery van needs one. We want the plan that best balances three goals:
